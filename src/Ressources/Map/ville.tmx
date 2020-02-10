@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="40" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="1">
+ <tileset firstgid="1" source="terrain_atlas.tsx"/>
+ <tileset firstgid="1025" source="base_out_atlas.tsx"/>
+ <tileset firstgid="2049" source="build_atlas.tsx"/>
+ <layer id="1" name="Sol" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3QQREAIAzAsGFjUvAvDBVc++gjBrJnZsWuHP3TX39m9E9//ZnRP/31Z0b/9NefGf3TX39m9E9/fz3Y/x78wBIAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Revetement" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3UyQkCQRCF4b6JeFEzGY1EjUTNQUFwm8lBQXDPQUFwm8lBQXBPwP/gQaQRumEaD/Xgo6GgqHdqpczTTSnlI0jFu2ObKTdmmBvcstmxzZ4bISKDWzY7trlz44EnGknznbjjJZTKIY/Bu1+aN/Ml+9Hdo1cOeQf9CvQqooRVUt/tu2OBXkWUHPQr06uCKk4/un12LNOrgqqDfl16+QjQRAttdFBDXTN3+r9wb4Y5hhhhjAl66GvmTv8X7oWIsMYGW+ywwFIzd/q/cO+BJ8644IobDjhq5i7/F4lEIpFIJBKJRPKfeQHzW+m3wBIAAA==
+  </data>
+ </layer>
+ <layer id="3" name="Calque 3" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2OwQnCUBBEP3iJ+SdjJWolaiVqJWoFYgXGCsQKklQgVpCkgYygsCZR+AvrQebBOw5vnNORxr/ZaMjQyWHx7B0i5y7Cq/AY9W8sKdGoYB13v7X/vT7KjTUj71wCx777re/fQ7mxZoLGFM7EvxscDN+9i39yY80cjQVc+s/f2h/lxpoVGmu48d+/yY9yY80WjR3cB7Q0Gy0nNFJ4DmhpNloyNHJYBLQ0Gy0lGhWsA1qaDSGEEEIIIeS/aADgblY0wBIAAA==
+  </data>
+ </layer>
+</map>
