@@ -29,48 +29,13 @@ public class WindowsGame extends BasicGame {
     /** Carte actuelle */
     private TiledMap map;
 
-    /** Position du personnage */
-    private float positionX,
-                  positionY;
+    /** Personnage principal */
+    private Personnage hero;
 
-    /** Direction du personnage */
-    private int direction;
-
-    /** Indicateur de mouvement */
-    private boolean moving;
-
-    /** Animations du personnage */
-    private Animation[] listeAnimation = new Animation[8];
+    /** Camera principale */
+    private Camera cam;
 
     /* --------------------------------------- METHODE PERSO ----------------------------------------------- */
-
-    /**
-     * Initialise le personnage
-     */
-    private void initPersonnage() {
-        positionX = positionY = 300;
-        direction = BAS;
-        moving = false;
-    }
-
-    /**
-     * Charge une animation a partir du SpriteSheet
-     * @param spriteSheet   : sprite a charger
-     * @param positionDebut : n° de la premiere frame
-     * @param positionFin   : n° de la derniere frame
-     * @param action        : n° de la ligne de frame
-     */
-    Animation loadAnimation(SpriteSheet spriteSheet, int positionDebut, int positionFin, int action) {
-
-        Animation aRetourner = new Animation(); // Animaation a retourner
-
-        for (int i = positionDebut;i < positionFin; i++) {
-            aRetourner.addFrame(spriteSheet.getSprite(i,action), TEMPS_ANIMATION);
-        }
-
-        return  aRetourner;
-
-    }
 
 
     /* -------------------------------- Méthode d'héritage -------------------------------------------------- */
@@ -90,66 +55,69 @@ public class WindowsGame extends BasicGame {
      */
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
+
+        // Création du conteneur du jeu
         container = gameContainer;
+
+        // Création de la map
         map = new TiledMap("src/Ressources/Map/ville.tmx");
 
-        initPersonnage();
+        // Création du personnage principal
+        hero = new Personnage();
 
-        SpriteSheet spriteSheet = new SpriteSheet("src/Ressources/Personnage/Sprite/sprite_personnage.png", 64, 64);
-
-        this.listeAnimation[0] = loadAnimation(spriteSheet, 0, 1, 0);
-        this.listeAnimation[1] = loadAnimation(spriteSheet, 0, 1, 1);
-        this.listeAnimation[2] = loadAnimation(spriteSheet, 0, 1, 2);
-        this.listeAnimation[3] = loadAnimation(spriteSheet, 0, 1, 3);
-        this.listeAnimation[4] = loadAnimation(spriteSheet, 1, 9, 0);
-        this.listeAnimation[5] = loadAnimation(spriteSheet, 1, 9, 1);
-        this.listeAnimation[6] = loadAnimation(spriteSheet, 1, 9, 2);
-        this.listeAnimation[7] = loadAnimation(spriteSheet, 1, 9, 3);
-
-        // TODO refactor le code pour avoir plus de métode et moins de ligne qui se repete
+        // Création de la camera
+        cam = new Camera(hero);
 
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
 
-        if (this.moving) {
-            switch (this.direction) {
-                case 0: this.positionY -= .1f * delta; break;
-                case 1: this.positionX -= .1f * delta; break;
-                case 2: this.positionY += .1f * delta; break;
-                case 3: this.positionX += .1f * delta; break;
-            }
-        }
+        hero.actualisation(delta);
+        cam.actualisation(map, gameContainer);
 
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+
+        // Affiche la camera sur la moitier de l'ecran
+        graphics.translate(cam.centreX(container), cam.centreY(container));
+
+        // Rendu de la carte
         map.render(0,0);
 
         graphics.setColor(new Color(0,0,0, 5f)); // Couleur de l'ombre
-        graphics.fillOval(positionX - 16, positionY - 8, 32,16); // Taille + position de l'ombre
+
+        // Taille + position de l'ombre
+        graphics.fillOval(hero.getPositionX() - 16, hero.getPositionY() - 8, 32,16);
 
         // -32 et -60 permetent de calculer l'affichage par rapport au pied du personnage (millieu bas) car
         // sinon affichage calculer par rapport au coin gauche du personnage
-        graphics.drawAnimation(listeAnimation[direction + (moving ? 4 : 0)], positionX-32, positionY-60);
+        graphics.drawAnimation(hero.animation(), hero.getPositionX()-32, hero.getPositionY()-60);
     }
 
     public void keyReleased(int key, char c) {
-        moving = false;
+        hero.setMoving(false);
         if (Input.KEY_ESCAPE == key) {
             container.exit();
+        }
+        switch (key) {
+            case Input.KEY_Z: hero.setMoving(!(hero.getDirection() == HAUT)); break;
+            case Input.KEY_Q: hero.setMoving(!(hero.getDirection() == GAUCHE)); break;
+            case Input.KEY_S: hero.setMoving(!(hero.getDirection() == BAS)); break;
+            case Input.KEY_D: hero.setMoving(!(hero.getDirection() == DROITE)); break;
+            default: hero.setMoving(false);
         }
     }
 
     public void keyPressed(int key, char c) {
 
         switch (key) {
-            case Input.KEY_Z: direction = HAUT;   moving = true; break;
-            case Input.KEY_Q: direction = GAUCHE; moving = true; break;
-            case Input.KEY_S: direction = BAS;    moving = true; break;
-            case Input.KEY_D: direction = DROITE; moving = true; break;
+            case Input.KEY_Z: hero.setDirection(HAUT); hero.setMoving(true); break;
+            case Input.KEY_Q: hero.setDirection(GAUCHE); hero.setMoving(true); break;
+            case Input.KEY_S: hero.setDirection(BAS); hero.setMoving(true); break;
+            case Input.KEY_D: hero.setDirection(DROITE); hero.setMoving(true); break;
         }
     }
 

@@ -9,6 +9,6 @@ public class MagicaeLucis {
      * @param args non utilisé
      */
     public static void main(String[] args) throws SlickException {
-        new AppGameContainer(new WindowsGame("Magicae Lucis"), 1280, 960, false).start();
+        new AppGameContainer(new WindowsGame("Magicae Lucis"), 640, 480, false).start();
     }
 }

@@ -1,183 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3f0e267-288d-47f9-a73b-90da91214065" name="Default Changelist" comment="&quot;Ajout de l'affichage du persoanng&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/expansion_pack-0.04/png/64x64/bow/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/expansion_pack-0.04/png/64x64/bow/BODY_skeleton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/expansion_pack-0.04/png/64x64/combat_dummy/BODY_death.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/expansion_pack-0.04/png/64x64/slash/WEAPON_shield_cutout_body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/expansion_pack-0.04/png/64x64/slash/WEAPON_shield_cutout_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/BODY_animation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/WEAPON_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/bow/WEAPON_bow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/combat_dummy/BODY_animation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/BODY_male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/BODY_skeleton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/hurt/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/BODY_human.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/BODY_skeleton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/slash/WEAPON_dagger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/BODY_male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/BODY_skeleton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/HEAD_skeleton_eye_glow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/spellcast/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/BODY_animation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/WEAPON_shield_cutout_body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/WEAPON_shield_cutout_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/WEAPON_spear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/thrust/WEAPON_staff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/BEHIND_quiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/BELT_leather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/BELT_rope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/BODY_male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/BODY_skeleton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/FEET_plate_armor_shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/FEET_shoes_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HANDS_plate_armor_gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_chain_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_chain_armor_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_hair_blonde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_leather_armor_hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_plate_armor_helmet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/HEAD_robe_hood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/LEGS_pants_greenish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/LEGS_plate_armor_pants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/LEGS_robe_skirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_chain_armor_jacket_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_chain_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_leather_armor_bracers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_leather_armor_shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_leather_armor_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_leather_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_plate_armor_arms_shoulders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_plate_armor_torso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/TORSO_robe_shirt_brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/WEAPON_shield_cutout_body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Personnage/lpc_entry/png/walkcycle/WEAPON_shield_cutout_chain_armor_helmet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/WindowsGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/WindowsGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagicaeLucis/META-INF/MagicaeLucis.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/WindowsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/WindowsGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ressources/Map/ville.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ressources/Map/ville.tmx" afterDir="false" />
-    </list>
+    <list default="true" id="d3f0e267-288d-47f9-a73b-90da91214065" name="Default Changelist" comment="&quot;Ajout de l'affichage du persoanng&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,6 +18,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Xbxiaa6rQdbCcS4WVYabP92Oy5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -204,11 +29,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Ressources/Personnage" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -283,6 +108,8 @@
       <option name="presentableId" value="Default" />
       <updated>1581328723461</updated>
       <workItem from="1581328727558" duration="2828000" />
+      <workItem from="1581428472617" duration="3123000" />
+      <workItem from="1581435548521" duration="1677000" />
     </task>
     <servers />
   </component>
@@ -290,14 +117,23 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="677" y="196" key="#MagicaeLucis" timestamp="1581412002265">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="677" y="196" key="#MagicaeLucis/0.0.1920.1050@0.0.1920.1050" timestamp="1581412002265" />
+    <state x="552" y="184" key="#Project_Structure" timestamp="1581411835051">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="184" key="#Project_Structure/0.0.1920.1050@0.0.1920.1050" timestamp="1581411835051" />
     <state x="137" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581330391480">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1581330391480" />
-    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1581329148772">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser" timestamp="1581414564968">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1581329148772" />
+    <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1581414564968" />
     <state x="599" y="180" key="CommitChangelistDialog2" timestamp="1581369687466">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -306,29 +142,69 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="410" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1581328955318" />
-    <state width="938" height="325" key="GridCell.Tab.0.bottom" timestamp="1581370295391">
-      <screen x="0" y="0" width="1920" height="1170" />
-    </state>
-    <state width="938" height="325" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1581332746330" />
-    <state width="938" height="325" key="GridCell.Tab.0.center" timestamp="1581370295391">
-      <screen x="0" y="0" width="1920" height="1170" />
-    </state>
-    <state width="938" height="325" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1581332746330" />
-    <state width="938" height="325" key="GridCell.Tab.0.left" timestamp="1581370295391">
-      <screen x="0" y="0" width="1920" height="1170" />
-    </state>
-    <state width="938" height="325" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1581332746330" />
-    <state width="938" height="325" key="GridCell.Tab.0.right" timestamp="1581370295391">
-      <screen x="0" y="0" width="1920" height="1170" />
-    </state>
-    <state width="938" height="325" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1581332746330" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1581328961468">
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1581437726048">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state width="938" height="325" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1581437726048" />
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1581437726047">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="938" height="325" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1581437726047" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1581437726047">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="938" height="325" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1581437726047" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1581437726047">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="938" height="325" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581370295391" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1581437726047" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1581427891775">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1581427891775">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1581427891775">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1581427891775">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
+    <state x="259" y="0" key="SettingsEditor" timestamp="1581412025367">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1581328961468" />
+    <state x="259" y="0" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1581412025367" />
+    <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1581411812023">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581411812023" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Java/WindowsGame.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
