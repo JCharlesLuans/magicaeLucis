@@ -1,8 +1,7 @@
 package Java;
 
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * Classe du personnage principal du jeu
@@ -103,22 +102,61 @@ public class Personnage {
         return (listeAnimation[direction + (moving ? 4 : 0)]);
     }
 
-    public void actualisation(int delta) {
+    /**
+     * Actualise le personnage en le deplacant
+     * @param delta vitesse de deplacement
+     */
+    public void actualisation(int delta, TiledMap map) {
+
+        Image tile;
+
+        float futurX;
+        float futurY;
+
+        boolean colision;
+
         if (moving) {
+
+            futurX = positionX;
+            futurY = positionY;
+
+            /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
+            tile = map.getTileImage((int) futurX / map.getTileWidth(),
+                                    (int) futurY / map.getTileHeight(),
+                                        map.getLayerIndex("Logic"));
+
+            // On teste si elle existe
+            colision = tile != null;
+
+            if (colision) {
+
+                Color color = tile.getColor((int) futurX % map.getTileWidth(), (int) futurY % map.getTileHeight());
+                colision = color.getAlpha() > 0;
+            } if (colision) {
+                moving = false;
+            } else {
+                positionX = futurX;
+                positionY = futurY;
+            }
+
             switch (direction) {
                 case 0:
-                    positionY -= .1f * delta;
+                    futurY -= .1f * delta;
                     break;
                 case 1:
-                    positionX -= .1f * delta;
+                    futurX -= .1f * delta;
                     break;
                 case 2:
-                    positionY += .1f * delta;
+                    futurY += .1f * delta;
                     break;
                 case 3:
-                    positionX += .1f * delta;
+                    futurX += .1f * delta;
                     break;
             }
+
+            positionX = futurX;
+            positionY = futurY;
+
         }
     }
 

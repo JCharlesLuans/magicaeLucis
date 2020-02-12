@@ -73,7 +73,7 @@ public class WindowsGame extends BasicGame {
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
 
-        hero.actualisation(delta);
+        hero.actualisation(delta, map);
         cam.actualisation(map, gameContainer);
 
     }
@@ -85,7 +85,8 @@ public class WindowsGame extends BasicGame {
         graphics.translate(cam.centreX(container), cam.centreY(container));
 
         // Rendu de la carte
-        map.render(0,0);
+        map.render(0,0, 0);
+        map.render(0,0, 1);
 
         graphics.setColor(new Color(0,0,0, 5f)); // Couleur de l'ombre
 
@@ -95,19 +96,15 @@ public class WindowsGame extends BasicGame {
         // -32 et -60 permetent de calculer l'affichage par rapport au pied du personnage (millieu bas) car
         // sinon affichage calculer par rapport au coin gauche du personnage
         graphics.drawAnimation(hero.animation(), hero.getPositionX()-32, hero.getPositionY()-60);
+
+        map.render(0, 0, 2);
+        map.render(0, 0, 3);
     }
 
     public void keyReleased(int key, char c) {
         hero.setMoving(false);
         if (Input.KEY_ESCAPE == key) {
             container.exit();
-        }
-        switch (key) {
-            case Input.KEY_Z: hero.setMoving(!(hero.getDirection() == HAUT)); break;
-            case Input.KEY_Q: hero.setMoving(!(hero.getDirection() == GAUCHE)); break;
-            case Input.KEY_S: hero.setMoving(!(hero.getDirection() == BAS)); break;
-            case Input.KEY_D: hero.setMoving(!(hero.getDirection() == DROITE)); break;
-            default: hero.setMoving(false);
         }
     }
 
