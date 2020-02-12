@@ -108,6 +108,15 @@ public class Personnage {
      */
     public void actualisation(int delta, TiledMap map) {
 
+        boolean onStair = false;
+
+            if (positionX > map.getObjectX(0,5)
+                    && positionX < map.getObjectX(0, 5) + map.getObjectWidth(0, 5)
+                    && positionY > map.getObjectY(0, 5)
+                    && positionY < map.getObjectY(0,5) + map.getObjectHeight(0, 5)) {
+                    onStair = true;
+                    System.out.println("Coucou");
+            }
 
 
         float futurX = positionX;
@@ -123,12 +132,14 @@ public class Personnage {
                     break;
                 case 1:
                     futurX -= .1f * delta;
+                    if (onStair) futurY = futurY + .1f * delta;
                     break;
                 case 2:
                     futurY += .1f * delta;
                     break;
                 case 3:
                     futurX += .1f * delta;
+                    if (onStair) futurY = futurY - .1f * delta;
                     break;
             }
 
