@@ -4,7 +4,7 @@
  <tileset firstgid="1025" source="base_out_atlas.tsx"/>
  <tileset firstgid="2049" source="build_atlas.tsx"/>
  <tileset firstgid="3073" source="obj_misk_atlas.tsx"/>
- <tileset firstgid="4097" source="Colisions.tsx"/>
+ <tileset firstgid="4097" source="colision.tsx"/>
  <layer id="1" name="Sol" width="40" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECr3QMRUAIRDEUCjOBFLwL+zWAil+sR15IXO+tc7L7XkP787fnm7+duHJLYpLblFcpUkypUkycoviklsUV2mSTGmSjNyiuOQWxVWaJFOaJCO3KC65RXGVJsmUJsnILYpLblFcpUkypUkycoviklsUV2mSTGmSjNyiuOQWxVWaJFOaJPMD2+V+s8ASAAA=

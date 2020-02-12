@@ -60,7 +60,7 @@ public class WindowsGame extends BasicGame {
         container = gameContainer;
 
         // Création de la map
-        map = new TiledMap("src/Ressources/Map/ville.tmx");
+        map = new TiledMap("src/Ressources/Map/campagne_ThunderSun.tmx");
 
         // Création du personnage principal
         hero = new Personnage();
@@ -85,8 +85,10 @@ public class WindowsGame extends BasicGame {
         graphics.translate(cam.centreX(container), cam.centreY(container));
 
         // Rendu de la carte
-        map.render(0,0, 0);
-        map.render(0,0, 1);
+        map.render(0,0, 0); // eau
+        map.render(0,0, 1); // sol
+        map.render(0, 0, 2); // background
+        map.render(0, 0, 3); // background 2
 
         graphics.setColor(new Color(0,0,0, 5f)); // Couleur de l'ombre
 
@@ -97,15 +99,12 @@ public class WindowsGame extends BasicGame {
         // sinon affichage calculer par rapport au coin gauche du personnage
         graphics.drawAnimation(hero.animation(), hero.getPositionX()-32, hero.getPositionY()-60);
 
-        map.render(0, 0, 2);
-        map.render(0, 0, 3);
+
+        map.render(0, 0, 4);
     }
 
     public void keyReleased(int key, char c) {
-        hero.setMoving(false);
-        if (Input.KEY_ESCAPE == key) {
-            container.exit();
-        }
+        hero.arretPersonnage(key);
     }
 
     public void keyPressed(int key, char c) {

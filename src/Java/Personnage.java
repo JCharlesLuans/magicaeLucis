@@ -108,36 +108,14 @@ public class Personnage {
      */
     public void actualisation(int delta, TiledMap map) {
 
-        Image tile;
 
-        float futurX;
-        float futurY;
+
+        float futurX = positionX;
+        float futurY = positionY;
 
         boolean colision;
 
         if (moving) {
-
-            futurX = positionX;
-            futurY = positionY;
-
-            /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
-            tile = map.getTileImage((int) futurX / map.getTileWidth(),
-                                    (int) futurY / map.getTileHeight(),
-                                        map.getLayerIndex("Logic"));
-
-            // On teste si elle existe
-            colision = tile != null;
-
-            if (colision) {
-
-                Color color = tile.getColor((int) futurX % map.getTileWidth(), (int) futurY % map.getTileHeight());
-                colision = color.getAlpha() > 0;
-            } if (colision) {
-                moving = false;
-            } else {
-                positionX = futurX;
-                positionY = futurY;
-            }
 
             switch (direction) {
                 case 0:
@@ -154,49 +132,106 @@ public class Personnage {
                     break;
             }
 
-            positionX = futurX;
-            positionY = futurY;
+            } if (isColision(map, futurX, futurY)) {
+                moving = false;
+            } else {
+                positionX = futurX;
+                positionY = futurY;
+            }
 
+        }
+
+    private boolean isColision(TiledMap map, float x, float y) {
+        Image tile;
+        Color color;
+
+        /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
+        tile = map.getTileImage((int) x / map.getTileWidth(),
+                (int) y / map.getTileHeight(),
+                map.getLayerIndex("logique"));
+
+        if (tile != null) {
+            //Recupere la couleur
+            color = tile.getColor((int) x % map.getTileHeight(), (int) y % map.getTileHeight());
+            return color.getAlpha() > 0;
+        } else {
+            return false;
         }
     }
 
+    /**
+     *  Arret du personnage
+     * @param key touche relâcher
+     */
+    public void arretPersonnage(int key) {
+
+        if (Input.KEY_Z == key && direction == HAUT) {
+            moving = false;
+        }
+        if (Input.KEY_Q == key && direction == GAUCHE) {
+            moving = false;
+        }
+        if (Input.KEY_S == key && direction == BAS) {
+            moving = false;
+        }
+        if (Input.KEY_D == key && direction == DROITE) {
+            moving = false;
+        }
+    }
+
+    /**
+     * @return la position en X du personnage
+     */
     public float getPositionX() {
         return positionX;
     }
 
+    /**
+     * @param positionX la nouvelle position en X du personnage
+     */
     public void setPositionX(float positionX) {
         this.positionX = positionX;
     }
 
+    /**
+     * @return la position en Y du personnage
+     */
     public float getPositionY() {
         return positionY;
     }
 
+    /**
+     * @param positionY la nouvelle position en Y du personnage
+     */
     public void setPositionY(float positionY) {
         this.positionY = positionY;
     }
 
+    /**
+     * @return la direction du personnage
+     */
     public int getDirection() {
         return direction;
     }
 
+    /**
+     * @param direction la nouvelle direction du personnage
+     */
     public void setDirection(int direction) {
         this.direction = direction;
     }
 
+    /**
+     * @return si le personnage est en mouvement ou pas
+     */
     public boolean isMoving() {
         return moving;
     }
 
+    /**
+     * @param moving le nouvel indicateur de mouvement
+     */
     public void setMoving(boolean moving) {
         this.moving = moving;
-    }
-
-    public Animation[] getListeAnimation() {
-        return listeAnimation;
-    }
-
-    public void setListeAnimation(Animation[] listeAnimation) {
-        this.listeAnimation = listeAnimation;
     }
 }
