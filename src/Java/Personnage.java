@@ -108,7 +108,7 @@ public class Personnage {
      */
     public void actualisation(int delta, TiledMap map) {
 
-        boolean onStair = false;
+        boolean onStair;
 
             if (positionX > map.getObjectX(0,5)
                     && positionX < map.getObjectX(0, 5) + map.getObjectWidth(0, 5)
@@ -122,7 +122,7 @@ public class Personnage {
         float futurX = positionX;
         float futurY = positionY;
 
-        boolean colision;
+        onStair = isEscalier(map, futurX, futurY);
 
         if (moving) {
 
@@ -132,14 +132,14 @@ public class Personnage {
                     break;
                 case 1:
                     futurX -= .1f * delta;
-                    if (onStair) futurY = futurY + .1f * delta;
+                    if (onStair) futurY = futurY - .1f * delta;
                     break;
                 case 2:
                     futurY += .1f * delta;
                     break;
                 case 3:
                     futurX += .1f * delta;
-                    if (onStair) futurY = futurY - .1f * delta;
+                    if (onStair) futurY = futurY + .1f * delta;
                     break;
             }
 
@@ -160,6 +160,24 @@ public class Personnage {
         tile = map.getTileImage((int) x / map.getTileWidth(),
                 (int) y / map.getTileHeight(),
                 map.getLayerIndex("logique"));
+
+        if (tile != null) {
+            //Recupere la couleur
+            color = tile.getColor((int) x % map.getTileHeight(), (int) y % map.getTileHeight());
+            return color.getAlpha() > 0;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isEscalier(TiledMap map, float x, float y) {
+        Image tile;
+        Color color;
+
+        /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
+        tile = map.getTileImage((int) x / map.getTileWidth(),
+                (int) y / map.getTileHeight(),
+                map.getLayerIndex("escalier"));
 
         if (tile != null) {
             //Recupere la couleur

@@ -85,10 +85,10 @@ public class WindowsGame extends BasicGame {
         graphics.translate(cam.centreX(container), cam.centreY(container));
 
         // Rendu de la carte
-        map.render(0,0, 0); // eau
-        map.render(0,0, 1); // sol
-        map.render(0, 0, 2); // background
-        map.render(0, 0, 3); // background 2
+        map.render(0 ,0, 0); // eau
+        map.render(0 ,0, 1); // sol
+        map.render(0 ,0, 2); // background
+        map.render(0 ,0, 3); // background 2
 
         graphics.setColor(new Color(0,0,0, 5f)); // Couleur de l'ombre
 
