@@ -3,6 +3,8 @@ package Java;
 import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.TiledMap;
 
+import java.io.IOException;
+
 /**
  * RPG créer avec Slick2d
  * @author J-Charles Luans
@@ -54,12 +56,13 @@ public class WindowsGame extends BasicGame {
      * @throws SlickException
      */
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
+    public void init(GameContainer gameContainer) throws SlickException  {
 
         // Création du conteneur du jeu
         container = gameContainer;
 
         // Création de la map
+        Map.initialiseMap("src/Ressources/Map/campagne_ThunderSun.tmx");
         map = new TiledMap("src/Ressources/Map/campagne_ThunderSun.tmx");
 
         // Création du personnage principal
