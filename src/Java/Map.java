@@ -24,10 +24,16 @@ public class Map {
             lecteurAvecBuffer = new BufferedReader(new FileReader(cheminMap));
             while ((ligne = lecteurAvecBuffer.readLine()) != null) {
 
-                if (ligne.contains("<objectgroup")) {
+                if (ligne.contains("<objectgroup") && !ligne.contains("width")) {
                     System.out.println(ligne);
                     ligne = ligne.replace('>', ' ');
-                    ligne = ligne.concat("width=\"1\" height=\"1\" >");
+                    if (ligne.contains("/")) {
+                        ligne = ligne.replace('/', ' ');
+                        ligne = ligne.concat("width=\"1\" height=\"1\" />");
+                    } else {
+                        ligne = ligne.concat("width=\"1\" height=\"1\" >");
+                    }
+
                 }
                 newMap.add(ligne);
             }

@@ -62,8 +62,8 @@ public class WindowsGame extends BasicGame {
         container = gameContainer;
 
         // Création de la map
-        Map.initialiseMap("src/Ressources/Map/campagne_ThunderSun.tmx");
-        map = new TiledMap("src/Ressources/Map/campagne_ThunderSun.tmx");
+        Map.initialiseMap("src/Ressources/Map/ThunderSun.tmx");
+        map = new TiledMap("src/Ressources/Map/ThunderSun.tmx");
 
         // Création du personnage principal
         hero = new Personnage();
@@ -93,7 +93,7 @@ public class WindowsGame extends BasicGame {
         map.render(0 ,0, 2); // background
         map.render(0 ,0, 3); // background 2
 
-        graphics.setColor(new Color(0,0,0, 5f)); // Couleur de l'ombre
+        graphics.setColor(new Color(49,36,33, 153)); // Couleur de l'ombre
 
         // Taille + position de l'ombre
         graphics.fillOval(hero.getPositionX() - 16, hero.getPositionY() - 8, 32,16);

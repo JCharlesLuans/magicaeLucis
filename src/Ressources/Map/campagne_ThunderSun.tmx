@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="17" nextobjectid="13">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="17" nextobjectid="14">
  <tileset firstgid="1" source="base_out_atlas.tsx"/>
  <tileset firstgid="1025" source="build_atlas.tsx"/>
  <tileset firstgid="2049" source="colision.tsx"/>
@@ -22,12 +22,12 @@
  </layer>
  <layer id="7" name="background_2" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgIA6YMxGnbqBVRfMzMMQAcSwQ0wpUA82uAeJaGtpBK7ePmos9BEhJN7jU3hdgYHgAxA+BGBsgJd2QohabXQMthiuMqOmuwRpGI9nv1IzfkWQWKWmGFLXIYUhKfiFFLbIdo2z6hwAAeBAup8QJAAA=
+   H4sIAAAAAAAECmNgIA6YMxGnbqBVRfMzMMQAcSwQ0wpUA82uAeJaGtpBK7ePmos9BEhJN6SoRbaNlHRDilpkOwYLm9wwIsX9gzWMRrLfSYm/UbWIECAlzZCiFmEDAwMp+YUUtch2jLLpHwIAotTX7MQJAAA=
   </data>
  </layer>
  <layer id="5" name="overground" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECu1UQQqAMAzrST2JF32sCuo3VFC/MQX1Zwb00MMqdDCYYCEwRpd0IRvRXWVKVAE14Kt6cA/A6FHDgHsFNo8avvwJkbfJiFqgA2ylyY3UO4F7BhZBQ5MbqXcH9wGcgoZR5EbTa/Psba/EHF96h1FCFD/g93LxSLp7Dv7iAddwWffw9/+DXJwL84yUGdu0ml5+XpMZTS/XMIH8P3ymf/0NBy5kvATWxAkAAA==
+   H4sIAAAAAAAECu1UMQqAMBC7SZ3c9LHVl1RfUn2cATtksGAKhRZaCNyQXu5CWrP3uNlsA3ag1PHofQBnQY2A3hdwF9Qo5U+LfZXcKFz2QsmNwmWNIORG4bLGn9phjpbe4TCZjRG8X45Hqd0X9F8jWCOn9vC3/0E5ztV5J5WZr2kVLt9XMqNwWSNU8v/wTL1uw4EHb03apMQJAAA=
   </data>
  </layer>
  <layer id="6" name="overground_2" width="25" height="25">
@@ -42,10 +42,11 @@
  </layer>
  <layer id="13" name="escalier" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgGJxAmYP27jIE2kEve2jvm1EbRkII+ADTLAzTyr8w80E0IcANVQOjCamHyZNiB0zPKD0aAqMhMBoCoyGAGgIAuBRm3cQJAAA=
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCoyEwGgKjITAaAkMtBAD5i1XpxAkAAA==
   </data>
  </layer>
- <objectgroup id="16" name="trigger"  width="1" height="1" >
-  <object id="10" type="escalier" x="410" y="26" width="100" height="136"/>
+ <objectgroup id="16" name="trigger" width="1" height="1" >
+  <object id="10" name="Pont" type="escalierDroite" x="702" y="322" width="37" height="32"/>
+  <object id="13" name="Pente Gauche" type="escalierGauche" x="415" y="33" width="80" height="101"/>
  </objectgroup>
 </map>

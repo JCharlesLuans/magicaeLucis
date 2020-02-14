@@ -11,31 +11,48 @@ public class Personnage {
 
     /* Indique les position */
     private final int HAUT = 0,
-                      GAUCHE = 1,
-                      BAS = 2,
-                      DROITE = 3;
+            GAUCHE = 1,
+            BAS = 2,
+            DROITE = 3;
 
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
-    /** Position du personnage */
+    /**
+     * Position du personnage
+     */
     private float positionX,
             positionY;
 
-    /** Direction du personnage */
+    /**
+     * Direction du personnage
+     */
     private int direction;
 
-    /** Indicateur de mouvement */
+    /**
+     * Indicateur de mouvement
+     */
     private boolean moving;
 
-    /** Animations du personnage */
+    /**
+     * Inidique si le personnage est sur un escalier ou pas
+     */
+    private boolean escalierDroite,
+                    escalierGauche;
+
+    /**
+     * Animations du personnage
+     */
     private Animation[] listeAnimation = new Animation[8];
 
-    /** Sprite du personnage */
+    /**
+     * Sprite du personnage
+     */
     SpriteSheet sprite;
 
     /**
      * Créer un peersonnage avce un sprite par default
+     *
      * @throws SlickException
      */
     Personnage() throws SlickException {
@@ -48,6 +65,7 @@ public class Personnage {
 
     /**
      * Créer un persoannge avec un sprite prédéfini
+     *
      * @param newSprite
      * @throws SlickException
      */
@@ -61,6 +79,7 @@ public class Personnage {
 
     /**
      * Charge une animation a partir du SpriteSheet
+     *
      * @param spriteSheet   : sprite a charger
      * @param positionDebut : n° de la premiere frame
      * @param positionFin   : n° de la derniere frame
@@ -70,14 +89,16 @@ public class Personnage {
 
         Animation aRetourner = new Animation(); // Animaation a retourner
 
-        for (int i = positionDebut;i < positionFin; i++) {
-            aRetourner.addFrame(spriteSheet.getSprite(i,action), TEMPS_ANIMATION);
+        for (int i = positionDebut; i < positionFin; i++) {
+            aRetourner.addFrame(spriteSheet.getSprite(i, action), TEMPS_ANIMATION);
         }
 
-        return  aRetourner;
+        return aRetourner;
     }
 
-    /** Anime le personnage */
+    /**
+     * Anime le personnage
+     */
     private void animer(SpriteSheet spriteSheet) {
 
         /* Position a l'arret */
@@ -104,20 +125,12 @@ public class Personnage {
 
     /**
      * Actualise le personnage en le deplacant
+     *
      * @param delta vitesse de deplacement
      */
     public void actualisation(int delta, TiledMap map) {
 
-        for (int objectID = 0; objectID < map.getObjectCount(0); objectID++) {
-            if (positionX > map.getObjectX(0, objectID)
-                    && positionX < map.getObjectX(0, objectID) + map.getObjectWidth(0, objectID)
-                    && positionY > map.getObjectY(0, objectID)
-                    && positionY < map.getObjectY(0, objectID) + map.getObjectHeight(0, objectID)) {
-                if ("stair".equals(map.getObjectType(0, objectID))) {
-                    System.out.println(true);
-                }
-            }
-        }
+        updateTrigger(map);
 
         float futurX = positionX;
         float futurY = positionY;
@@ -130,27 +143,28 @@ public class Personnage {
                     break;
                 case GAUCHE:
                     futurX -= .1f * delta;
-                    if (isEscalierDroite(map, futurX, futurY)) futurY = futurY + .1f * delta;
-                    if (isEscalierGauche(map, futurX, futurY)) futurY = futurY - .1f * delta;
+                    if (escalierDroite) futurY = futurY + .1f * delta;
+                    if (escalierGauche) futurY = futurY - .1f * delta;
                     break;
                 case BAS:
                     futurY += .1f * delta;
                     break;
                 case DROITE:
                     futurX += .1f * delta;
-                    if (isEscalierGauche(map, futurX, futurY)) futurY = futurY + .1f * delta;
-                    if (isEscalierDroite(map, futurX, futurY)) futurY = futurY - .1f * delta;
+                    if (escalierGauche) futurY = futurY + .1f * delta;
+                    if (escalierDroite) futurY = futurY - .1f * delta;
                     break;
             }
 
-            } if (isColision(map, futurX, futurY)) {
-                moving = false;
-            } else {
-                positionX = futurX;
-                positionY = futurY;
-            }
-
         }
+        if (isColision(map, futurX, futurY)) {
+            moving = false;
+        } else {
+            positionX = futurX;
+            positionY = futurY;
+        }
+
+    }
 
     private boolean isColision(TiledMap map, float x, float y) {
         Image tile;
@@ -168,6 +182,25 @@ public class Personnage {
         } else {
             return false;
         }
+    }
+
+    private void updateTrigger(TiledMap map) {
+        for (int objectID = 0; objectID < map.getObjectCount(0); objectID++) {
+
+            if (isInTrigger(map,objectID)) {
+                escalierGauche = "escalierGauche".equals(map.getObjectType(0,objectID));
+                escalierDroite = "escalierDroite".equals(map.getObjectType(0,objectID));
+                System.out.println(escalierDroite + " " + escalierGauche);
+            }
+        }
+    }
+
+    private boolean isInTrigger(TiledMap map, int id) {
+
+        return positionX > map.getObjectX(0, id)
+                && positionX < map.getObjectX(0, id) + map.getObjectWidth(0, id)
+                && positionY > map.getObjectY(0, id)
+                && positionY < map.getObjectY(0, id) + map.getObjectHeight(0, id);
     }
 
     private boolean isEscalierGauche(TiledMap map, float x, float y) {
