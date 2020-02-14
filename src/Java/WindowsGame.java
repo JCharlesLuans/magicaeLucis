@@ -29,7 +29,7 @@ public class WindowsGame extends BasicGame {
     private GameContainer container;
 
     /** Carte actuelle */
-    private TiledMap map;
+    private static TiledMap map;
 
     /** Personnage principal */
     private Personnage hero;
@@ -62,8 +62,8 @@ public class WindowsGame extends BasicGame {
         container = gameContainer;
 
         // Création de la map
-        Map.initialiseMap("src/Ressources/Map/ThunderSun.tmx");
-        map = new TiledMap("src/Ressources/Map/ThunderSun.tmx");
+        Map.initialiseMap("src/Ressources/Map/campagne_ThunderSun.tmx");
+        map = new TiledMap("src/Ressources/Map/campagne_ThunderSun.tmx");
 
         // Création du personnage principal
         hero = new Personnage();
@@ -71,6 +71,8 @@ public class WindowsGame extends BasicGame {
         // Création de la camera
         cam = new Camera(hero);
 
+        Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
+        background.loop();
     }
 
     @Override
@@ -118,6 +120,10 @@ public class WindowsGame extends BasicGame {
             case Input.KEY_S: hero.setDirection(BAS); hero.setMoving(true); break;
             case Input.KEY_D: hero.setDirection(DROITE); hero.setMoving(true); break;
         }
+    }
+
+    static void changementMap(TiledMap newMap) {
+        map = newMap;
     }
 
 }

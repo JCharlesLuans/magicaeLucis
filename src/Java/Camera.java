@@ -69,6 +69,8 @@ public class Camera {
 
     }
 
+
+
     /**
      * @param container : container de la game
      * @return les coordonnée du centre de la camera par rapport au container

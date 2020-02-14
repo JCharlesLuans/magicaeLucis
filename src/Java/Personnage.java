@@ -130,7 +130,7 @@ public class Personnage {
      */
     public void actualisation(int delta, TiledMap map) {
 
-        updateTrigger(map);
+        updateTrigger(map); // Update les triggers
 
         float futurX = positionX;
         float futurY = positionY;
@@ -166,6 +166,14 @@ public class Personnage {
 
     }
 
+    /**
+     * Verifie si il y a une colision
+     * @param map map actuelle
+     * @param x axe x sur lequelle on verifie si il y a une colision
+     * @param y axe x sur lequelle on verifie si il y a une colision
+     * @return true si il y a une colision
+     *         false si il n'y a pas de colision
+     */
     private boolean isColision(TiledMap map, float x, float y) {
         Image tile;
         Color color;
@@ -184,13 +192,26 @@ public class Personnage {
         }
     }
 
-    private void updateTrigger(TiledMap map) {
+    private void updateTrigger(TiledMap map)  {
+
+        escalierDroite = escalierGauche = false;
+
         for (int objectID = 0; objectID < map.getObjectCount(0); objectID++) {
 
             if (isInTrigger(map,objectID)) {
                 escalierGauche = "escalierGauche".equals(map.getObjectType(0,objectID));
                 escalierDroite = "escalierDroite".equals(map.getObjectType(0,objectID));
-                System.out.println(escalierDroite + " " + escalierGauche);
+
+                if ("changementMap".equals(map.getObjectType(0, objectID))) {
+                    String newMap = map.getObjectProperty(0,objectID, "destiMap","undefine");
+                    try {
+                        WindowsGame.changementMap(new TiledMap("src/Ressources/Map/"+ newMap));
+                    } catch (SlickException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
             }
         }
     }
@@ -201,42 +222,6 @@ public class Personnage {
                 && positionX < map.getObjectX(0, id) + map.getObjectWidth(0, id)
                 && positionY > map.getObjectY(0, id)
                 && positionY < map.getObjectY(0, id) + map.getObjectHeight(0, id);
-    }
-
-    private boolean isEscalierGauche(TiledMap map, float x, float y) {
-        Image tile;
-        Color color;
-
-        /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
-        tile = map.getTileImage((int) x / map.getTileWidth(),
-                (int) y / map.getTileHeight(),
-                map.getLayerIndex("escalier"));
-
-        if (tile != null) {
-            //Recupere la couleur
-            color = tile.getColor((int) x % map.getTileHeight(), (int) y % map.getTileHeight());
-            return color.equals(Color.red);
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isEscalierDroite(TiledMap map, float x, float y) {
-        Image tile;
-        Color couleurTuile;
-
-        /* On va chercher la tile qui se trouve au coordonnée future du personnage sur le calque logic */
-        tile = map.getTileImage((int) x / map.getTileWidth(),
-                (int) y / map.getTileHeight(),
-                map.getLayerIndex("escalier"));
-
-        if (tile != null) {
-            //Recupere la couleur
-            couleurTuile = tile.getColor((int) x % map.getTileHeight(), (int) y % map.getTileHeight());
-             return couleurTuile.equals(Color.blue);
-        } else {
-            return false;
-        }
     }
 
     /**
