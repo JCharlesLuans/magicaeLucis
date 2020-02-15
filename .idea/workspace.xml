@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3f0e267-288d-47f9-a73b-90da91214065" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/ui.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Musique/The_Last_Encounter.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Musique/TownTheme.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/SavePersonnage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/BarresStats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/Inventaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/MagicaeLucis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Menu/MenuGameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/640x480_0.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/barre_d_etat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/Musique/Sahara_Rains.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/Personnage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/WindowsGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagicaeLucis/Java/WindowsGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/Personnage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/WindowsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/WindowsGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/MagicaeLucis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/WindowsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ressources/Map/campagne_ThunderSun.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ressources/Map/campagne_ThunderSun.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,27 +56,30 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\HUD" />
+      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\Musique" />
+      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\HUD" />
+      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
+      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Map" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Code.Jeu" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
       <recent name="D:\Travail\Java\MagicaeLucis\src\Ressources\Images" />
       <recent name="D:\Travail\Java\MagicaeLucis\src" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\HUD" />
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Map" />
-      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\Personnage" />
-      <recent name="D:\Travail\Java\MagicaeLucis\Slick" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.MagicaeLucis">
     <configuration name="MagicaeLucis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Java.MagicaeLucis" />
+      <option name="MAIN_CLASS_NAME" value="Code.MagicaeLucis" />
       <module name="MagicaeLucis" />
       <option name="VM_PARAMETERS" value="-Djava.library.path=src/Slick/" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Java.*" />
+          <option name="PATTERN" value="Code.Jeu.UI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,13 +87,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WindowsGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Java.WindowsGame" />
+    <configuration name="MapGameState" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Code.Jeu.MapGameState" />
       <module name="MagicaeLucis" />
       <option name="VM_PARAMETERS" value="Djava.library.path=src/Slick" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Java.*" />
+          <option name="PATTERN" value="Code.Jeu.UI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,13 +102,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.WindowsGame" />
       <item itemvalue="Application.MagicaeLucis" />
+      <item itemvalue="Application.MapGameState" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MagicaeLucis" />
-        <item itemvalue="Application.WindowsGame" />
+        <item itemvalue="Application.MapGameState" />
       </list>
     </recent_temporary>
   </component>
@@ -169,13 +177,19 @@
     </state>
     <state x="393" y="57" key="#Project_Structure/0.0.1366.738@0.0.1366.738" timestamp="1581698429640" />
     <state x="552" y="184" key="#Project_Structure/0.0.1920.1050@0.0.1920.1050" timestamp="1581411835051" />
-    <state x="137" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581330391480">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="193" y="40" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581762716106">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
+    <state x="193" y="40" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581762716106" />
     <state x="137" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1581330391480" />
-    <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser" timestamp="1581414564968">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="724" y="389" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581785074426">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
+    <state x="724" y="389" key="#com.intellij.fileTypes.FileTypeChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581785074426" />
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser" timestamp="1581785646784">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581785646784" />
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1581329148772" />
     <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1581414564968" />
     <state x="348" y="0" key="CommitChangelistDialog2" timestamp="1581693751322">
@@ -187,31 +201,31 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="410" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1581698420035" />
-    <state width="1323" height="221" key="GridCell.Tab.0.bottom" timestamp="1581702208115">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1581797806399">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581539260346" />
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1323" height="221" key="GridCell.Tab.0.center" timestamp="1581702208115">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1581797806399">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581539260346" />
+    <state width="1877" height="196" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
     <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1323" height="221" key="GridCell.Tab.0.left" timestamp="1581702208115">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1581797806398">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581539260346" />
+    <state width="1877" height="196" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806398" />
     <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1323" height="221" key="GridCell.Tab.0.right" timestamp="1581702208115">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1581797806399">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581539260346" />
+    <state width="1877" height="196" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
     <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
@@ -240,6 +254,10 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1581328961468" />
     <state x="259" y="0" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1581412025367" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1581779223493">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581779223493" />
     <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1581617243781">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -248,14 +266,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581411812023" />
+    <state x="616" y="273" key="run.anything.popup" timestamp="1581771333246">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="616" y="273" key="run.anything.popup/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581771333246" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Java/WindowsGame.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/Code/Jeu/Map.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

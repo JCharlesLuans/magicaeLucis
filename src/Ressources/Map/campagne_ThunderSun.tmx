@@ -50,9 +50,9 @@
   <object id="13" name="Pente Gauche" type="escalierGauche" x="415" y="33" width="80" height="101"/>
   <object id="17" name="Sortie Pont" type="changementMap" x="776" y="320" width="24" height="27">
    <properties>
-    <property name="destiMap" value="ThunderSun.tmx"/>
-    <property name="destiX" type="int" value="100"/>
-    <property name="destiY" type="int" value="100"/>
+    <property name="destiMap" value="grotte.tmx"/>
+    <property name="destiX" type="int" value="47"/>
+    <property name="destiY" type="int" value="300"/>
    </properties>
   </object>
  </objectgroup>
