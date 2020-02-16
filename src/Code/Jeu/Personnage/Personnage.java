@@ -1,5 +1,6 @@
-package Code.Jeu;
+package Code.Jeu.Personnage;
 
+import Code.Jeu.Map;
 import org.newdawn.slick.*;
 
 import java.io.*;
@@ -318,11 +319,15 @@ public class Personnage implements Serializable {
     }
 
     public void chargement() throws SlickException {
-        SavePersonnage savePero = new SavePersonnage();
-        savePero.chargement();
+        SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
         positionX = savePero.getPositionX();
         positionY = savePero.getPositionY();
         direction = savePero.getDirection();
         map.changeMap(savePero.getMap());
+    }
+
+    public void sauvegarde() throws IOException {
+        SavePersonnage aSave = new  SavePersonnage(this);
+        XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
     }
 }

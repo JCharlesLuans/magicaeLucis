@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3f0e267-288d-47f9-a73b-90da91214065" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/SavePersonnage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/BarresStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/Inventaire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/MagicaeLucis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/Menu/MenuGameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/640x480_0.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/barre_d_etat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Musique/Sahara_Rains.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Combats/CombatGameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/XMLTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/MenuEnJeu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/Son/click.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/inventaire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/HUD/message.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ressources/Menu/font.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/MagicaeLucis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Map.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/WindowsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ressources/Map/campagne_ThunderSun.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ressources/Map/campagne_ThunderSun.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/Personnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/SavePersonnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/SavePersonnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/UI/Inventaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/UI/Inventaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Menu/MenuGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Menu/MenuGameState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +48,27 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Ressources/HUD" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Ressources/HUD/Son" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\HUD" />
-      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\Musique" />
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\HUD" />
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
-      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Map" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Code.Jeu" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
       <recent name="D:\Travail\Java\MagicaeLucis\src\Ressources\Images" />
       <recent name="D:\Travail\Java\MagicaeLucis\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Code.Jeu" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\HUD\Son" />
+      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\HUD" />
+      <recent name="G:\programmation\java\magicaeLucis\src\Ressources\Musique" />
+      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\HUD" />
+      <recent name="D:\Travail\Java\magicaeLucis\src\Ressources\Musique" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MagicaeLucis">
@@ -156,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581693752975</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sauvegarde + Menu">
+      <created>1581797993520</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581797993521</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +171,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ecriture de la map et correction a chaque initialisation pour utiliser les calque de trigger" />
     <MESSAGE value="Correction de Map.initialiseMap pour triaiter les balise orpheline + traitement des triggers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction de Map.initialiseMap pour triaiter les balise orpheline + traitement des triggers" />
+    <MESSAGE value="Sauvegarde + Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sauvegarde + Menu" />
   </component>
   <component name="WindowStateProjectService">
     <state x="677" y="196" key="#MagicaeLucis" timestamp="1581412002265">
@@ -186,46 +193,46 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="724" y="389" key="#com.intellij.fileTypes.FileTypeChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581785074426" />
-    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser" timestamp="1581785646784">
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser" timestamp="1581863620886">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581785646784" />
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581863620886" />
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1581329148772" />
     <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1581414564968" />
-    <state x="348" y="0" key="CommitChangelistDialog2" timestamp="1581693751322">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="599" y="180" key="CommitChangelistDialog2" timestamp="1581797991915">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="599" y="180" key="CommitChangelistDialog2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581369687466" />
+    <state x="599" y="180" key="CommitChangelistDialog2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797991915" />
     <state x="348" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1581693751322" />
     <state x="410" y="111" key="FileChooserDialogImpl" timestamp="1581698420035">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="410" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1581698420035" />
-    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1581797806399">
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1581864233790">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581864233790" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1581797806399">
+    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1581864233790">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
+    <state width="1877" height="196" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581864233790" />
     <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1581797806398">
+    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1581864233790">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806398" />
+    <state width="1877" height="196" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581864233790" />
     <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1581797806399">
+    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1581864233790">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797806399" />
+    <state width="1877" height="196" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581864233790" />
     <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
@@ -258,9 +265,10 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581779223493" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1581617243781">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1581797996106">
+      <screen x="0" y="0" width="1920" height="1170" />
     </state>
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581797996106" />
     <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1581617243781" />
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1581411812023">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -270,6 +278,10 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="616" y="273" key="run.anything.popup/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581771333246" />
+    <state x="616" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1581851951184">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="616" y="238" width="670" height="676" key="search.everywhere.popup/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581851951184" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

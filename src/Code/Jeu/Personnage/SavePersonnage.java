@@ -3,8 +3,9 @@
  * Pas de copyright (pour le moment :)
  */
 
-package Code.Jeu;
+package Code.Jeu.Personnage;
 
+import java.beans.XMLEncoder;
 import java.io.*;
 
 /**
@@ -13,7 +14,7 @@ import java.io.*;
  * @author Jean-Charles Luans
  * @verison 1.0
  */
-public class SavePersonnage implements Serializable {
+public class SavePersonnage {
 
     /**
      * Position du personnage
@@ -40,18 +41,6 @@ public class SavePersonnage implements Serializable {
         positionY = personnage.getPositionY();
         direction = personnage.getDirection();
         map = personnage.getMap().getNomMap();
-        sauvegarde();
-    }
-
-    private void sauvegarde() {
-        try {
-            File save = new File("src/Ressources/Sauvegardes/save.ser");
-            ObjectOutputStream oos =  new ObjectOutputStream(new FileOutputStream(save)) ;
-            oos.writeObject(this);
-            System.out.print("Sauvegarde");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void chargement() {
@@ -82,5 +71,31 @@ public class SavePersonnage implements Serializable {
 
     public String getMap() {
         return map;
+    }
+
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public void setMap(String map) {
+        this.map = map;
+    }
+
+    @Override
+    public String toString() {
+        return "SavePersonnage{" +
+                "positionX=" + positionX +
+                ", positionY=" + positionY +
+                ", direction=" + direction +
+                ", map='" + map + '\'' +
+                '}';
     }
 }
