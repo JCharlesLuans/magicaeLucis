@@ -3,7 +3,7 @@
  * Pas de copyright (pour le moment :)
  */
 
-package Code.Jeu.Personnage;
+package Code.Jeu;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

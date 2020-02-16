@@ -1,5 +1,6 @@
 package Code.Jeu;
 
+import Code.Combats.CombatGameState;
 import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
 import Code.Jeu.UI.BarresStats;
@@ -117,6 +118,11 @@ public class MapGameState extends BasicGameState {
         hero.actualisation(delta);
         cam.actualisation();
 
+        if (Math.random() < 0.001 && hero.isMoving()) {
+            game.enterState(CombatGameState.ID);
+            hero.setMoving(false);
+        }
+
     }
 
     @Override
@@ -156,12 +162,13 @@ public class MapGameState extends BasicGameState {
         menuEnJeu.action(x, y, hero);
     }
 
+    public void setCharger(boolean charger) {
+        this.charger = charger;
+    }
+
+
     @Override
     public int getID() {
         return ID;
-    }
-
-    public void setCharger(boolean charger) {
-        this.charger = charger;
     }
 }

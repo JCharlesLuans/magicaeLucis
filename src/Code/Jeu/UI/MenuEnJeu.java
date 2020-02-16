@@ -85,6 +85,7 @@ public class MenuEnJeu {
             message.affichage("Voulez vous quitter le jeu ?");
 
             if (message.isOk(x, y)) {
+                System.out.println("Coucou");
                 click.play();
                 game.enterState(1);
                 message.setShow(false);

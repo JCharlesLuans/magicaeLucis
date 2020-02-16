@@ -1,5 +1,6 @@
 package Code;
 
+import Code.Combats.CombatGameState;
 import Code.Jeu.MapGameState;
 import Code.Menu.MenuGameState;
 import org.newdawn.slick.AppGameContainer;
@@ -13,7 +14,7 @@ public class MagicaeLucis extends StateBasedGame {
      * @param args non utilisé
      */
     public static void main(String[] args) throws SlickException {
-        new AppGameContainer(new MagicaeLucis(), 800, 600, false).start();
+        new AppGameContainer(new MagicaeLucis(), 1240, 720, false).start();
     }
 
     public MagicaeLucis() {
@@ -24,5 +25,6 @@ public class MagicaeLucis extends StateBasedGame {
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         addState(new MenuGameState());
         addState(new MapGameState());
+        addState(new CombatGameState());
     }
 }

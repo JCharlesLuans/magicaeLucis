@@ -1,6 +1,7 @@
 package Code.Jeu.Personnage;
 
 import Code.Jeu.Map;
+import Code.Jeu.XMLTools;
 import org.newdawn.slick.*;
 
 import java.io.*;

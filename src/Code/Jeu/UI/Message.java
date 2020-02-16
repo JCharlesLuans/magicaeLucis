@@ -59,10 +59,10 @@ public class Message {
     }
 
     public boolean isOk(int x, int y) {
-        return x > 370 && x < 400 && y > 340 && y < 360;
+        return x > centreX +125 && x < centreX +160 && y > centreY + 95 && y < centreY + 115;
     }
     public boolean isNo(int x, int y) {
-        return x > 540 && x < 560 && y > 280 && y < 315;
+        return x > centreX + 300 && x < centreX + 320 && y >centreY + 45 && y < centreY + 75;
     }
 
 }
