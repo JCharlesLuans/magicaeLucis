@@ -69,7 +69,8 @@ public class Personnage implements Serializable {
      */
     public Personnage(Map newMap) throws SlickException {
         map = newMap;
-        positionX = positionY = 400; // Position a la création du personnage
+        positionX = 650;
+        positionY = 400; // Position a la création du personnage
         direction = BAS; // Position par default du personnage
         moving = false; // Le personnage ne bouge pas lors de sa création
         sprite = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
@@ -319,16 +320,19 @@ public class Personnage implements Serializable {
         return map;
     }
 
-    public void chargement() throws SlickException {
+    public void chargement(Camera cam) throws SlickException {
         SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
         positionX = savePero.getPositionX();
         positionY = savePero.getPositionY();
         direction = savePero.getDirection();
         map.changeMap(savePero.getMap());
+
+        cam.setPositionX(savePero.getCamPosX());
+        cam.setPositionY(savePero.getCamPosY());
     }
 
-    public void sauvegarde() throws IOException {
-        SavePersonnage aSave = new  SavePersonnage(this);
+    public void sauvegarde(Camera cam) throws IOException {
+        SavePersonnage aSave = new  SavePersonnage(this, cam);
         XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
     }
 }

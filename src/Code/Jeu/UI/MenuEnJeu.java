@@ -6,6 +6,7 @@
 package Code.Jeu.UI;
 
 import Code.Jeu.MapGameState;
+import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
 import Code.Jeu.Personnage.SavePersonnage;
 import org.newdawn.slick.GameContainer;
@@ -56,14 +57,14 @@ public class MenuEnJeu {
         inventaire.setShow(showInventaire);
     }
 
-    public void action(int x, int y, Personnage hero)  {
+    public void action(int x, int y, Personnage hero, Camera cam)  {
 
         if(inventaire.isSauvegarde(x, y)) {
             click.play();
             inSauvegarde = true;
             message.affichage("La partie a été sauvegardée");
             try {
-                hero.sauvegarde();
+                hero.sauvegarde(cam);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -85,7 +86,6 @@ public class MenuEnJeu {
             message.affichage("Voulez vous quitter le jeu ?");
 
             if (message.isOk(x, y)) {
-                System.out.println("Coucou");
                 click.play();
                 game.enterState(1);
                 message.setShow(false);

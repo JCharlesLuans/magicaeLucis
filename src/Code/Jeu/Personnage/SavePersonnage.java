@@ -16,6 +16,8 @@ import java.io.*;
  */
 public class SavePersonnage {
 
+    private float camPosY;
+    private float camPosX;
     /**
      * Position du personnage
      */
@@ -36,11 +38,15 @@ public class SavePersonnage {
         map = "";
     }
 
-    public SavePersonnage(Personnage personnage) {
+    public SavePersonnage(Personnage personnage, Camera cam) {
         positionX = personnage.getPositionX();
         positionY = personnage.getPositionY();
         direction = personnage.getDirection();
         map = personnage.getMap().getNomMap();
+
+        camPosX = cam.getPositionX();
+        camPosY = cam.getPositionY();
+
     }
 
     public void chargement() {
@@ -52,6 +58,10 @@ public class SavePersonnage {
             positionY = tmp.positionY;
             direction = tmp.direction;
             map = tmp.map;
+
+            camPosX = tmp.camPosX;
+            camPosY = tmp.camPosY;
+
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -89,10 +99,28 @@ public class SavePersonnage {
         this.map = map;
     }
 
+    public float getCamPosY() {
+        return camPosY;
+    }
+
+    public void setCamPosY(float camPosY) {
+        this.camPosY = camPosY;
+    }
+
+    public float getCamPosX() {
+        return camPosX;
+    }
+
+    public void setCamPosX(float camPosX) {
+        this.camPosX = camPosX;
+    }
+
     @Override
     public String toString() {
         return "SavePersonnage{" +
-                "positionX=" + positionX +
+                "camPosY=" + camPosY +
+                ", camPosX=" + camPosX +
+                ", positionX=" + positionX +
                 ", positionY=" + positionY +
                 ", direction=" + direction +
                 ", map='" + map + '\'' +

@@ -103,4 +103,12 @@ public class Camera {
     public float getPositionY() {
         return positionY;
     }
+
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+    }
 }

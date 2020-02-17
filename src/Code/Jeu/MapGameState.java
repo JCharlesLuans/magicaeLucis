@@ -75,12 +75,11 @@ public class MapGameState extends BasicGameState {
 
     public void enter(GameContainer gameContainer, StateBasedGame game) throws SlickException {
 
-        /*Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
+        /* Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
         background.loop(); */
 
         if (charger) {
-            hero.chargement();
-            System.out.print(hero.getPositionX() + " " + hero.getPositionY());
+            hero.chargement(cam);
             charger = false;
         }
     }
@@ -159,7 +158,7 @@ public class MapGameState extends BasicGameState {
 
     public void mouseClicked(int button, int x, int y, int clickCount) {
         // System.out.println("X: " + x + " Y: " + y);
-        menuEnJeu.action(x, y, hero);
+        menuEnJeu.action(x, y, hero, cam);
     }
 
     public void setCharger(boolean charger) {
