@@ -75,8 +75,8 @@ public class MapGameState extends BasicGameState {
 
     public void enter(GameContainer gameContainer, StateBasedGame game) throws SlickException {
 
-        /* Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
-        background.loop(); */
+        Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
+        background.loop();
 
         if (charger) {
             hero.chargement(cam);

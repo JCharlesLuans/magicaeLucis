@@ -32,8 +32,8 @@ public class MenuGameState extends BasicGameState {
     }
     @Override
     public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        /*Music background = new Music("src/Ressources/Musique/Sahara_Rains.ogg");
-        background.loop(); */
+        Music background = new Music("src/Ressources/Musique/Sahara_Rains.ogg");
+        background.loop();
     }
 
     @Override

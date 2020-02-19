@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2">
+ <tileset firstgid="1" source="base_out_atlas.tsx"/>
+ <tileset firstgid="1025" source="colision.tsx"/>
+ <layer id="3" name="sol" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGLlAHeh1bJjUEMFmxqgY9rBFDxdQWKOLDSb+qPsoi5/R8KMs/AZTXsDmltH4HY1fbOmCXmKj6Y+y9DcafsM7/OiVD8m1JwmYAMnVSw99SkD34cLI9uNSMxDioDwNAoPVfcjugrEHIpxw2QlzEzKNSy2txQHwvLvHoA8AAA==
+  </data>
+ </layer>
+ <layer id="1" name="fond" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3SwQkAIAwEwXwsxGq1bLWGhZDICj5PzkkiPL8KzOIfsx8bkH76MQGWdv/0YwIs7f7pxwRY2v3jfoM9YbqhwLqd390Nu2dXPgfd5degDwAA
+  </data>
+ </layer>
+ <layer id="2" name="mur" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAEClNlYGBwGqRYBeguVyBOGqTYBeq+JiA9WDEo/AYzGHUfZbEzGn6j4UdZCFCmezT9jYYfZSFAme7R9DcafpSFAGW6R9MfZeE3mHWzEHCcMlRekYA6ekurAi0E9emcoRYPNvfBwg0WLqPug4UEJg0AljjdQ6APAAA=
+  </data>
+ </layer>
+ <layer id="4" name="background" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMvAcGvpOLOqAPAAA=
+  </data>
+ </layer>
+ <layer id="5" name="overground" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QMQ4AIAgEMNT//1kHx3MzTCVhgZAjrVIECBAgQIAAAQIECBDoE5gnKvW6L4zHPt38nPUJSCKQBTagvOUwoA8AAA==
+  </data>
+ </layer>
+ <layer id="6" name="overground 2" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMvAcGvpOLOqAPAAA=
+  </data>
+ </layer>
+ <layer id="7" name="logique" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2XQQrAIAwE1+oD2n6g+P9PNtLmZk4rmMMGQiAaCLN70NKAoqQYPMYvY7quSBrajxNG/MSPI8BNy3/ixxHgpuU/8eMIcNPy3xp+p72fZ3lbf8QVnM9mVvZc36jWf7/DanRnZz/rfs14jf9ST8rPuX3uA3bq+wIR4XtKoA8AAA==
+  </data>
+ </layer>
+ <objectgroup id="8" name="trigger" width="1" height="1" >
+  <object id="1" x="176" y="772" width="124" height="28">
+   <properties>
+    <property name="destiMap" value="desert.tmx"/>
+    <property name="destiX" type="int" value="380"/>
+    <property name="destiY" type="int" value="150"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

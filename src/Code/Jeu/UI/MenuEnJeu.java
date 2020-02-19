@@ -71,7 +71,7 @@ public class MenuEnJeu {
 
         }else if (inventaire.isCharger(x,y)) {
             inChargement = true;
-            message.affichage("La partie va etre charger");
+            message.affichage("La partie va etre chargéeddddddddd");
 
         } else if (inventaire.isRetour(x,y)) {
             click.play();
@@ -87,7 +87,7 @@ public class MenuEnJeu {
 
             if (message.isOk(x, y)) {
                 click.play();
-                game.enterState(1);
+                container.exit();
                 message.setShow(false);
                 inventaire.setShow(false);
                 inQuitter = false;

@@ -7,6 +7,8 @@ package Code.Combats;
 
 import Code.Jeu.MapGameState;
 import org.newdawn.slick.*;
+import org.newdawn.slick.command.InputProvider;
+import org.newdawn.slick.command.KeyControl;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -34,7 +36,7 @@ public class CombatGameState extends BasicGameState  {
 
     @Override
     public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        //musique.loop();
+        musique.loop();
     }
 
     @Override
@@ -49,6 +51,13 @@ public class CombatGameState extends BasicGameState  {
         background = new Image("src/Ressources/Combat/font.png");
         ennemi.init();
         hero.init();
+
+
+        InputProvider provider = new InputProvider(gameContainer.getInput());
+        provider.bindCommand(new KeyControl(Input.KEY_A), CombatCommande.ATTAQUER);
+        provider.bindCommand(new KeyControl(Input.KEY_Z), CombatCommande.DEFENDRE);
+        provider.bindCommand(new KeyControl(Input.KEY_E), CombatCommande.FUIR);
+        provider.addListener(new CombatController(hero, ennemi, game));
         }
 
     @Override
@@ -65,6 +74,5 @@ public class CombatGameState extends BasicGameState  {
 
     @Override
     public void keyPressed(int key, char c) {
-        game.enterState(MapGameState.ID);
     }
 }
