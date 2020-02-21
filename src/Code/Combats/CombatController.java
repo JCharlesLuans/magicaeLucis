@@ -6,7 +6,7 @@
 package Code.Combats;
 
 import Code.Jeu.MapGameState;
-import Code.Menu.MenuGameState;
+import Code.Menu.GameOverState;
 import org.newdawn.slick.command.Command;
 import org.newdawn.slick.command.InputProviderListener;
 import org.newdawn.slick.state.StateBasedGame;
@@ -69,13 +69,36 @@ public class CombatController implements InputProviderListener {
             hero.setPv(hero.getPv() - attaqueEnnemi);
 
             if (hero.getPv() <= 0) {
-                game.enterState(MenuGameState.ID);
+                game.enterState(GameOverState.ID);
             }
 
         }
     }
 
-    private void defendre() {}
+    private void defendre() {
+        // l'ennemi inflige entre 5 et 9 dégâts, la moitié est absorbée
+        int attaqueEnnemi = 10 + random.nextInt(9) /2;
+        hero.setPv(hero.getPv() - attaqueEnnemi);
+        if (hero.getPv() <= 0) { // joueur mort ?
+            game.enterState(GameOverState.ID); // retour titre
+        } else {
+            // le joueur inflige entre 7 et 10 dégats sans critique
+            int attaqueJoueur = 7 + random.nextInt(4);
+            ennemi.setPv(ennemi.getPv() - attaqueEnnemi);
+            if (ennemi.getPv() <= 0) { // ennemi mort ?
+                game.enterState(MapGameState.ID); // retour à la carte
+            }
+        }
+    }
 
-    private void fuir() {}
+    private void fuir() {
+        // l'ennemi inflige entre 5 et 9 dégats
+        int attaqueEnnemi = 10 + random.nextInt(9);
+        hero.setPv(hero.getPv() - attaqueEnnemi);
+        if (hero.getPv() <= 0) { // joueur mort ?
+            game.enterState(GameOverState.ID); // retour titre
+        } else {
+            game.enterState(MapGameState.ID); // retour à la carte
+        }
+    }
 }

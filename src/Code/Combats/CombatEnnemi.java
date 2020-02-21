@@ -17,10 +17,11 @@ public class CombatEnnemi {
 
     private Image ennemi;
 
-    private int pv = 25;
+    private int pv;
 
     public void init() throws SlickException {
         ennemi = new Image("src/Ressources/Combat/orc.png").getScaledCopy(0.25f);
+        pv = 25;
     }
 
     public void render(GameContainer gameContainer, Graphics graphics) {

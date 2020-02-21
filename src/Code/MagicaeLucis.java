@@ -2,6 +2,7 @@ package Code;
 
 import Code.Combats.CombatGameState;
 import Code.Jeu.MapGameState;
+import Code.Menu.GameOverState;
 import Code.Menu.MenuGameState;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -26,5 +27,6 @@ public class MagicaeLucis extends StateBasedGame {
         addState(new MenuGameState());
         addState(new MapGameState());
         addState(new CombatGameState());
+        addState(new GameOverState());
     }
 }

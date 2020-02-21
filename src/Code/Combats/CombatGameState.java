@@ -36,6 +36,7 @@ public class CombatGameState extends BasicGameState  {
 
     @Override
     public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+        ennemi.init();
         musique.loop();
     }
 
@@ -46,10 +47,11 @@ public class CombatGameState extends BasicGameState  {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        this.game = stateBasedGame;
+        game = stateBasedGame;
+
         musique = new Music("src/Ressources/Musique/The_Last_Encounter.ogg");
         background = new Image("src/Ressources/Combat/font.png");
-        ennemi.init();
+
         hero.init();
 
 
@@ -58,6 +60,7 @@ public class CombatGameState extends BasicGameState  {
         provider.bindCommand(new KeyControl(Input.KEY_Z), CombatCommande.DEFENDRE);
         provider.bindCommand(new KeyControl(Input.KEY_E), CombatCommande.FUIR);
         provider.addListener(new CombatController(hero, ennemi, game));
+
         }
 
     @Override
@@ -75,4 +78,6 @@ public class CombatGameState extends BasicGameState  {
     @Override
     public void keyPressed(int key, char c) {
     }
+
+    // TODO link entre les pv du joueur combat et les pvs du joueur map
 }
