@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3f0e267-288d-47f9-a73b-90da91214065" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Code/Menu/GameOverState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Menu/back_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Menu/game_over.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ressources/Musique/Secret_Second_Earth.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Combats/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Combats/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Combats/CombatEnnemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Combats/CombatEnnemi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Code/Combats/CombatGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Combats/CombatGameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/MagicaeLucis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/MagicaeLucis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Combats/CombatPersonnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Combats/CombatPersonnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/MapGameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/Personnage/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/Personnage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Jeu/Personnage/SavePersonnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Jeu/Personnage/SavePersonnage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582122483893</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ecran de game over">
+      <created>1582285976905</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582285976905</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +206,8 @@
     <MESSAGE value="Début de combat" />
     <MESSAGE value="Affichage des PVs en combat + correction des sauvegardes (camera ne montre plus le vide)" />
     <MESSAGE value="Attaques des combats (v1.0)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attaques des combats (v1.0)" />
+    <MESSAGE value="Ecran de game over" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ecran de game over" />
   </component>
   <component name="WindowStateProjectService">
     <state x="677" y="196" key="#MagicaeLucis" timestamp="1581412002265">
@@ -223,46 +228,46 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="724" y="389" key="#com.intellij.fileTypes.FileTypeChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581785074426" />
-    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser" timestamp="1582125569058">
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser" timestamp="1582286832323">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582125569058" />
+    <state x="686" y="125" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286832323" />
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1581329148772" />
     <state x="686" y="112" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1581414564968" />
-    <state x="599" y="180" key="CommitChangelistDialog2" timestamp="1582122481956">
+    <state x="599" y="180" key="CommitChangelistDialog2" timestamp="1582285975190">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="599" y="180" key="CommitChangelistDialog2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582122481956" />
+    <state x="599" y="180" key="CommitChangelistDialog2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285975190" />
     <state x="348" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1581693751322" />
     <state x="410" y="111" key="FileChooserDialogImpl" timestamp="1581698420035">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="410" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1581698420035" />
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1582285845368">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1582286843021">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285845368" />
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286843021" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1582285845368">
+    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1582286843021">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285845368" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286843021" />
     <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1582285845367">
+    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1582286843021">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285845367" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286843021" />
     <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516048" />
     <state width="1323" height="221" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
-    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1582285845368">
+    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1582286843021">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285845368" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286843021" />
     <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738/-228.-1080.1920.1050@0.0.1366.738" timestamp="1581436516049" />
     <state width="1323" height="221" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1581702208115" />
     <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581427891775" />
@@ -295,19 +300,19 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581779223493" />
-    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1582122491364">
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1582285980865">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="387" y="144" key="Vcs.Push.Dialog.v2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582122491364" />
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582285980865" />
     <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1581617243781" />
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1581411812023">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581411812023" />
-    <state x="616" y="273" key="run.anything.popup" timestamp="1581771333246">
+    <state x="616" y="273" key="run.anything.popup" timestamp="1582286551881">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="616" y="273" key="run.anything.popup/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1581771333246" />
+    <state x="616" y="273" key="run.anything.popup/-1280.0.1280.994/0.0.1920.1170@0.0.1920.1170" timestamp="1582286551881" />
     <state x="616" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1581851951184">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>

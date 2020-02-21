@@ -52,7 +52,7 @@ public class CombatGameState extends BasicGameState  {
         musique = new Music("src/Ressources/Musique/The_Last_Encounter.ogg");
         background = new Image("src/Ressources/Combat/font.png");
 
-        hero.init();
+        hero.init( (MapGameState) stateBasedGame.getState(MapGameState.ID));
 
 
         InputProvider provider = new InputProvider(gameContainer.getInput());

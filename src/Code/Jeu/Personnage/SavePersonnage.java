@@ -22,7 +22,7 @@ public class SavePersonnage {
      * Position du personnage
      */
     private float positionX,
-                  positionY;
+            positionY;
     /**
      * Direction du personnage
      */
@@ -31,7 +31,9 @@ public class SavePersonnage {
     /**
      * Nom de la carte sur laquelle se trouve le joueur
      */
-    String map;
+    private String map;
+
+    private int pv;
 
     public SavePersonnage() {
         positionX = positionY = direction = 0;
@@ -43,6 +45,7 @@ public class SavePersonnage {
         positionY = personnage.getPositionY();
         direction = personnage.getDirection();
         map = personnage.getMap().getNomMap();
+        pv = personnage.getPv();
 
         camPosX = cam.getPositionX();
         camPosY = cam.getPositionY();
@@ -52,12 +55,13 @@ public class SavePersonnage {
     public void chargement() {
         try {
             File save = new File("src/Ressources/Sauvegardes/save.ser");
-            ObjectInputStream ois =  new ObjectInputStream(new FileInputStream(save));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(save));
             SavePersonnage tmp = (SavePersonnage) ois.readObject();
             positionX = tmp.positionX;
             positionY = tmp.positionY;
             direction = tmp.direction;
             map = tmp.map;
+            pv = tmp.pv;
 
             camPosX = tmp.camPosX;
             camPosY = tmp.camPosY;
@@ -111,6 +115,14 @@ public class SavePersonnage {
         return camPosX;
     }
 
+    public int getPv() {
+        return pv;
+    }
+
+    public void setPv(int pv) {
+        this.pv = pv;
+    }
+
     public void setCamPosX(float camPosX) {
         this.camPosX = camPosX;
     }
@@ -124,6 +136,7 @@ public class SavePersonnage {
                 ", positionY=" + positionY +
                 ", direction=" + direction +
                 ", map='" + map + '\'' +
+                ", pv=" + pv +
                 '}';
     }
 }

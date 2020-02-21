@@ -165,6 +165,9 @@ public class MapGameState extends BasicGameState {
         this.charger = charger;
     }
 
+    public Personnage getHero() {
+        return hero;
+    }
 
     @Override
     public int getID() {

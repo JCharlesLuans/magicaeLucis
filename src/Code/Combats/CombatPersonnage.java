@@ -5,7 +5,10 @@
 
 package Code.Combats;
 
+import Code.Jeu.MapGameState;
+import Code.Jeu.Personnage.Personnage;
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.BasicGameState;
 
 /**
  * //TODO ecrire Java Doc
@@ -15,11 +18,15 @@ import org.newdawn.slick.*;
  */
 public class CombatPersonnage {
 
-    private int pv = 100;
+    private int pv;
+    private Personnage heroMap;
 
     private Image hero; // Image du héro
 
-    public void init() throws SlickException {
+    public void init(MapGameState mapGameState) throws SlickException {
+
+        heroMap = mapGameState.getHero();
+        pv = heroMap.getPv();
         hero = new Image("src/Ressources/Combat/hero.png").getScaledCopy(0.25f);
     }
 
@@ -39,6 +46,7 @@ public class CombatPersonnage {
 
     public void setPv(int pv) {
         this.pv = pv;
+        heroMap.setPv(pv);
     }
 
 }

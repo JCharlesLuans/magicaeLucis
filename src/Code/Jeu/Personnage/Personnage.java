@@ -58,7 +58,12 @@ public class Personnage implements Serializable {
     /**
      * Sprite du personnage
      */
-    SpriteSheet sprite;
+    private SpriteSheet sprite;
+
+    /**
+     * PV du joueur
+     */
+    private int pv;
 
 
     /* --------------------------------------------- Méthode ------------------------------ */
@@ -69,6 +74,7 @@ public class Personnage implements Serializable {
      */
     public Personnage(Map newMap) throws SlickException {
         map = newMap;
+        pv = 100;
         positionX = 650;
         positionY = 400; // Position a la création du personnage
         direction = BAS; // Position par default du personnage
@@ -213,6 +219,24 @@ public class Personnage implements Serializable {
         }
     }
 
+    public void chargement(Camera cam) throws SlickException {
+        SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
+        positionX = savePero.getPositionX();
+        positionY = savePero.getPositionY();
+        direction = savePero.getDirection();
+        map.changeMap(savePero.getMap());
+        pv = savePero.getPv();
+
+        cam.setPositionX(savePero.getCamPosX());
+        cam.setPositionY(savePero.getCamPosY());
+    }
+
+    public void sauvegarde(Camera cam) throws IOException {
+        SavePersonnage aSave = new  SavePersonnage(this, cam);
+        XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
+    }
+
+
     /**
      * Calcul la future position en X du personnage
      * @param delta de vitesse
@@ -320,19 +344,11 @@ public class Personnage implements Serializable {
         return map;
     }
 
-    public void chargement(Camera cam) throws SlickException {
-        SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
-        positionX = savePero.getPositionX();
-        positionY = savePero.getPositionY();
-        direction = savePero.getDirection();
-        map.changeMap(savePero.getMap());
-
-        cam.setPositionX(savePero.getCamPosX());
-        cam.setPositionY(savePero.getCamPosY());
+    public int getPv() {
+        return pv;
     }
 
-    public void sauvegarde(Camera cam) throws IOException {
-        SavePersonnage aSave = new  SavePersonnage(this, cam);
-        XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
+    public void setPv(int pv) {
+        this.pv = pv;
     }
 }
