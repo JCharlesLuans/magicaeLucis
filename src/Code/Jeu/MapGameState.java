@@ -105,7 +105,7 @@ public class MapGameState extends BasicGameState {
         cam = new Camera(hero, container, map);
 
         // Création du HUD
-        barres = new BarresStats();
+        barres = new BarresStats(hero);
 
         menuEnJeu = new MenuEnJeu(container, game);
 

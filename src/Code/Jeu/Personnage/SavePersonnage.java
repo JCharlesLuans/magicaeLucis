@@ -16,6 +16,9 @@ import java.io.*;
  */
 public class SavePersonnage {
 
+    private int mana;
+    private int xp;
+    private int niveau;
     private float camPosY;
     private float camPosX;
     /**
@@ -35,6 +38,8 @@ public class SavePersonnage {
 
     private int pv;
 
+    private int totalPv;
+
     public SavePersonnage() {
         positionX = positionY = direction = 0;
         map = "";
@@ -45,7 +50,13 @@ public class SavePersonnage {
         positionY = personnage.getPositionY();
         direction = personnage.getDirection();
         map = personnage.getMap().getNomMap();
+
         pv = personnage.getPv();
+        mana = personnage.getMana();
+        xp = personnage.getXp();
+
+        niveau = personnage.getNiveau();
+
 
         camPosX = cam.getPositionX();
         camPosY = cam.getPositionY();
@@ -62,6 +73,9 @@ public class SavePersonnage {
             direction = tmp.direction;
             map = tmp.map;
             pv = tmp.pv;
+            mana = tmp.mana;
+            xp = tmp.xp;
+            niveau = tmp.niveau;
 
             camPosX = tmp.camPosX;
             camPosY = tmp.camPosY;
@@ -127,16 +141,27 @@ public class SavePersonnage {
         this.camPosX = camPosX;
     }
 
-    @Override
-    public String toString() {
-        return "SavePersonnage{" +
-                "camPosY=" + camPosY +
-                ", camPosX=" + camPosX +
-                ", positionX=" + positionX +
-                ", positionY=" + positionY +
-                ", direction=" + direction +
-                ", map='" + map + '\'' +
-                ", pv=" + pv +
-                '}';
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public int getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(int niveau) {
+        this.niveau = niveau;
     }
 }
