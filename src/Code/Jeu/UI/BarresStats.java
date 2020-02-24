@@ -6,10 +6,9 @@
 package Code.Jeu.UI;
 
 import Code.Jeu.Personnage.Personnage;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import Code.Jeu.Personnage.Stats;
+import org.newdawn.slick.*;
+import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.geom.Rectangle;
 
 /**
@@ -23,11 +22,11 @@ public class BarresStats {
     private final int POS_X= 10,
                       POS_Y = 10;
 
-    private final int DEBUT_X = 9 + POS_X;
+    private final int DEBUT_X = 84 + POS_X;
 
-    private final int DEBUT_Y_VIE = 3 + POS_Y;
+    private final int DEBUT_Y_VIE = 4 + POS_Y;
     private final int DEBUT_Y_MANA = 24 + POS_Y;
-    private final int DEBUT_Y_XP = 45 + POS_Y;
+    private final int DEBUT_Y_XP = 44 + POS_Y;
 
     private final int LONGUEUR = 154; // Longueur maximale de la barre
     private final int HAUTEUR = 15;
@@ -36,35 +35,46 @@ public class BarresStats {
     private static final Color COULEUR_MANA = new Color(0, 0, 255);
     private static final Color COULEUR_XP = new Color(0, 255, 0);
 
-    private Personnage hero;
+    private Stats stats;
+
+    private Font font;
 
     /**
      * Image a afficher
      */
     private Image barreJoueur;
 
-    public BarresStats(Personnage hero) throws SlickException {
+    public BarresStats(Stats stats) throws SlickException {
+        font = new UnicodeFont(new java.awt.Font("DejaVu Serif", java.awt.Font.PLAIN, 20));
+        ((UnicodeFont) font).addAsciiGlyphs();
+        ((UnicodeFont) font).addGlyphs(400,600);
+        ((UnicodeFont) font).getEffects().add(new ColorEffect(java.awt.Color.WHITE));//Ca sert a quoi ?
+        ((UnicodeFont) font).loadGlyphs();
+
         barreJoueur = new Image("Ressources/HUD/barre_d_etat.png");
-        this.hero = hero;
+        this.stats = stats;
     }
 
-    public void affichage(Graphics graphics) {
+    public void affichage(Graphics graphics) throws SlickException {
 
         graphics.resetTransform();  // Permet de ne pas deplacer l'image avec le joueur
-        float pourcentagePv;
-        pourcentagePv =((float) hero.getPv() )/ ((float) hero.getTotalPv()) * LONGUEUR;
+        float pourcentagePv  = ((float) stats.getPv() )/ ((float) stats.getTotalPv()) * LONGUEUR;
+        float pourcentageMana  = ((float) stats.getMana() )/ ((float) stats.getTotalMana()) * LONGUEUR;
+        float pourcentageXp  = ((float) stats.getXp() )/ ((float) stats.getTotalXp()) * LONGUEUR;
 
         graphics.setColor(COULEUR_VIE);
         graphics.fillRect(DEBUT_X, DEBUT_Y_VIE, pourcentagePv, HAUTEUR);
 
         graphics.setColor(COULEUR_MANA);
-        graphics.fillRect(DEBUT_X, DEBUT_Y_MANA, LONGUEUR, HAUTEUR);
+        graphics.fillRect(DEBUT_X, DEBUT_Y_MANA, pourcentageMana, HAUTEUR);
 
         graphics.setColor(COULEUR_XP);
-        graphics.fillRect(DEBUT_X, DEBUT_Y_XP, LONGUEUR, HAUTEUR);
+        graphics.fillRect(DEBUT_X, DEBUT_Y_XP, pourcentageXp, HAUTEUR);
 
         graphics.drawImage(barreJoueur, 10, 10); // Position de l'image
 
+        graphics.setFont(font);
+        font.drawString(25 + POS_X, 20 + POS_Y, Integer.toString(stats.getNiveau()), Color.white);
     }
 
     public Image getBarreJoueur() {

@@ -63,40 +63,8 @@ public class Personnage implements Serializable {
      */
     private SpriteSheet sprite;
 
-    /**
-     * PV du joueur
-     */
-    private int pv;
-
-    /**
-     * Total des pv du joueur
-     */
-    private int totalPv;
-
-    /**
-     * Mana du joueur
-     */
-    private int mana;
-
-    /**
-     * Mana du joueur
-     */
-    private int totalMana;
-
-    /**
-     * Xp du joueur
-     */
-    private int xp;
-
-    /**
-     * total des xp du joueur
-     */
-    private int totalXp;
-
-    /**
-     * Niveau du joueur
-     */
-    private int niveau;
+    /** Stats du personnage */
+    Stats stats;
 
 
     /* --------------------------------------------- Méthode ------------------------------ */
@@ -108,11 +76,6 @@ public class Personnage implements Serializable {
     public Personnage(Map newMap) throws SlickException {
 
         map = newMap;
-        totalPv = pv = 100;
-        totalMana = mana = 100;
-        totalXp = 100;
-        xp = 0;
-        niveau = 1;
 
         positionX = 650;
         positionY = 400; // Position a la création du personnage
@@ -120,6 +83,8 @@ public class Personnage implements Serializable {
         moving = false; // Le personnage ne bouge pas lors de sa création
         sprite = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
         animer(sprite);
+
+        stats = new Stats(true);
     }
 
     /**
@@ -147,7 +112,9 @@ public class Personnage implements Serializable {
      * @param delta vitesse de deplacement
      */
     public void actualisation(int delta) {
-        actualisationNiveau();
+
+        stats.updateNiveau();
+
         updateTrigger();
         if (moving) {
             float futurX = getFuturX(delta);
@@ -263,12 +230,6 @@ public class Personnage implements Serializable {
         positionY = savePero.getPositionY();
         direction = savePero.getDirection();
         map.changeMap(savePero.getMap());
-        pv = savePero.getPv();
-        mana = savePero.getMana();
-        xp = savePero.getXp();
-        niveau = savePero.getNiveau();
-
-        totalPv = totalMana = totalXp = niveau * BONUS_NIVEAU;
 
         cam.setPositionX(savePero.getCamPosX());
         cam.setPositionY(savePero.getCamPosY());
@@ -279,18 +240,6 @@ public class Personnage implements Serializable {
         XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
     }
 
-    private void actualisationNiveau() {
-        if (xp >= totalXp && niveau < 100) {
-            niveau ++;
-            totalXp = niveau * BONUS_NIVEAU;
-            totalMana = niveau * BONUS_NIVEAU;
-            totalPv = niveau * BONUS_NIVEAU;
-
-            xp = 0;
-            mana = totalMana;
-            pv = totalPv;
-        }
-    }
 
 
     /**
@@ -400,42 +349,8 @@ public class Personnage implements Serializable {
         return map;
     }
 
-    public int getPv() {
-        return pv;
-    }
-
-    public void setPv(int pv) {
-        this.pv = pv;
-    }
-
-    public int getTotalPv() {return totalPv;}
-
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public int getTotalMana() {
-        return totalMana;
-    }
-
-    public int getXp() {
-        return xp;
-    }
-
-    public void setXp(int xp) {
-        this.xp = xp;
-    }
-
-    public int getTotalXp() {
-        return totalXp;
-    }
-
-    public int getNiveau() {
-        return niveau;
+    public Stats getStats() {
+        return stats;
     }
 
 }

@@ -36,7 +36,8 @@ public class CombatGameState extends BasicGameState  {
 
     @Override
     public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        ennemi.init();
+        int niveauEnnemi = ((MapGameState) stateBasedGame.getState(MapGameState.ID)).getNiveauMap();
+        ennemi.init(niveauEnnemi);
         musique.loop();
     }
 
@@ -56,9 +57,9 @@ public class CombatGameState extends BasicGameState  {
 
 
         InputProvider provider = new InputProvider(gameContainer.getInput());
-        provider.bindCommand(new KeyControl(Input.KEY_A), CombatCommande.ATTAQUER);
-        provider.bindCommand(new KeyControl(Input.KEY_Z), CombatCommande.DEFENDRE);
-        provider.bindCommand(new KeyControl(Input.KEY_E), CombatCommande.FUIR);
+        provider.bindCommand(new KeyControl(Input.KEY_NUMPAD1), CombatCommande.ATTAQUER);
+        provider.bindCommand(new KeyControl(Input.KEY_NUMPAD2), CombatCommande.DEFENDRE);
+        provider.bindCommand(new KeyControl(Input.KEY_NUMPAD3), CombatCommande.FUIR);
         provider.addListener(new CombatController(hero, ennemi, game));
 
         }
@@ -78,6 +79,4 @@ public class CombatGameState extends BasicGameState  {
     @Override
     public void keyPressed(int key, char c) {
     }
-
-    // TODO link entre les pv du joueur combat et les pvs du joueur map
 }

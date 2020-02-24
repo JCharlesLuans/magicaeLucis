@@ -105,7 +105,7 @@ public class MapGameState extends BasicGameState {
         cam = new Camera(hero, container, map);
 
         // Création du HUD
-        barres = new BarresStats(hero);
+        barres = new BarresStats(hero.getStats());
 
         menuEnJeu = new MenuEnJeu(container, game);
 
@@ -167,6 +167,9 @@ public class MapGameState extends BasicGameState {
 
     public Personnage getHero() {
         return hero;
+    }
+    public int getNiveauMap() {
+        return map.getNiveau();
     }
 
     @Override

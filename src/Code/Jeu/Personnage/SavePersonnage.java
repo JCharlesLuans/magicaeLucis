@@ -16,9 +16,6 @@ import java.io.*;
  */
 public class SavePersonnage {
 
-    private int mana;
-    private int xp;
-    private int niveau;
     private float camPosY;
     private float camPosX;
     /**
@@ -51,12 +48,6 @@ public class SavePersonnage {
         direction = personnage.getDirection();
         map = personnage.getMap().getNomMap();
 
-        pv = personnage.getPv();
-        mana = personnage.getMana();
-        xp = personnage.getXp();
-
-        niveau = personnage.getNiveau();
-
 
         camPosX = cam.getPositionX();
         camPosY = cam.getPositionY();
@@ -72,10 +63,6 @@ public class SavePersonnage {
             positionY = tmp.positionY;
             direction = tmp.direction;
             map = tmp.map;
-            pv = tmp.pv;
-            mana = tmp.mana;
-            xp = tmp.xp;
-            niveau = tmp.niveau;
 
             camPosX = tmp.camPosX;
             camPosY = tmp.camPosY;
@@ -141,27 +128,4 @@ public class SavePersonnage {
         this.camPosX = camPosX;
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public int getXp() {
-        return xp;
-    }
-
-    public void setXp(int xp) {
-        this.xp = xp;
-    }
-
-    public int getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(int niveau) {
-        this.niveau = niveau;
-    }
 }
