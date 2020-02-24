@@ -114,7 +114,7 @@ public class MapGameState extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame game, int delta) throws SlickException {
 
-        hero.actualisation(delta);
+        hero.update(delta);
         cam.actualisation();
 
         if (Math.random() < 0.001 && hero.isMoving()) {
@@ -142,6 +142,16 @@ public class MapGameState extends BasicGameState {
 
     public void keyReleased(int key, char c) {
         hero.arretPersonnage(key);
+
+        switch (key) {
+            case Input.MOUSE_LEFT_BUTTON:
+                hero.setCoup(false);
+                break;
+            case Input.MOUSE_RIGHT_BUTTON:
+                hero.setSort(false);
+                break;
+        }
+
     }
 
     public void keyPressed(int key, char c) {
@@ -151,14 +161,26 @@ public class MapGameState extends BasicGameState {
             case Input.KEY_Q: hero.setDirection(GAUCHE); hero.setMoving(true); break;
             case Input.KEY_S: hero.setDirection(BAS); hero.setMoving(true); break;
             case Input.KEY_D: hero.setDirection(DROITE); hero.setMoving(true); break;
+
             case Input.KEY_SPACE: menuEnJeu.setShowInventaire(true); break;
             case Input.KEY_ESCAPE: menuEnJeu.setShowInventaire(false); break;
         }
     }
 
-    public void mouseClicked(int button, int x, int y, int clickCount) {
+    public void mousePressed(int button, int x, int y) {
         // System.out.println("X: " + x + " Y: " + y);
         menuEnJeu.action(x, y, hero, cam);
+
+        switch (button) {
+            case Input.MOUSE_LEFT_BUTTON: hero.setCoup(true); break;
+            case Input.MOUSE_RIGHT_BUTTON: hero.setSort(true); break;
+        }
+    }
+
+    public void mouseReleased(int button, int x, int y) {
+        // System.out.println("X: " + x + " Y: " + y);
+        menuEnJeu.action(x, y, hero, cam);
+
     }
 
     public void setCharger(boolean charger) {
