@@ -117,11 +117,6 @@ public class MapGameState extends BasicGameState {
         hero.update(delta);
         cam.actualisation();
 
-        if (Math.random() < 0.001 && hero.isMoving()) {
-            game.enterState(CombatGameState.ID);
-            hero.setMoving(false);
-        }
-
     }
 
     @Override

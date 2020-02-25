@@ -18,6 +18,12 @@ public class Personnage implements Serializable, MouseListener {
                       BAS = 2,
                       DROITE = 3;
 
+    /* Indique les mouvement */
+    private final int MOUV_SORT = 12,
+                      MOUV_COUP = 8,
+                      MOUV_MOUVEMENT = 4,
+                      MOUV_STATIQUE = 0;
+
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
@@ -66,18 +72,12 @@ public class Personnage implements Serializable, MouseListener {
     /**
      * Animations du personnage lorsqu'il marche
      */
-    private Animation[] animationsMarche;
+    private Animation[] animations = new  Animation[16];
 
     /**
-     * Animations du personnage lorsqu'il jete un sort
+     * Indique le mouvement de l'animations
      */
-    private Animation[] animationsSort;
-
-    /**
-     * Animations du personnage lorsqu'il donne un coup
-     */
-    private Animation[] animationsCoup;
-
+    private int mouvement;
 
     /**
      * Sprite du personnage lorqi'il marche
@@ -139,13 +139,21 @@ public class Personnage implements Serializable, MouseListener {
         // -32 et -60 permetent de calculer l'affichage par rapport au pied du personnage (millieu bas) car
         // sinon affichage calculer par rapport au coin gauche du personnage
 
-        if (coup) {
-            graphics.drawAnimation(animationsCoup[direction], positionX-32, positionY-60);
+        if (moving) {
+            mouvement = MOUV_MOUVEMENT;
+            sort = false;
+            coup = false;
         } else if (sort) {
-            graphics.drawAnimation(animationsSort[direction], positionX-32, positionY-60);
-        } else {
-            graphics.drawAnimation(animationsMarche[direction + (moving ? 4 : 0)], positionX-32, positionY-60);
+            mouvement = MOUV_SORT;
+        } else if (coup) {
+            mouvement = MOUV_COUP;
+        }else {
+            mouvement = MOUV_STATIQUE;
+            sort = false;
+            coup = false;
         }
+
+        graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-60);
 
 
 
@@ -161,23 +169,20 @@ public class Personnage implements Serializable, MouseListener {
         stats.updateNiveau();
 
         //TODO DEBUGUER ANIMATIONS
-
-        for (Animation animation : animationsCoup) {
-            if (animation.isStopped() && coup) {
-                coup = false;
-                break;
-            }
+        if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
+            System.out.println(animations[direction + mouvement].getFrame());
+            mouvement = MOUV_STATIQUE;
+            sort = false;
         }
 
-        for (Animation animation : animationsSort) {
-            if (animation.isStopped() && sort) {
-                sort = false;
-                break;
-            }
+        if (animations[direction + mouvement].getFrame() == 5 && mouvement == MOUV_COUP) {
+            System.out.println(animations[direction + mouvement].getFrame());
+            mouvement = MOUV_STATIQUE;
+            coup = false;
         }
-
 
         updateTrigger();
+
         if (moving) {
             float futurX = getFuturX(delta);
             float futurY = getFuturY(delta);
@@ -217,21 +222,18 @@ public class Personnage implements Serializable, MouseListener {
      */
     private void animerMarche(SpriteSheet spriteSheet) {
 
-        Animation[] listeAnimation = new Animation[8];
-
         /* Position a l'arret */
-        listeAnimation[0] = loadAnimation(spriteSheet, 0, 1, 0);
-        listeAnimation[1] = loadAnimation(spriteSheet, 0, 1, 1);
-        listeAnimation[2] = loadAnimation(spriteSheet, 0, 1, 2);
-        listeAnimation[3] = loadAnimation(spriteSheet, 0, 1, 3);
+        animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
+        animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
+        animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
+        animations[3] = loadAnimation(spriteSheet, 0, 1, 3);
 
         /* Position en mouvement*/
-        listeAnimation[4] = loadAnimation(spriteSheet, 1, 9, 0);
-        listeAnimation[5] = loadAnimation(spriteSheet, 1, 9, 1);
-        listeAnimation[6] = loadAnimation(spriteSheet, 1, 9, 2);
-        listeAnimation[7] = loadAnimation(spriteSheet, 1, 9, 3);
+        animations[4] = loadAnimation(spriteSheet, 1, 9, 0);
+        animations[5] = loadAnimation(spriteSheet, 1, 9, 1);
+        animations[6] = loadAnimation(spriteSheet, 1, 9, 2);
+        animations[7] = loadAnimation(spriteSheet, 1, 9, 3);
 
-        animationsMarche = listeAnimation;
     }
 
     /**
@@ -239,19 +241,11 @@ public class Personnage implements Serializable, MouseListener {
      */
     private void animerCoup(SpriteSheet spriteSheet) {
 
-        Animation[] listeAnimation = new Animation[4];
-
         /* Position a l'arret */
-        listeAnimation[0] = loadAnimation(spriteSheet, 0, 6, 0);
-        listeAnimation[1] = loadAnimation(spriteSheet, 0, 6, 1);
-        listeAnimation[2] = loadAnimation(spriteSheet, 0, 6, 2);
-        listeAnimation[3] = loadAnimation(spriteSheet, 0, 6, 3);
-
-        for (int i = 0; i < listeAnimation.length; i++) {
-            listeAnimation[i].setLooping(false);
-        }
-
-        animationsCoup = listeAnimation;
+        animations[8] = loadAnimation(spriteSheet, 0, 6, 0);
+        animations[9] = loadAnimation(spriteSheet, 0, 6, 1);
+        animations[10] = loadAnimation(spriteSheet, 0, 6, 2);
+        animations[11] = loadAnimation(spriteSheet, 0, 6, 3);
     }
 
     /**
@@ -259,19 +253,12 @@ public class Personnage implements Serializable, MouseListener {
      */
     private void animerSort(SpriteSheet spriteSheet) {
 
-        Animation[] listeAnimation = new Animation[4];
-
         /* Position a l'arret */
-        listeAnimation[0] = loadAnimation(spriteSheet, 0, 7, 0);
-        listeAnimation[1] = loadAnimation(spriteSheet, 0, 7, 1);
-        listeAnimation[2] = loadAnimation(spriteSheet, 0, 7, 2);
-        listeAnimation[3] = loadAnimation(spriteSheet, 0, 7, 3);
+        animations[12] = loadAnimation(spriteSheet, 0, 7, 0);
+        animations[13] = loadAnimation(spriteSheet, 0, 7, 1);
+        animations[14] = loadAnimation(spriteSheet, 0, 7, 2);
+        animations[15] = loadAnimation(spriteSheet, 0, 7, 3);
 
-        for (int i = 0; i < listeAnimation.length; i++) {
-            listeAnimation[i].setLooping(false);
-        }
-
-        animationsSort = listeAnimation;
     }
 
     private void updateTrigger()  {
@@ -488,13 +475,16 @@ public class Personnage implements Serializable, MouseListener {
     public void mousePressed(int i, int i1, int i2) {
         switch (i) {
             case Input.MOUSE_RIGHT_BUTTON:
-                sort = true;
-                animationsSort[direction].start();
+                mouvement = MOUV_SORT;
+                try {
+                    new Spell(direction, positionX, positionY);
+                } catch (SlickException e) {
+                    e.printStackTrace();
+                }
                 break;
 
             case Input.MOUSE_LEFT_BUTTON:
-                coup = true;
-                animationsCoup[direction].start();
+                mouvement = MOUV_COUP;
                 break;
         }
     }
