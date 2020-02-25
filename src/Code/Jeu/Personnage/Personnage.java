@@ -10,7 +10,7 @@ import java.io.*;
  * Classe du personnage principal du jeu
  * @author J-Charles Luans
  */
-public class Personnage implements Serializable {
+public class Personnage implements Serializable, MouseListener {
 
     /* Indique les position */
     private final int HAUT = 0,
@@ -48,20 +48,51 @@ public class Personnage implements Serializable {
     private boolean moving;
 
     /**
+     *  Indicateur d'attaque
+     */
+    private boolean coup;
+
+    /**
+     *  Indicateur de sort
+     */
+    private boolean sort;
+
+    /**
      * Inidique si le personnage est sur un escalier ou pas
      */
     private boolean escalierDroite,
                     escalierGauche;
 
     /**
-     * Animations du personnage
+     * Animations du personnage lorsqu'il marche
      */
-    private Animation[] listeAnimation = new Animation[8];
+    private Animation[] animationsMarche;
 
     /**
-     * Sprite du personnage
+     * Animations du personnage lorsqu'il jete un sort
      */
-    private SpriteSheet sprite;
+    private Animation[] animationsSort;
+
+    /**
+     * Animations du personnage lorsqu'il donne un coup
+     */
+    private Animation[] animationsCoup;
+
+
+    /**
+     * Sprite du personnage lorqi'il marche
+     */
+    private SpriteSheet spriteMarche;
+
+    /**
+     * Sprite du personnage lorsqu'il jete un coup
+     */
+    private SpriteSheet spriteSort;
+
+    /**
+     * Sprite du personnage lorsqu'il donne un coup
+     */
+    private SpriteSheet spriteCoup;
 
     /** Stats du personnage */
     Stats stats;
@@ -81,8 +112,13 @@ public class Personnage implements Serializable {
         positionY = 400; // Position a la création du personnage
         direction = BAS; // Position par default du personnage
         moving = false; // Le personnage ne bouge pas lors de sa création
-        sprite = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
-        animer(sprite);
+        spriteMarche = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
+        spriteSort = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_sort.png", 64, 64);
+        spriteCoup = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_coup.png", 64, 64);
+
+        animerMarche(spriteMarche);
+        animerSort(spriteSort);
+        animerCoup(spriteCoup);
 
         stats = new Stats(true);
     }
@@ -102,7 +138,16 @@ public class Personnage implements Serializable {
 
         // -32 et -60 permetent de calculer l'affichage par rapport au pied du personnage (millieu bas) car
         // sinon affichage calculer par rapport au coin gauche du personnage
-        graphics.drawAnimation(listeAnimation[direction + (moving ? 4 : 0)], positionX-32, positionY-60);
+
+        if (coup) {
+            graphics.drawAnimation(animationsCoup[direction], positionX-32, positionY-60);
+        } else if (sort) {
+            graphics.drawAnimation(animationsSort[direction], positionX-32, positionY-60);
+        } else {
+            graphics.drawAnimation(animationsMarche[direction + (moving ? 4 : 0)], positionX-32, positionY-60);
+        }
+
+
 
     }
 
@@ -111,9 +156,26 @@ public class Personnage implements Serializable {
      *
      * @param delta vitesse de deplacement
      */
-    public void actualisation(int delta) {
+    public void update(int delta) {
 
         stats.updateNiveau();
+
+        //TODO DEBUGUER ANIMATIONS
+
+        for (Animation animation : animationsCoup) {
+            if (animation.isStopped() && coup) {
+                coup = false;
+                break;
+            }
+        }
+
+        for (Animation animation : animationsSort) {
+            if (animation.isStopped() && sort) {
+                sort = false;
+                break;
+            }
+        }
+
 
         updateTrigger();
         if (moving) {
@@ -153,7 +215,9 @@ public class Personnage implements Serializable {
     /**
      * Anime le personnage
      */
-    private void animer(SpriteSheet spriteSheet) {
+    private void animerMarche(SpriteSheet spriteSheet) {
+
+        Animation[] listeAnimation = new Animation[8];
 
         /* Position a l'arret */
         listeAnimation[0] = loadAnimation(spriteSheet, 0, 1, 0);
@@ -167,6 +231,47 @@ public class Personnage implements Serializable {
         listeAnimation[6] = loadAnimation(spriteSheet, 1, 9, 2);
         listeAnimation[7] = loadAnimation(spriteSheet, 1, 9, 3);
 
+        animationsMarche = listeAnimation;
+    }
+
+    /**
+     * Anime le personnage
+     */
+    private void animerCoup(SpriteSheet spriteSheet) {
+
+        Animation[] listeAnimation = new Animation[4];
+
+        /* Position a l'arret */
+        listeAnimation[0] = loadAnimation(spriteSheet, 0, 6, 0);
+        listeAnimation[1] = loadAnimation(spriteSheet, 0, 6, 1);
+        listeAnimation[2] = loadAnimation(spriteSheet, 0, 6, 2);
+        listeAnimation[3] = loadAnimation(spriteSheet, 0, 6, 3);
+
+        for (int i = 0; i < listeAnimation.length; i++) {
+            listeAnimation[i].setLooping(false);
+        }
+
+        animationsCoup = listeAnimation;
+    }
+
+    /**
+     * Anime le personnage
+     */
+    private void animerSort(SpriteSheet spriteSheet) {
+
+        Animation[] listeAnimation = new Animation[4];
+
+        /* Position a l'arret */
+        listeAnimation[0] = loadAnimation(spriteSheet, 0, 7, 0);
+        listeAnimation[1] = loadAnimation(spriteSheet, 0, 7, 1);
+        listeAnimation[2] = loadAnimation(spriteSheet, 0, 7, 2);
+        listeAnimation[3] = loadAnimation(spriteSheet, 0, 7, 3);
+
+        for (int i = 0; i < listeAnimation.length; i++) {
+            listeAnimation[i].setLooping(false);
+        }
+
+        animationsSort = listeAnimation;
     }
 
     private void updateTrigger()  {
@@ -353,4 +458,79 @@ public class Personnage implements Serializable {
         return stats;
     }
 
+    public boolean isCoup() {
+        return coup;
+    }
+
+    public void setCoup(boolean coup) {
+        this.coup = coup;
+    }
+
+    public boolean isSort() {
+        return sort;
+    }
+
+    public void setSort(boolean sort) {
+        this.sort = sort;
+    }
+
+    @Override
+    public void mouseWheelMoved(int i) {
+
+    }
+
+    @Override
+    public void mouseClicked(int i, int i1, int i2, int i3) {
+
+    }
+
+    @Override
+    public void mousePressed(int i, int i1, int i2) {
+        switch (i) {
+            case Input.MOUSE_RIGHT_BUTTON:
+                sort = true;
+                animationsSort[direction].start();
+                break;
+
+            case Input.MOUSE_LEFT_BUTTON:
+                coup = true;
+                animationsCoup[direction].start();
+                break;
+        }
+    }
+
+    @Override
+    public void mouseReleased(int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void mouseMoved(int i, int i1, int i2, int i3) {
+
+    }
+
+    @Override
+    public void mouseDragged(int i, int i1, int i2, int i3) {
+
+    }
+
+    @Override
+    public void setInput(Input input) {
+
+    }
+
+    @Override
+    public boolean isAcceptingInput() {
+        return false;
+    }
+
+    @Override
+    public void inputEnded() {
+
+    }
+
+    @Override
+    public void inputStarted() {
+
+    }
 }
