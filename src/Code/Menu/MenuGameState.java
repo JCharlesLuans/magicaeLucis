@@ -5,7 +5,6 @@
 
 package Code.Menu;
 
-import Code.Jeu.Map;
 import Code.Jeu.MapGameState;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;

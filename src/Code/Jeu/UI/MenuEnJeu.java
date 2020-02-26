@@ -8,7 +8,7 @@ package Code.Jeu.UI;
 import Code.Jeu.MapGameState;
 import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
-import Code.Jeu.Personnage.SavePersonnage;
+import Code.Jeu.Sauvegarde.Sauvegarde;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
@@ -63,11 +63,7 @@ public class MenuEnJeu {
             click.play();
             inSauvegarde = true;
             message.affichage("La partie a été sauvegardée");
-            try {
-                hero.sauvegarde(cam);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Sauvegarde.sauvegarde(hero);
 
         }else if (inventaire.isCharger(x,y)) {
             inChargement = true;

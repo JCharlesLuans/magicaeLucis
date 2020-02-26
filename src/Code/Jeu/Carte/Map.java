@@ -1,4 +1,4 @@
-package Code.Jeu;
+package Code.Jeu.Carte;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;

@@ -1,9 +1,10 @@
 package Code.Jeu;
 
-import Code.Combats.CombatGameState;
+import Code.Jeu.Carte.Map;
 import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
 import Code.Jeu.Personnage.Spell;
+import Code.Jeu.Sauvegarde.Sauvegarde;
 import Code.Jeu.UI.BarresStats;
 import Code.Jeu.UI.MenuEnJeu;
 import org.newdawn.slick.*;
@@ -83,7 +84,7 @@ public class MapGameState extends BasicGameState {
         background.loop();
 
         if (charger) {
-            hero.chargement(cam);
+            hero = Sauvegarde.chargement();
             charger = false;
         }
     }

@@ -1,10 +1,12 @@
 package Code.Jeu.Personnage;
 
-import Code.Jeu.Map;
+import Code.Jeu.Carte.Map;
+import Code.Jeu.Sauvegarde.Sauvegarde;
 import Code.Jeu.XMLTools;
 import org.newdawn.slick.*;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Classe du personnage principal du jeu
@@ -331,31 +333,7 @@ public class Personnage implements Serializable {
         }
     }
 
-    /**
-     * Charge le personnage
-     * @param cam camera qui suit le personnage
-     * @throws SlickException
-     */
-    public void chargement(Camera cam) throws SlickException {
-        SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
-        positionX = savePero.getPositionX();
-        positionY = savePero.getPositionY();
-        direction = savePero.getDirection();
-        map.changeMap(savePero.getMap());
 
-        cam.setPositionX(savePero.getCamPosX());
-        cam.setPositionY(savePero.getCamPosY());
-    }
-
-    /**
-     * Sauvegarde le personage
-     * @param cam camera qui suit le personnage
-     * @throws IOException
-     */
-    public void sauvegarde(Camera cam) throws IOException {
-        SavePersonnage aSave = new  SavePersonnage(this, cam);
-        XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
-    }
 
 
 
@@ -484,5 +462,15 @@ public class Personnage implements Serializable {
 
     public void setSort(boolean sort) {
         this.sort = sort;
+    }
+
+    @Override
+    public String toString() {
+        return "Personnage{" +
+                "map=" + map.getNomMap() +
+                ", positionX=" + positionX +
+                ", positionY=" + positionY +
+                ", direction=" + direction +
+                '}';
     }
 }

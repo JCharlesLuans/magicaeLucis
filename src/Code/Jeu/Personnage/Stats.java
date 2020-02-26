@@ -156,4 +156,20 @@ public class Stats {
     public void setXp(int xp) {
         this.xp = xp;
     }
+
+    @Override
+    public String toString() {
+        return "Stats{" +
+                "niveau=" + niveau +
+                ", pv=" + pv +
+                ", mana=" + mana +
+                ", xp=" + xp +
+                ", totalPv=" + totalPv +
+                ", totalMana=" + totalMana +
+                ", totalXp=" + totalXp +
+                ", degaAttaque=" + degaAttaque +
+                ", degaDefense=" + degaDefense +
+                ", bouclier=" + bouclier +
+                '}';
+    }
 }

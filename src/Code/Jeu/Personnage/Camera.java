@@ -1,6 +1,6 @@
 package Code.Jeu.Personnage;
 
-import Code.Jeu.Map;
+import Code.Jeu.Carte.Map;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
