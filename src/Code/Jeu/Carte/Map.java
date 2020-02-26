@@ -15,6 +15,7 @@ public class Map {
     private String nomMap;
 
     private int niveau;
+    private int nbEnnemi;
 
     /**
      * Initialise la map
@@ -25,6 +26,7 @@ public class Map {
         map = new TiledMap("Ressources/Map/campagne_ThunderSun.tmx");
         nomMap = "campagne_ThunderSun.tmx";
         niveau = Integer.parseInt(map.getMapProperty("niveau", "undefine"));
+        nbEnnemi = Integer.parseInt(map.getMapProperty("nbEnnemi", "undefine"));
     }
 
     public Map(String nom) throws SlickException {

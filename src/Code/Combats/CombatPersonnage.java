@@ -12,7 +12,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 
 /**
- * //TODO ecrire Java Doc
+ * Object représentant les peersonnages
  *
  * @author Jean-Charles Luans
  * @verison 1.0

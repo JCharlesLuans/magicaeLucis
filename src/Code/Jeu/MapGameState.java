@@ -1,6 +1,7 @@
 package Code.Jeu;
 
 import Code.Jeu.Carte.Map;
+import Code.Jeu.PNJ.Manequin;
 import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
 import Code.Jeu.Personnage.Spell;
@@ -54,6 +55,9 @@ public class MapGameState extends BasicGameState {
 
     /** Camera principale */
     private Camera cam;
+
+    /** Ennemi */
+    private Manequin mob;
 
     /** Barre de vie du personnage principal */
     private BarresStats barres;
@@ -109,6 +113,9 @@ public class MapGameState extends BasicGameState {
         // Création du personnage principal
         hero = new Personnage(map, spell);
 
+        // Création du manequin
+        mob = new Manequin(map);
+
         // Création de la camera
         cam = new Camera(hero, container, map);
 
@@ -134,10 +141,15 @@ public class MapGameState extends BasicGameState {
         gameContainer.setShowFPS(false); // Affichage des fps
 
         cam.render(graphics);            // Affiche la camera sur la moitier de l'ecran
+
         map.renderBackground();          // Rendu du background de la carte
-        spell.render(graphics);
+
+        spell.render(graphics);          // Rendu du sort du personnage
         hero.render(graphics);           // Rendu du personnnage
+        mob.render(graphics);            // Rendu du mob
+
         map.renderForeground();          // Rendu du foreground de la carte
+
         barres.affichage(graphics);      // Rendu des barres de vie de magie et d'xp
         menuEnJeu.render(graphics);      // Rendu du menu + de l'inventaire
 

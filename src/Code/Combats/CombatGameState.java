@@ -13,7 +13,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
- * //TODO ecrire Java Doc
+ * Game state des combat au tour par tour
  *
  * @author Jean-Charles Luans
  * @verison 1.0

@@ -29,9 +29,6 @@ public class Personnage implements Serializable {
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
-    /* Pourcentage de bonus lors de prise de niveau */
-    private final int BONUS_NIVEAU = 125;
-
     /*----------------------------------------- Argument -------------------------------------- */
 
     /**

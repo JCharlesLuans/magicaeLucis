@@ -12,8 +12,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
 /**
- * //TODO ecrire Java Doc
- *
+ * Menu principal du jeu
+ * Game state du menu
+ * ID = 1
  * @author Jean-Charles Luans
  * @verison 1.0
  */
