@@ -1,6 +1,7 @@
 package Code.Jeu.Personnage;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
@@ -19,14 +20,29 @@ public class Spell {
     private int direction;
 
     /** Sprite du sort */
-    SpriteSheet spriteSheet;
+    private SpriteSheet spriteSheet;
 
     /** Animations */
-    Animation[] animations = new Animation[4];
+    private Animation[] animations = new Animation[4];
+
+    /** Visible */
+    private boolean visible;
 
     /** Position de X et Y */
     private float positionX,
                   positionY;
+
+    /**
+     * Créer un nouveau sort avec comme positionpar default (0,0)
+     * qui n'est pas visible
+     */
+    public Spell() throws SlickException {
+        direction = HAUT;
+        positionX = positionY = 0;
+        visible = true;
+        spriteSheet = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
+        animer(spriteSheet);
+    }
 
     /**
      * Créer un nouveau sort
@@ -38,7 +54,81 @@ public class Spell {
         direction = newDirection;
         positionX = departX;
         positionY = departY;
+        visible = true;
         spriteSheet = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
+        animer(spriteSheet);
+    }
+
+    /**
+     * Affiche le sort
+     * @param graphics : graphique sur le quelle on affiche le sort
+     */
+    public void render(Graphics graphics) {
+        if (visible) graphics.drawAnimation(animations[direction], positionX-32, positionY-15);
+    }
+
+    /**
+     * Rafraichie le sort
+     * @param delta : vitesse du jeu
+     */
+    public void update(int delta) {
+        if (visible) {
+            positionX = getFuturX(delta);
+            positionY = getFuturY(delta);
+        }
+    }
+
+    /**
+     * Tir le sort
+     */
+    public void tirer(float newPositionX, float newPositionY, int newDirection) {
+        visible = true;
+        positionX = newPositionX;
+        positionY = newPositionY;
+        direction = newDirection;
+    }
+
+    /**
+     * Calcul la future position en X du personnage
+     * @param delta de vitesse
+     */
+    private float getFuturX(int delta) {
+
+        float futurX = positionX;
+
+        switch (direction) {
+
+            case GAUCHE:
+                futurX -= .1f * delta;
+                break;
+
+            case DROITE:
+                futurX += .1f * delta;
+                break;
+        }
+        return futurX;
+    }
+
+    /**
+     * Calcul la future position en Y du personnage
+     * @param delta de vitesse
+     */
+    private float getFuturY(int delta) {
+
+        float futurY = positionY;
+
+        switch (this.direction) {
+
+            case HAUT:
+                futurY = positionY - .1f * delta;
+                break;
+
+            case BAS:
+                futurY = positionY + .1f * delta;
+                break;
+        }
+
+        return futurY;
     }
 
     /**
@@ -68,8 +158,8 @@ public class Spell {
         /* Position a l'arret */
         animations[HAUT] = loadAnimation(spriteSheet, 0, 8, 2);
         animations[GAUCHE] = loadAnimation(spriteSheet, 0, 8, 0);
-        animations[BAS] = loadAnimation(spriteSheet, 0, 8, 4);
-        animations[DROITE] = loadAnimation(spriteSheet, 0, 8, 6);
+        animations[BAS] = loadAnimation(spriteSheet, 0, 8, 6);
+        animations[DROITE] = loadAnimation(spriteSheet, 0, 8, 4);
 
     }
 }

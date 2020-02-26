@@ -10,7 +10,7 @@ import java.io.*;
  * Classe du personnage principal du jeu
  * @author J-Charles Luans
  */
-public class Personnage implements Serializable, MouseListener {
+public class Personnage implements Serializable {
 
     /* Indique les position */
     private final int HAUT = 0,
@@ -36,6 +36,11 @@ public class Personnage implements Serializable, MouseListener {
      * Map sur laquelle évolue le joueur
      */
     private Map map;
+
+    /**
+     * Spell que peux lancer le personnage
+     */
+    private Spell spell;
 
     /**
      * Position du personnage
@@ -104,9 +109,10 @@ public class Personnage implements Serializable, MouseListener {
      * Créer un personnage en précisent ou se situe le personnage
      * @param newMap
      */
-    public Personnage(Map newMap) throws SlickException {
+    public Personnage(Map newMap, Spell newSpell) throws SlickException {
 
         map = newMap;
+        spell = newSpell;
 
         positionX = 650;
         positionY = 400; // Position a la création du personnage
@@ -143,7 +149,7 @@ public class Personnage implements Serializable, MouseListener {
             mouvement = MOUV_MOUVEMENT;
             sort = false;
             coup = false;
-        } else if (sort) {
+        } else if (sort && stats.getMana() > 0) {
             mouvement = MOUV_SORT;
         } else if (coup) {
             mouvement = MOUV_COUP;
@@ -168,10 +174,10 @@ public class Personnage implements Serializable, MouseListener {
 
         stats.updateNiveau();
 
-        //TODO DEBUGUER ANIMATIONS
         if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
-            System.out.println(animations[direction + mouvement].getFrame());
             mouvement = MOUV_STATIQUE;
+            spell.tirer(positionX, positionY, direction);
+            stats.setMana(stats.getMana() - 25);
             sort = false;
         }
 
@@ -196,6 +202,7 @@ public class Personnage implements Serializable, MouseListener {
             }
 
         }
+
     }
 
     /**
@@ -261,6 +268,9 @@ public class Personnage implements Serializable, MouseListener {
 
     }
 
+    /**
+     * Gere les update de triggerr
+     */
     private void updateTrigger()  {
 
         escalierDroite = escalierGauche = false;
@@ -288,6 +298,11 @@ public class Personnage implements Serializable, MouseListener {
         }
     }
 
+    /**
+     * Verifie si il y a un trigger
+     * @param id id de l'objet
+     * @return true si il y a un trigger
+     */
     private boolean isInTrigger(int id) {
 
         return positionX > map.getObjectX(id)
@@ -316,6 +331,11 @@ public class Personnage implements Serializable, MouseListener {
         }
     }
 
+    /**
+     * Charge le personnage
+     * @param cam camera qui suit le personnage
+     * @throws SlickException
+     */
     public void chargement(Camera cam) throws SlickException {
         SavePersonnage savePero = (SavePersonnage) XMLTools.decodeFromFile("src/Ressources/Sauvegardes/save.xml");
         positionX = savePero.getPositionX();
@@ -327,6 +347,11 @@ public class Personnage implements Serializable, MouseListener {
         cam.setPositionY(savePero.getCamPosY());
     }
 
+    /**
+     * Sauvegarde le personage
+     * @param cam camera qui suit le personnage
+     * @throws IOException
+     */
     public void sauvegarde(Camera cam) throws IOException {
         SavePersonnage aSave = new  SavePersonnage(this, cam);
         XMLTools.encodeToFile(aSave, "src/Ressources/Sauvegardes/save.xml");
@@ -459,68 +484,5 @@ public class Personnage implements Serializable, MouseListener {
 
     public void setSort(boolean sort) {
         this.sort = sort;
-    }
-
-    @Override
-    public void mouseWheelMoved(int i) {
-
-    }
-
-    @Override
-    public void mouseClicked(int i, int i1, int i2, int i3) {
-
-    }
-
-    @Override
-    public void mousePressed(int i, int i1, int i2) {
-        switch (i) {
-            case Input.MOUSE_RIGHT_BUTTON:
-                mouvement = MOUV_SORT;
-                try {
-                    new Spell(direction, positionX, positionY);
-                } catch (SlickException e) {
-                    e.printStackTrace();
-                }
-                break;
-
-            case Input.MOUSE_LEFT_BUTTON:
-                mouvement = MOUV_COUP;
-                break;
-        }
-    }
-
-    @Override
-    public void mouseReleased(int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void mouseMoved(int i, int i1, int i2, int i3) {
-
-    }
-
-    @Override
-    public void mouseDragged(int i, int i1, int i2, int i3) {
-
-    }
-
-    @Override
-    public void setInput(Input input) {
-
-    }
-
-    @Override
-    public boolean isAcceptingInput() {
-        return false;
-    }
-
-    @Override
-    public void inputEnded() {
-
-    }
-
-    @Override
-    public void inputStarted() {
-
     }
 }

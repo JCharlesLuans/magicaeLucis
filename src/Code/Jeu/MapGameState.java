@@ -3,6 +3,7 @@ package Code.Jeu;
 import Code.Combats.CombatGameState;
 import Code.Jeu.Personnage.Camera;
 import Code.Jeu.Personnage.Personnage;
+import Code.Jeu.Personnage.Spell;
 import Code.Jeu.UI.BarresStats;
 import Code.Jeu.UI.MenuEnJeu;
 import org.newdawn.slick.*;
@@ -46,6 +47,9 @@ public class MapGameState extends BasicGameState {
 
     /** Personnage principal */
     private Personnage hero;
+
+    /** Sort du hero */
+    private Spell spell;
 
     /** Camera principale */
     private Camera cam;
@@ -98,8 +102,11 @@ public class MapGameState extends BasicGameState {
         // Création de la map
         map = new Map();
 
+        // Création du sort
+        spell = new Spell();
+
         // Création du personnage principal
-        hero = new Personnage(map);
+        hero = new Personnage(map, spell);
 
         // Création de la camera
         cam = new Camera(hero, container, map);
@@ -116,6 +123,7 @@ public class MapGameState extends BasicGameState {
 
         hero.update(delta);
         cam.actualisation();
+        spell.update(delta);
 
     }
 
@@ -124,13 +132,14 @@ public class MapGameState extends BasicGameState {
 
         gameContainer.setShowFPS(false); // Affichage des fps
 
-
         cam.render(graphics);            // Affiche la camera sur la moitier de l'ecran
         map.renderBackground();          // Rendu du background de la carte
+        spell.render(graphics);
         hero.render(graphics);           // Rendu du personnnage
         map.renderForeground();          // Rendu du foreground de la carte
         barres.affichage(graphics);      // Rendu des barres de vie de magie et d'xp
         menuEnJeu.render(graphics);      // Rendu du menu + de l'inventaire
+
 
 
     }
