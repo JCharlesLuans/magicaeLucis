@@ -110,9 +110,6 @@ public class MapGameState extends BasicGameState {
         // Création du personnage principal
         hero = new Personnage(map);
 
-        // Création du manequin
-        mob = new Manequin(map);
-
         // Création de la camera
         cam = new Camera(hero, container, map);
 
@@ -140,8 +137,9 @@ public class MapGameState extends BasicGameState {
 
         map.renderBackground();          // Rendu du background de la carte
 
+
+        map.renderMob(graphics);            // Rendu du mob
         hero.render(graphics);           // Rendu du personnnage
-        mob.render(graphics);            // Rendu du mob
 
         map.renderForeground();          // Rendu du foreground de la carte
 

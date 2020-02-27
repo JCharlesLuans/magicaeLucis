@@ -1,12 +1,16 @@
 package Code.Jeu.Carte;
 
+import Code.Jeu.PNJ.Manequin;
+import Code.Jeu.PNJ.Mob;
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Map {
 
@@ -15,7 +19,11 @@ public class Map {
     private String nomMap;
 
     private int niveau;
-    private int nbEnnemi;
+
+    private int nbMob;   // Nombre de mobs
+    private Mob[] mobs;  // Les mobs
+
+    private Random rnd = new Random(); // Générateur de aléa
 
     /**
      * Initialise la map
@@ -25,8 +33,27 @@ public class Map {
         initialiseMap("src/Ressources/Map/campagne_ThunderSun.tmx");
         map = new TiledMap("Ressources/Map/campagne_ThunderSun.tmx");
         nomMap = "campagne_ThunderSun.tmx";
+
         niveau = Integer.parseInt(map.getMapProperty("niveau", "undefine"));
-        nbEnnemi = Integer.parseInt(map.getMapProperty("nbEnnemi", "undefine"));
+        nbMob = Integer.parseInt(map.getMapProperty("nbMob", "undefine"));
+        mobs = new Mob[nbMob];
+
+        generateurMobs();
+
+        mobs[0] = new Manequin(400,400, 1);
+    }
+
+    private void generateurMobs() throws SlickException {
+        for (int i = 1; i < nbMob; i++) {
+
+            float posX = rnd.nextInt(map.getWidth());
+            float posY = rnd.nextInt(map.getHeight());
+            int niveau = this.niveau + rnd.nextInt(2);
+
+            if (mobs[i] == null || !isCollision(posX, posY)) {
+                mobs[i] = new Manequin(posX, posY, niveau);
+            }
+        }
     }
 
     public Map(String nom) throws SlickException {
@@ -43,6 +70,14 @@ public class Map {
         map.render(0 ,0, 1); // sol
         map.render(0 ,0, 2); // background
         map.render(0 ,0, 3); // background 2
+    }
+
+    public void renderMob(Graphics graphics) throws SlickException {
+        for (int i = 0; i < nbMob; i++) {
+            if (mobs[i] != null) {
+                mobs[i].render(graphics);
+            }
+        }
     }
 
     /**
@@ -114,6 +149,7 @@ public class Map {
      *         false si il n'y a pas de colision
      */
     public boolean isCollision(float x, float y) {
+
         Image tile;
         Color color;
 
@@ -129,6 +165,42 @@ public class Map {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Verifi si il y a un mob au coordonnée
+     * @param x
+     * @param y
+     * @return true si il y a un mob
+     */
+    public boolean isMob(float x, float y) {
+        boolean isMob = false;
+
+        for (int i = 0; i < nbMob; i++) {
+
+            if (mobs[i] != null) {
+                isMob = isMob || mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
+                        && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32;
+            }
+
+        }
+        return isMob;
+    }
+
+    public Mob getMobAt(float x, float y) {
+        int i;
+
+        for (i = 0; i < nbMob; i++) {
+
+            if (mobs[i] != null) {
+                if (mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
+                        && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32) {
+                    break;
+                }
+            }
+
+        }
+        return mobs[i];
     }
 
     /**

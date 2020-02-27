@@ -1,5 +1,6 @@
 package Code.Jeu.Personnage;
 
+import Code.Jeu.Carte.Map;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -13,6 +14,13 @@ public class Spell {
             BAS = 2,
             DROITE = 3;
 
+    /**
+     * Indique le mouvement de l'animations
+     */
+    private int mouvement;
+
+    private final int EXPLOSION = 4;
+
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
@@ -20,43 +28,42 @@ public class Spell {
     private int direction;
 
     /** Sprite du sort */
-    private SpriteSheet spriteSheet;
+    private SpriteSheet spriteFireBall;
+    private SpriteSheet spriteExplosion;
 
     /** Animations */
-    private Animation[] animations = new Animation[4];
+    private Animation[] animations = new Animation[5];
 
     /** Visible */
     private boolean visible;
+    private boolean explose;
+    private boolean colision;
+    private boolean mob;
 
     /** Position de X et Y */
     private float positionX,
                   positionY;
 
+    private Map map;
+
+    private int dega;
+
     /**
      * Créer un nouveau sort avec comme positionpar default (0,0)
      * qui n'est pas visible
      */
-    public Spell() throws SlickException {
+    public Spell(Map map, int newDega) throws SlickException {
         direction = HAUT;
-        positionX = positionY = 0;
-        visible = true;
-        spriteSheet = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
-        animer(spriteSheet);
-    }
+        positionX = positionY = 200;
+        visible = false;
+        spriteFireBall = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
+        spriteExplosion = new SpriteSheet("Ressources/Personnage/Sprites/explosion.png", 96, 96);
+        dega = newDega;
 
-    /**
-     * Créer un nouveau sort
-     * @param newDirection direction du sort
-     * @param departX position de depart en X
-     * @param departY position de depart en Y
-     */
-    public Spell(int newDirection, float departX, float departY) throws SlickException {
-        direction = newDirection;
-        positionX = departX;
-        positionY = departY;
-        visible = true;
-        spriteSheet = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
-        animer(spriteSheet);
+        animer(spriteFireBall);
+        animations[EXPLOSION] = loadAnimation(spriteExplosion,0,12,0);
+
+        this.map = map;
     }
 
     /**
@@ -64,7 +71,7 @@ public class Spell {
      * @param graphics : graphique sur le quelle on affiche le sort
      */
     public void render(Graphics graphics) {
-        if (visible) graphics.drawAnimation(animations[direction], positionX-32, positionY-15);
+    if (visible || explose) graphics.drawAnimation(animations[mouvement], positionX-32, positionY-15);
     }
 
     /**
@@ -72,9 +79,29 @@ public class Spell {
      * @param delta : vitesse du jeu
      */
     public void update(int delta) {
+
+        colision= map.isCollision(positionX+32, positionY+32);
+        mob = map.isMob(positionX+32, positionY+32);
+        explose = colision || mob;
+        mouvement = direction;
+
+        if (explose) {
+            mouvement = EXPLOSION;
+            visible = false;
+            if (mob)
+            map.getMobAt(positionX, positionY).getStats().setPv(map.getMobAt(positionX, positionY).getStats().getPv()-dega);
+        }
+
+        if (animations[EXPLOSION].getFrame() == 11 && mouvement == EXPLOSION) {
+            visible = false;
+            explose = false;
+            mob = false;
+            colision = false;
+        }
+
         if (visible) {
-            positionX = getFuturX(delta);
-            positionY = getFuturY(delta);
+            positionX = getFuturX(delta + 12);
+            positionY = getFuturY(delta + 12);
         }
     }
 
@@ -83,9 +110,15 @@ public class Spell {
      */
     public void tirer(float newPositionX, float newPositionY, int newDirection) {
         visible = true;
-        positionX = newPositionX;
-        positionY = newPositionY;
         direction = newDirection;
+        positionX = newPositionX;
+
+        if (direction == GAUCHE || direction == DROITE || direction == HAUT) {
+            positionY = newPositionY - 30; // Corrige la position par rapport au personnage
+        } else {
+            positionY = newPositionY;
+        }
+
     }
 
     /**

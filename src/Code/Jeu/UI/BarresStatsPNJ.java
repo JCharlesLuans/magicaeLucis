@@ -6,6 +6,7 @@
 package Code.Jeu.UI;
 
 import Code.Jeu.PNJ.Manequin;
+import Code.Jeu.PNJ.Mob;
 import Code.Jeu.Personnage.Stats;
 import org.newdawn.slick.*;
 import org.newdawn.slick.font.effects.ColorEffect;
@@ -42,7 +43,7 @@ public class BarresStatsPNJ {
      */
     private Image barre;
 
-    public BarresStatsPNJ(Manequin mob) throws SlickException {
+    public BarresStatsPNJ(Mob mob) throws SlickException {
         positionX = mob.getPositionX()-64;
         positionY = mob.getPositionY()-75;
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2">
+ <properties>
+  <property name="nbMob" type="int" value="5"/>
+  <property name="niveau" type="int" value="3"/>
+ </properties>
  <tileset firstgid="1" source="base_out_atlas.tsx"/>
  <tileset firstgid="1025" source="colision.tsx"/>
  <layer id="3" name="sol" width="40" height="25">
@@ -38,7 +42,7 @@
   </data>
  </layer>
  <objectgroup id="8" name="trigger" width="1" height="1" >
-  <object id="1" x="176" y="772" width="124" height="28">
+  <object id="1" type="changementMap" x="162" y="764" width="156" height="36">
    <properties>
     <property name="destiMap" value="desert.tmx"/>
     <property name="destiX" type="int" value="380"/>

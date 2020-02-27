@@ -112,7 +112,7 @@ public class Personnage implements Serializable {
 
         map = newMap;
 
-        spell = new Spell();
+        spell = new Spell(newMap, stats.getDegaDefense());
 
         positionX = 650;
         positionY = 400; // Position a la création du personnage
@@ -135,6 +135,8 @@ public class Personnage implements Serializable {
      * @throws SlickException
      */
     public void render(Graphics graphics) throws SlickException {
+
+        spell.render(graphics);          // Rendu du sort du personnage
 
         // Couleur de l'ombre
         graphics.setColor(new Color(49,36,33, 153));
@@ -160,10 +162,6 @@ public class Personnage implements Serializable {
         }
 
         graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-60);
-
-        spell.render(graphics);          // Rendu du sort du personnage
-
-
 
     }
 
@@ -196,7 +194,7 @@ public class Personnage implements Serializable {
         if (moving) {
             float futurX = getFuturX(delta);
             float futurY = getFuturY(delta);
-            boolean collision = map.isCollision(futurX, futurY);
+            boolean collision = map.isCollision(futurX, futurY) || map.isMob(futurX, futurY);
 
             if (collision) {
                 moving = false;
