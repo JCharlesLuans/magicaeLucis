@@ -71,7 +71,7 @@ public class BarresStats {
         graphics.setColor(COULEUR_XP);
         graphics.fillRect(DEBUT_X, DEBUT_Y_XP, pourcentageXp, HAUTEUR);
 
-        graphics.drawImage(barreJoueur, 10, 10); // Position de l'image
+        graphics.drawImage(barreJoueur, POS_X, POS_Y); // Position de l'image
 
         graphics.setFont(font);
         font.drawString(25 + POS_X, 20 + POS_Y, Integer.toString(stats.getNiveau()), Color.white);

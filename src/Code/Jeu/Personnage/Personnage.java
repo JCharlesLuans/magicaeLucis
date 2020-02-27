@@ -108,10 +108,11 @@ public class Personnage implements Serializable {
      * Créer un personnage en précisent ou se situe le personnage
      * @param newMap
      */
-    public Personnage(Map newMap, Spell newSpell) throws SlickException {
+    public Personnage(Map newMap) throws SlickException {
 
         map = newMap;
-        spell = newSpell;
+
+        spell = new Spell();
 
         positionX = 650;
         positionY = 400; // Position a la création du personnage
@@ -160,6 +161,8 @@ public class Personnage implements Serializable {
 
         graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-60);
 
+        spell.render(graphics);          // Rendu du sort du personnage
+
 
 
     }
@@ -172,6 +175,8 @@ public class Personnage implements Serializable {
     public void update(int delta) {
 
         stats.updateNiveau();
+
+        spell.update(delta);
 
         if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
             mouvement = MOUV_STATIQUE;

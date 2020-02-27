@@ -27,7 +27,7 @@ public class Sauvegarde {
     }
 
     public static Personnage chargement() throws SlickException {
-        Personnage perso = new Personnage(new Map(), new Spell());
+        Personnage perso = new Personnage(new Map());
         return perso;
     }
 }

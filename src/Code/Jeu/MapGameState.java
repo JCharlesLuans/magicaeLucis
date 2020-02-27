@@ -107,11 +107,8 @@ public class MapGameState extends BasicGameState {
         // Création de la map
         map = new Map();
 
-        // Création du sort
-        spell = new Spell();
-
         // Création du personnage principal
-        hero = new Personnage(map, spell);
+        hero = new Personnage(map);
 
         // Création du manequin
         mob = new Manequin(map);
@@ -131,7 +128,6 @@ public class MapGameState extends BasicGameState {
 
         hero.update(delta);
         cam.actualisation();
-        spell.update(delta);
 
     }
 
@@ -144,7 +140,6 @@ public class MapGameState extends BasicGameState {
 
         map.renderBackground();          // Rendu du background de la carte
 
-        spell.render(graphics);          // Rendu du sort du personnage
         hero.render(graphics);           // Rendu du personnnage
         mob.render(graphics);            // Rendu du mob
 

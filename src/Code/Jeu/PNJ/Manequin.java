@@ -2,6 +2,7 @@ package Code.Jeu.PNJ;
 
 import Code.Jeu.Carte.Map;
 import Code.Jeu.Personnage.Stats;
+import Code.Jeu.UI.BarresStatsPNJ;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -45,6 +46,9 @@ public class Manequin {
     /** Map sur laquelle se trouve un mob */
     private Map map;
 
+    /** Barre de vie du PNJ */
+    private BarresStatsPNJ barre;
+
     public Manequin(Map map) throws SlickException {
         spriteSheet = new SpriteSheet("src/Ressources/Personnage/Sprites/manequin.png", 64, 64);
         animations = loadAnimation(spriteSheet, 0, 8, 0);
@@ -52,14 +56,16 @@ public class Manequin {
         positionY = 400; // Position a la création du personnage
         this.map = map;
         stats = new Stats(map.getNiveau());
+        barre = new BarresStatsPNJ(this);
     }
 
     /**
      * Affichage du manequin
      * @param graphics sur le quel on affiche l'objet
      */
-    public void render(Graphics graphics) {
+    public void render(Graphics graphics) throws SlickException {
         // TODO affichage pv + barre pv
+        barre.render(graphics);
         graphics.drawAnimation(animations, positionX-32, positionY-60);
     }
 
@@ -80,5 +86,17 @@ public class Manequin {
         }
 
         return aRetourner;
+    }
+
+    public float getPositionX() {
+        return positionX;
+    }
+
+    public float getPositionY() {
+        return positionY;
+    }
+
+    public Stats getStats() {
+        return stats;
     }
 }
