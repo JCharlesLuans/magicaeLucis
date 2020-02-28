@@ -50,6 +50,14 @@ public class HitBox {
 
     }
 
+    public boolean isInHitBox(float aTesterX, float aTesterY) {
+
+        boolean aTesterDansX = x < aTesterX && aTesterX < x + width;  // X est dans la largeur de la hit box
+        boolean aTesterDansY = y < aTesterY && aTesterY < y + height; // Y est dans la hauteur de la hit box
+
+        return aTesterDansX && aTesterDansY;
+    }
+
     public void render(Graphics graphics) {
         graphics.drawRect((int)x, (int)y, (int)width, (int)height);
     }
@@ -57,4 +65,10 @@ public class HitBox {
     public void setX(float newX) {x = newX;}
     public void setY(float newY) {y = newY;}
 
+    public float getHeight() {
+        return height;
+    }
+    public float getWidth() {
+        return width;
+    }
 }

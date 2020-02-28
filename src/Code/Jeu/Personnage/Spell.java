@@ -59,18 +59,23 @@ public class Spell {
     /** Hit box du sort */
     HitBox hitBox;
 
+    /** Personnage qui lance le sort */
+    Personnage personnage;
+
     /**
      * Créer un nouveau sort avec comme positionpar default (0,0)
      * qui n'est pas visible
      */
-    public Spell(Map map, int newDega) throws SlickException {
+    public Spell(Map map, Personnage personnage) throws SlickException {
 
         /* Environement du sort */
         this.map = map;
 
-        /* Mouvement du sort */
-        direction = HAUT;
-        positionX = positionY = 200;
+        /* Personnage qui lance le sort */
+        this.personnage = personnage;
+
+        /* Initialise le spell */
+        initialiseSpell();
 
         /* HitBox Du sort */
         hitBox = new HitBox(positionX, positionY, 16, 16);
@@ -84,8 +89,6 @@ public class Spell {
         animer(spriteFireBall);
         animations[EXPLOSION] = loadAnimation(spriteExplosion,0,12,0);
 
-        /* Stats du sort */
-        dega = newDega;
     }
 
     /**
@@ -95,7 +98,7 @@ public class Spell {
     public void render(Graphics graphics) {
         //Calcul de pos X et pos Y pour que l'affichage soit en (0,0)
         if (visible || explose) graphics.drawAnimation(animations[mouvement], positionX-32, positionY-32);
-        hitBox.render(graphics);
+
     }
 
     /**
@@ -107,7 +110,7 @@ public class Spell {
         correctionPosition();
 
         colision= map.isCollision(reelX, reelY); // Vérifie si il y a une colision avec un decor
-        mob = map.isMob(hitBox);           // Vérifie si il y a une colision avec un mob
+        mob = map.isMob(hitBox);                 // Vérifie si il y a une colision avec un mob
 
         explose = colision || mob; // Si il y a colision avec decor ou mob : explose = true
 
@@ -116,17 +119,17 @@ public class Spell {
         if (explose) {
             mouvement = EXPLOSION;
             visible = false;
+
             /* Inflige les dégas au mobs touché */
-            if (mob && map.getMobAt(reelX, reelY) != null & actif) {
+            if (mob && map.getMobAt(reelX, reelY) != null && actif) {
                 map.getMobAt(reelX, reelY).applyDamage(dega);
-                actif = false; // Le sort n'est plus actif
+                initialiseSpell();
             }
         }
 
         if (animations[EXPLOSION].getFrame() == 11 && mouvement == EXPLOSION) {
-            visible = false;
-            explose = false;
             mob = false;
+            explose = false;
             colision = false;
         }
 
@@ -134,6 +137,7 @@ public class Spell {
             positionX = getFuturX(delta + 12);
             positionY = getFuturY(delta + 12);
         }
+
         updateHitBox();
     }
 
@@ -141,6 +145,7 @@ public class Spell {
      * Tir le sort
      */
     public void tirer(float newPositionX, float newPositionY, int newDirection) {
+
         visible = true;
         actif = true;
         direction = newDirection;
@@ -182,6 +187,9 @@ public class Spell {
         }
     }
 
+    /**
+     * Met ajour les position de la Hit Box
+     */
     private void updateHitBox() {
         switch (direction) {
 
@@ -205,6 +213,26 @@ public class Spell {
                 hitBox.setY(positionY);
                 break;
         }
+    }
+
+    /**
+     * Reinisialise le sort
+     */
+    private void initialiseSpell() {
+
+        /* N'est pas actif */
+        actif = false;
+
+        /* N'est pas visible */
+        visible = false;
+
+        /* Mouvement du sort */
+        direction = personnage.getDirection();
+        positionX = personnage.getPositionX();
+        positionY = personnage.getPositionY();
+
+        /* Stats du sort */
+        dega = personnage.getStats().getDegaDefense();
     }
 
     /**
@@ -260,12 +288,11 @@ public class Spell {
      */
     private Animation loadAnimation(SpriteSheet spriteSheet, int positionDebut, int positionFin, int action) {
 
-        Animation aRetourner = new Animation(); // Animaation a retourner
-
+        /* Animation a retourner */
+        Animation aRetourner = new Animation();
         for (int i = positionDebut; i < positionFin; i++) {
             aRetourner.addFrame(spriteSheet.getSprite(i, action), TEMPS_ANIMATION);
         }
-
         return aRetourner;
     }
 

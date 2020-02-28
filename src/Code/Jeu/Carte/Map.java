@@ -187,8 +187,7 @@ public class Map {
 
     /**
      * Verifi si il y a un mob au coordonnée
-     * @param x
-     * @param y
+     * @param aTester : hitBox de l'objet qui rentre en colision avec le mob
      * @return true si il y a un mob
      */
     public boolean isMob(HitBox aTester) {
@@ -216,8 +215,8 @@ public class Map {
 
         for (int i = 0; i < nbMob; i++) {
 
-            if (mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
-                        && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32) {
+            HitBox aTester = mobs[i].getHitBox();
+            if (aTester.isInHitBox(x, y)) {
                     return mobs[i];
             }
 

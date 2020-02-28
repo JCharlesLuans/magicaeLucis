@@ -114,8 +114,6 @@ public class Personnage implements Serializable {
 
         stats = new Stats(true); // Stats du personnage
 
-        spell = new Spell(newMap, stats.getDegaDefense()); // Sort du personnage
-
         /* Déplacement du personnage */
         positionX = 650;
         positionY = 400; // Position a la création du personnage
@@ -131,6 +129,9 @@ public class Personnage implements Serializable {
         animerMarche(spriteMarche);
         animerSort(spriteSort);
         animerCoup(spriteCoup);
+
+        /* Sort du personnage */
+        spell = new Spell(newMap, this);
     }
 
     /**
