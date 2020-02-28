@@ -166,7 +166,7 @@ public class Personnage implements Serializable {
             coup = false;
         }
 
-        graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-60);
+        graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-32);
 
     }
 

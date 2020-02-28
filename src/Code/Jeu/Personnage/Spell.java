@@ -41,9 +41,13 @@ public class Spell {
     private boolean mob;
     private boolean actif;
 
-    /** Position de X et Y */
+    /** Position du centre de l'image en X et Y */
     private float positionX,
                   positionY;
+
+    /** Position reele de X et Y (pour les tests) */
+    private float reelX,
+                  reelY;
 
     private Map map;
 
@@ -80,7 +84,8 @@ public class Spell {
      * @param graphics : graphique sur le quelle on affiche le sort
      */
     public void render(Graphics graphics) {
-    if (visible || explose) graphics.drawAnimation(animations[mouvement], positionX-32, positionY-15);
+        //Calcul de pos X et pos Y pour que l'affichage soit en (0,0)
+        if (visible || explose) graphics.drawAnimation(animations[mouvement], positionX-32, positionY-32);
     }
 
     /**
@@ -89,8 +94,10 @@ public class Spell {
      */
     public void update(int delta) {
 
-        colision= map.isCollision(positionX+32, positionY+15); // Vérifie si il y a une colision avec un decor
-        mob = map.isMob(positionX+32, positionY+15);           // Vérifie si il y a une colision avec un mob
+        correctionPosition();
+
+        colision= map.isCollision(reelX, reelY); // Vérifie si il y a une colision avec un decor
+        mob = map.isMob(reelX, reelY);           // Vérifie si il y a une colision avec un mob
 
         explose = colision || mob; // Si il y a colision avec decor ou mob : explose = true
 
@@ -99,8 +106,8 @@ public class Spell {
         if (explose) {
             mouvement = EXPLOSION;
             visible = false;
-            if (mob && map.getMobAt(positionX, positionY) != null & actif) {
-                map.getMobAt(positionX, positionY).applyDamage(dega);
+            if (mob && map.getMobAt(reelX, reelY) != null & actif) {
+                map.getMobAt(reelX, reelY).applyDamage(dega);
                 actif = false; // Le sort n'est plus actif
             }
         }
@@ -133,6 +140,31 @@ public class Spell {
             positionY = newPositionY;
         }
 
+    }
+
+    /**
+     * Corrige les direction pour tester les colisions
+     */
+    private void correctionPosition() {
+        switch (direction) {
+
+            case HAUT:
+                reelX = positionX;
+                reelY = positionY-32;
+                break;
+            case BAS:
+                reelX = positionX;
+                reelY = positionY+32;
+                break;
+            case GAUCHE:
+                reelX = positionX-32;
+                reelY = positionY;
+                break;
+            case DROITE:
+                reelX = positionX+32;
+                reelY = positionY;
+                break;
+        }
     }
 
     /**
