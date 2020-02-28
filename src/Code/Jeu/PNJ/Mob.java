@@ -19,20 +19,14 @@ public class Mob {
     /** Indique si le mob est actifs ou pas */
     protected boolean actif;
 
-    /**
-     * Position du centre de l'image du mob
-     */
+    /** Position du centre de l'image du mob */
     protected float positionX;
     protected float positionY;
 
-    /**
-     * Sprite du mob
-     */
+    /** Sprite du mob */
     protected SpriteSheet spriteSheet;
 
-    /**
-     * Animations du personnages
-     */
+    /**  Animations du personnages */
     protected Animation[] animations;
 
     /** Stats du mob */
@@ -58,9 +52,6 @@ public class Mob {
         positionX = newPositionX;
         positionY = newPositionY;
 
-        // Hit box du mob
-        hitBox = new HitBox(positionX-32, positionY-32, 64, 64);
-
         actif = true;
 
         stats = new Stats(newNiveau);
@@ -74,7 +65,7 @@ public class Mob {
     public void render(Graphics graphics) throws SlickException {
         // Affiche la barre de vie si le mob est actif
         if (actif) barre.render(graphics);
-        graphics.drawRect(positionX-32, positionY-32, 64, 64);
+        hitBox.render(graphics);
     }
 
     /**

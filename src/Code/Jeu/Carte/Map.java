@@ -60,16 +60,17 @@ public class Map {
                 float posY = (float) rnd.nextInt(map.getHeight() * TAILLE_TUILLE);
 
                 /* Génération d'un niveau aléatoire entre le niveau de la map
-                 * Et un palier de 2 niveau
-                 */
+                    Et un palier de 2 niveau */
                 int niveau = this.niveau + rnd.nextInt(2);
 
-                // Esseye de placer le mobs
+                // Esseye de placer le mobs si il n'y a pas de colision
                 if (!isCollision(posX, posY)) {
                     mobs[i] = new Manequin(posX, posY, niveau);
-                    nok = false;
-                }
 
+                    // Esseye de placer le mob si il n'y pas de mob
+                    if (!isMob(mobs[i].getHitBox()))
+                        nok = false;
+                }
             } while (nok);
         }
     }
@@ -211,6 +212,12 @@ public class Map {
         return false;
     }
 
+    /**
+     * @param x : position X a tester
+     * @param y : position Y a tester
+     * @return : null si il n'y a pas de mob
+     *           le mob qui contient la hitbox qui comprend x et y
+     */
     public Mob getMobAt(float x, float y) {
 
         for (int i = 0; i < nbMob; i++) {

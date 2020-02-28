@@ -62,40 +62,26 @@ public class Personnage implements Serializable {
      */
     private boolean coup;
 
-    /**
-     *  Indicateur de sort
-     */
+    /** Indicateur de sort */
     private boolean sort;
 
-    /**
-     * Inidique si le personnage est sur un escalier ou pas
-     */
+    /**  Inidique si le personnage est sur un escalier ou pas */
     private boolean escalierDroite,
                     escalierGauche;
 
-    /**
-     * Animations du personnage lorsqu'il marche
-     */
+    /** Animations du personnage lorsqu'il marche */
     private Animation[] animations = new  Animation[16];
 
-    /**
-     * Indique le mouvement de l'animations
-     */
+    /** Indique le mouvement de l'animations */
     private int mouvement;
 
-    /**
-     * Sprite du personnage lorqi'il marche
-     */
+    /** Sprite du personnage lorqi'il marche */
     private SpriteSheet spriteMarche;
 
-    /**
-     * Sprite du personnage lorsqu'il jete un coup
-     */
+    /** Sprite du personnage lorsqu'il jete un coup */
     private SpriteSheet spriteSort;
 
-    /**
-     * Sprite du personnage lorsqu'il donne un coup
-     */
+    /** Sprite du personnage lorsqu'il donne un coup */
     private SpriteSheet spriteCoup;
 
     /** Stats du personnage */
@@ -185,7 +171,7 @@ public class Personnage implements Serializable {
         if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
             mouvement = MOUV_STATIQUE;
             spell.tirer(positionX, positionY, direction);
-            /*stats.setMana(stats.getMana() - 25);*/
+            stats.setMana(stats.getMana() - 25);
             sort = false;
         }
 

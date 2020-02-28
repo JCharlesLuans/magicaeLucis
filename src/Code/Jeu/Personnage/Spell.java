@@ -22,7 +22,7 @@ public class Spell {
 
     private final int EXPLOSION = 4;
 
-    /* Vitesse de succéssion d'image dans une animation (en ms) */
+    /** Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
     /** Indique la direction de du sort */
@@ -38,8 +38,6 @@ public class Spell {
     /** Visible */
     private boolean visible;
     private boolean explose;
-    private boolean colision;
-    private boolean mob;
     private boolean actif;
 
     /** Position du centre de l'image en X et Y */
@@ -109,8 +107,8 @@ public class Spell {
 
         correctionPosition();
 
-        colision= map.isCollision(reelX, reelY); // Vérifie si il y a une colision avec un decor
-        mob = map.isMob(hitBox);                 // Vérifie si il y a une colision avec un mob
+        boolean colision = map.isCollision(reelX, reelY); // Vérifie si il y a une colision avec un decor
+        boolean mob = map.isMob(hitBox);                 // Vérifie si il y a une colision avec un mob
 
         explose = colision || mob; // Si il y a colision avec decor ou mob : explose = true
 
@@ -280,7 +278,6 @@ public class Spell {
 
     /**
      * Charge une animation a partir du SpriteSheet
-     *
      * @param spriteSheet   : sprite a charger
      * @param positionDebut : n° de la premiere frame
      * @param positionFin   : n° de la derniere frame
