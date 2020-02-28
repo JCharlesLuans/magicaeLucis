@@ -191,35 +191,38 @@ public class Map {
      * @return true si il y a un mob
      */
     public boolean isMob(float x, float y) {
-        boolean isMob = false;
 
+        // Test tout les mobs de la map
         for (int i = 0; i < nbMob; i++) {
 
+            boolean isMob = false; // Indique si il y a un mob
+
             if (mobs[i] != null) {
+
+                /* Vérifie si x et y sont dans la hit box d'un mob */
                 isMob = isMob || mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
                         && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32;
-            } else {
-                isMob = isMob || false;
-            }
 
+                // Si colision, on verifie que le mob est actif
+                if (isMob) {
+                    return mobs[i].isActif();
+                }
+            }
         }
-        return isMob;
+        return false;
     }
 
     public Mob getMobAt(float x, float y) {
-        int i;
 
-        for (i = 0; i < nbMob; i++) {
+        for (int i = 0; i < nbMob; i++) {
 
-            if (mobs[i] != null) {
-                if (mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
+            if (mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
                         && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32) {
-                    break;
-                }
+                    return mobs[i];
             }
 
         }
-        return mobs[i];
+        return null;
     }
 
     /**

@@ -19,7 +19,9 @@ public class Manequin extends Mob {
 
     @Override
     public void render(Graphics graphics) throws SlickException {
-        super.render(graphics);
-        graphics.drawAnimation(animations[0], positionX-32, positionY-64);
+        if (actif) {
+            super.render(graphics);
+            graphics.drawAnimation(animations[0], positionX - 32, positionY - 64);
+        }
     }
 }

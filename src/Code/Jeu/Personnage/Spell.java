@@ -39,6 +39,7 @@ public class Spell {
     private boolean explose;
     private boolean colision;
     private boolean mob;
+    private boolean actif;
 
     /** Position de X et Y */
     private float positionX,
@@ -53,17 +54,25 @@ public class Spell {
      * qui n'est pas visible
      */
     public Spell(Map map, int newDega) throws SlickException {
+
+        /* Environement du sort */
+        this.map = map;
+
+        /* Mouvement du sort */
         direction = HAUT;
         positionX = positionY = 200;
+
+        /* Affichage du sort */
         visible = false;
         spriteFireBall = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
         spriteExplosion = new SpriteSheet("Ressources/Personnage/Sprites/explosion.png", 96, 96);
-        dega = newDega;
 
+        /* Animation du sort */
         animer(spriteFireBall);
         animations[EXPLOSION] = loadAnimation(spriteExplosion,0,12,0);
 
-        this.map = map;
+        /* Stats du sort */
+        dega = newDega;
     }
 
     /**
@@ -80,16 +89,20 @@ public class Spell {
      */
     public void update(int delta) {
 
-        colision= map.isCollision(positionX+32, positionY+32);
-        mob = map.isMob(positionX+32, positionY+32);
-        explose = colision || mob;
+        colision= map.isCollision(positionX+32, positionY+15); // Vérifie si il y a une colision avec un decor
+        mob = map.isMob(positionX+32, positionY+15);           // Vérifie si il y a une colision avec un mob
+
+        explose = colision || mob; // Si il y a colision avec decor ou mob : explose = true
+
         mouvement = direction;
 
         if (explose) {
             mouvement = EXPLOSION;
             visible = false;
-            if (mob)
-            map.getMobAt(positionX, positionY).getStats().setPv(map.getMobAt(positionX, positionY).getStats().getPv()-dega);
+            if (mob && map.getMobAt(positionX, positionY) != null & actif) {
+                map.getMobAt(positionX, positionY).applyDamage(dega);
+                actif = false; // Le sort n'est plus actif
+            }
         }
 
         if (animations[EXPLOSION].getFrame() == 11 && mouvement == EXPLOSION) {
@@ -110,6 +123,7 @@ public class Spell {
      */
     public void tirer(float newPositionX, float newPositionY, int newDirection) {
         visible = true;
+        actif = true;
         direction = newDirection;
         positionX = newPositionX;
 

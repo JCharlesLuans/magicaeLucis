@@ -140,7 +140,8 @@ public class Personnage implements Serializable {
      */
     public void render(Graphics graphics) throws SlickException {
 
-        spell.render(graphics);          // Rendu du sort du personnage
+        // Rendu du sort du personnage
+        spell.render(graphics);
 
         // Couleur de l'ombre
         graphics.setColor(new Color(49,36,33, 153));
@@ -183,7 +184,7 @@ public class Personnage implements Serializable {
         if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
             mouvement = MOUV_STATIQUE;
             spell.tirer(positionX, positionY, direction);
-            stats.setMana(stats.getMana() - 25);
+            /*stats.setMana(stats.getMana() - 25);*/
             sort = false;
         }
 
