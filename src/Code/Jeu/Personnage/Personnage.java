@@ -166,7 +166,7 @@ public class Personnage implements Serializable {
             coup = false;
         }
 
-        graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-32);
+        graphics.drawAnimation(animations[direction + mouvement], positionX-32, positionY-60);
 
     }
 
@@ -199,7 +199,7 @@ public class Personnage implements Serializable {
         if (moving) {
             float futurX = getFuturX(delta);
             float futurY = getFuturY(delta);
-            boolean collision = map.isCollision(futurX, futurY) || map.isMob(futurX, futurY);
+            boolean collision = map.isCollision(futurX, futurY); //|| //map.isMob(futurX, futurY);
 
             if (collision) {
                 moving = false;

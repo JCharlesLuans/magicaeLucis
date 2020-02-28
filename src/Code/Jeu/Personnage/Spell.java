@@ -1,6 +1,7 @@
 package Code.Jeu.Personnage;
 
 import Code.Jeu.Carte.Map;
+import Code.Jeu.HitBox;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -49,9 +50,14 @@ public class Spell {
     private float reelX,
                   reelY;
 
+    /** Map sur laquelle evolu le sort */
     private Map map;
 
+    /** Dega du sort */
     private int dega;
+
+    /** Hit box du sort */
+    HitBox hitBox;
 
     /**
      * Créer un nouveau sort avec comme positionpar default (0,0)
@@ -65,6 +71,9 @@ public class Spell {
         /* Mouvement du sort */
         direction = HAUT;
         positionX = positionY = 200;
+
+        /* HitBox Du sort */
+        hitBox = new HitBox(positionX, positionY, 16, 16);
 
         /* Affichage du sort */
         visible = false;
@@ -86,6 +95,7 @@ public class Spell {
     public void render(Graphics graphics) {
         //Calcul de pos X et pos Y pour que l'affichage soit en (0,0)
         if (visible || explose) graphics.drawAnimation(animations[mouvement], positionX-32, positionY-32);
+        hitBox.render(graphics);
     }
 
     /**
@@ -97,7 +107,7 @@ public class Spell {
         correctionPosition();
 
         colision= map.isCollision(reelX, reelY); // Vérifie si il y a une colision avec un decor
-        mob = map.isMob(reelX, reelY);           // Vérifie si il y a une colision avec un mob
+        mob = map.isMob(hitBox);           // Vérifie si il y a une colision avec un mob
 
         explose = colision || mob; // Si il y a colision avec decor ou mob : explose = true
 
@@ -106,6 +116,7 @@ public class Spell {
         if (explose) {
             mouvement = EXPLOSION;
             visible = false;
+            /* Inflige les dégas au mobs touché */
             if (mob && map.getMobAt(reelX, reelY) != null & actif) {
                 map.getMobAt(reelX, reelY).applyDamage(dega);
                 actif = false; // Le sort n'est plus actif
@@ -123,6 +134,7 @@ public class Spell {
             positionX = getFuturX(delta + 12);
             positionY = getFuturY(delta + 12);
         }
+        updateHitBox();
     }
 
     /**
@@ -134,8 +146,11 @@ public class Spell {
         direction = newDirection;
         positionX = newPositionX;
 
-        if (direction == GAUCHE || direction == DROITE || direction == HAUT) {
-            positionY = newPositionY - 30; // Corrige la position par rapport au personnage
+        /* Corige la hauteur du sort par rapport au personnage */
+        if (direction == HAUT) {
+            positionY = newPositionY - 30;
+        } else if (direction == DROITE ||direction == GAUCHE){
+            positionY = newPositionY - 16;
         } else {
             positionY = newPositionY;
         }
@@ -163,6 +178,31 @@ public class Spell {
             case DROITE:
                 reelX = positionX+32;
                 reelY = positionY;
+                break;
+        }
+    }
+
+    private void updateHitBox() {
+        switch (direction) {
+
+            case GAUCHE:
+                hitBox.setX(positionX-32f);
+                hitBox.setY(positionY-8f);
+                break;
+
+            case DROITE:
+                hitBox.setX(positionX+16f);
+                hitBox.setY(positionY-8f);
+                break;
+
+            case HAUT:
+                hitBox.setX(positionX-8f);
+                hitBox.setY(positionY-16f);
+                break;
+
+            case BAS:
+                hitBox.setX(positionX-8f);
+                hitBox.setY(positionY);
                 break;
         }
     }

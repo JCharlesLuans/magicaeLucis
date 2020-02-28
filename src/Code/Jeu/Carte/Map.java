@@ -1,5 +1,6 @@
 package Code.Jeu.Carte;
 
+import Code.Jeu.HitBox;
 import Code.Jeu.PNJ.Manequin;
 import Code.Jeu.PNJ.Mob;
 import org.newdawn.slick.Color;
@@ -64,7 +65,7 @@ public class Map {
                 int niveau = this.niveau + rnd.nextInt(2);
 
                 // Esseye de placer le mobs
-                if (!isCollision(posX, posY) && !isMob(posX, posY)) {
+                if (!isCollision(posX, posY)) {
                     mobs[i] = new Manequin(posX, posY, niveau);
                     nok = false;
                 }
@@ -190,7 +191,7 @@ public class Map {
      * @param y
      * @return true si il y a un mob
      */
-    public boolean isMob(float x, float y) {
+    public boolean isMob(HitBox aTester) {
 
         // Test tout les mobs de la map
         for (int i = 0; i < nbMob; i++) {
@@ -200,8 +201,7 @@ public class Map {
             if (mobs[i] != null) {
 
                 /* Vérifie si x et y sont dans la hit box d'un mob */
-                isMob = isMob || mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
-                        && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32;
+                isMob = mobs[i].getHitBox().isColision(aTester);
 
                 // Si colision, on verifie que le mob est actif
                 if (isMob) {

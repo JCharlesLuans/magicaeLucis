@@ -1,12 +1,10 @@
 package Code.Jeu.PNJ;
 
 import Code.Jeu.Carte.Map;
+import Code.Jeu.HitBox;
 import Code.Jeu.Personnage.Stats;
 import Code.Jeu.UI.BarresStatsPNJ;
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.*;
 
 public class Mob {
     /* Indique les position */
@@ -18,10 +16,11 @@ public class Mob {
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
 
+    /** Indique si le mob est actifs ou pas */
     protected boolean actif;
 
     /**
-     * Position de mob
+     * Position du centre de l'image du mob
      */
     protected float positionX;
     protected float positionY;
@@ -36,7 +35,7 @@ public class Mob {
      */
     protected Animation[] animations;
 
-    /** Stats du personnage */
+    /** Stats du mob */
     protected Stats stats;
 
     /** Map sur laquelle se trouve un mob */
@@ -45,14 +44,22 @@ public class Mob {
     /** Barre de vie du PNJ */
     protected BarresStatsPNJ barre;
 
+    /** Hit Box du personnage */
+    HitBox hitBox;
+
     /**
      * Direction du mob
      */
     private int direction;
 
     public Mob(float newPositionX, float newPositionY, int newNiveau) throws SlickException {
+
+        // Position a la création du personnage
         positionX = newPositionX;
-        positionY = newPositionY; // Position a la création du personnage
+        positionY = newPositionY;
+
+        // Hit box du mob
+        hitBox = new HitBox(positionX-32, positionY-32, 64, 64);
 
         actif = true;
 
@@ -67,6 +74,7 @@ public class Mob {
     public void render(Graphics graphics) throws SlickException {
         // Affiche la barre de vie si le mob est actif
         if (actif) barre.render(graphics);
+        graphics.drawRect(positionX-32, positionY-32, 64, 64);
     }
 
     /**
@@ -99,6 +107,8 @@ public class Mob {
     public Stats getStats() {
         return stats;
     }
+
+    public HitBox getHitBox() {return hitBox;}
 
     public boolean isActif() {return actif;}
 
