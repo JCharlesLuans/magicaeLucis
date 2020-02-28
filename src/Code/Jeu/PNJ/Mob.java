@@ -65,7 +65,7 @@ public class Mob {
     public void render(Graphics graphics) throws SlickException {
         // Affiche la barre de vie si le mob est actif
         if (actif) barre.render(graphics);
-        hitBox.render(graphics);
+        //hitBox.render(graphics);
     }
 
     /**

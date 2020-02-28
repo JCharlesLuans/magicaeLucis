@@ -1,6 +1,8 @@
 package Code.Jeu.Personnage;
 
 import Code.Jeu.Carte.Map;
+import Code.Jeu.Combat;
+import Code.Jeu.HitBox;
 import Code.Jeu.Sauvegarde.Sauvegarde;
 import Code.Jeu.XMLTools;
 import org.newdawn.slick.*;
@@ -31,19 +33,13 @@ public class Personnage implements Serializable {
 
     /*----------------------------------------- Argument -------------------------------------- */
 
-    /**
-     * Map sur laquelle évolue le joueur
-     */
+    /** Map sur laquelle évolue le joueur */
     private Map map;
 
-    /**
-     * Spell que peux lancer le personnage
-     */
+    /**  Spell que peux lancer le personnage */
     private Spell spell;
 
-    /**
-     * Position du personnage
-     */
+    /**  Position du personnage */
     private float positionX,
                   positionY;
 
@@ -52,14 +48,10 @@ public class Personnage implements Serializable {
      */
     private int direction;
 
-    /**
-     * Indicateur de mouvement
-     */
+    /**  Indicateur de mouvement */
     private boolean moving;
 
-    /**
-     *  Indicateur d'attaque
-     */
+    /** Indicateur d'attaque */
     private boolean coup;
 
     /** Indicateur de sort */
@@ -84,8 +76,14 @@ public class Personnage implements Serializable {
     /** Sprite du personnage lorsqu'il donne un coup */
     private SpriteSheet spriteCoup;
 
+    /** HitBox du joueur */
+    private HitBox hitBox;
+
     /** Stats du personnage */
-    Stats stats;
+    private Stats stats;
+
+    /** Actions de combat que peut fazire le personnage */
+    private Combat combat;
 
 
     /* --------------------------------------------- Méthode ------------------------------ */
@@ -99,6 +97,8 @@ public class Personnage implements Serializable {
         map = newMap; // Initialise la map sur laquelle evolue le personnage
 
         stats = new Stats(true); // Stats du personnage
+
+        combat = new Combat(this);
 
         /* Déplacement du personnage */
         positionX = 650;
@@ -116,6 +116,9 @@ public class Personnage implements Serializable {
         animerSort(spriteSort);
         animerCoup(spriteCoup);
 
+        /* Création de la Hit Box */
+        hitBox = new HitBox(positionX-16, positionY-48,52,32);
+
         /* Sort du personnage */
         spell = new Spell(newMap, this);
     }
@@ -126,6 +129,8 @@ public class Personnage implements Serializable {
      * @throws SlickException
      */
     public void render(Graphics graphics) throws SlickException {
+
+        hitBox.render(graphics);
 
         // Rendu du sort du personnage
         spell.render(graphics);
@@ -170,14 +175,14 @@ public class Personnage implements Serializable {
 
         if (animations[direction + mouvement].getFrame() == 6 &&  mouvement == MOUV_SORT) {
             mouvement = MOUV_STATIQUE;
-            spell.tirer(positionX, positionY, direction);
-            stats.setMana(stats.getMana() - 25);
+            combat.spell();
             sort = false;
         }
 
         if (animations[direction + mouvement].getFrame() == 5 && mouvement == MOUV_COUP) {
             System.out.println(animations[direction + mouvement].getFrame());
             mouvement = MOUV_STATIQUE;
+            combat.coup();
             coup = false;
         }
 
@@ -186,15 +191,20 @@ public class Personnage implements Serializable {
         if (moving) {
             float futurX = getFuturX(delta);
             float futurY = getFuturY(delta);
-            boolean collision = map.isCollision(futurX, futurY); //|| //map.isMob(futurX, futurY);
 
-            if (collision) {
+            boolean collision = map.isCollision(futurX, futurY);
+            boolean mob = map.getMobAt(futurX, futurY) != null;
+
+            if (collision || mob) {
                 moving = false;
             } else {
                 positionX = futurX;
                 positionY = futurY;
             }
 
+            /* Mise a jour de la hit box */
+            hitBox.setX(positionX-16);
+            hitBox.setY(positionY-48);
         }
 
     }
@@ -325,10 +335,6 @@ public class Personnage implements Serializable {
         }
     }
 
-
-
-
-
     /**
      * Calcul la future position en X du personnage
      * @param delta de vitesse
@@ -440,21 +446,18 @@ public class Personnage implements Serializable {
         return stats;
     }
 
-    public boolean isCoup() {
-        return coup;
-    }
-
     public void setCoup(boolean coup) {
         this.coup = coup;
-    }
-
-    public boolean isSort() {
-        return sort;
     }
 
     public void setSort(boolean sort) {
         this.sort = sort;
     }
+
+    public Spell getSpell() {return spell;}
+
+    public Combat getCombat() {return combat;}
+    public HitBox getHitBox() {return hitBox;}
 
     @Override
     public String toString() {

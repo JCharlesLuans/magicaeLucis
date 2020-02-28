@@ -1,6 +1,7 @@
 package Code.Jeu.Personnage;
 
 import Code.Jeu.Carte.Map;
+import Code.Jeu.Combat;
 import Code.Jeu.HitBox;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
@@ -51,14 +52,14 @@ public class Spell {
     /** Map sur laquelle evolu le sort */
     private Map map;
 
-    /** Dega du sort */
-    private int dega;
-
     /** Hit box du sort */
     HitBox hitBox;
 
     /** Personnage qui lance le sort */
     Personnage personnage;
+
+    /** Action de combat du sort */
+    Combat combat;
 
     /**
      * Créer un nouveau sort avec comme positionpar default (0,0)
@@ -71,6 +72,8 @@ public class Spell {
 
         /* Personnage qui lance le sort */
         this.personnage = personnage;
+
+        this.combat = personnage.getCombat();
 
         /* Initialise le spell */
         initialiseSpell();
@@ -120,7 +123,7 @@ public class Spell {
 
             /* Inflige les dégas au mobs touché */
             if (mob && map.getMobAt(reelX, reelY) != null && actif) {
-                map.getMobAt(reelX, reelY).applyDamage(dega);
+                combat.spellTouch(map.getMobAt(reelX, reelY));
                 initialiseSpell();
             }
         }
@@ -142,20 +145,20 @@ public class Spell {
     /**
      * Tir le sort
      */
-    public void tirer(float newPositionX, float newPositionY, int newDirection) {
+    public void tirer() {
 
         visible = true;
         actif = true;
-        direction = newDirection;
-        positionX = newPositionX;
+        direction = personnage.getDirection();
+        positionX = personnage.getPositionX();
 
         /* Corige la hauteur du sort par rapport au personnage */
         if (direction == HAUT) {
-            positionY = newPositionY - 30;
+            positionY = personnage.getPositionY() - 30;
         } else if (direction == DROITE ||direction == GAUCHE){
-            positionY = newPositionY - 16;
+            positionY = personnage.getPositionY() - 16;
         } else {
-            positionY = newPositionY;
+            positionY = personnage.getPositionY();
         }
 
     }
@@ -229,8 +232,6 @@ public class Spell {
         positionX = personnage.getPositionX();
         positionY = personnage.getPositionY();
 
-        /* Stats du sort */
-        dega = personnage.getStats().getDegaDefense();
     }
 
     /**
