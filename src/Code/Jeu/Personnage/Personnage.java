@@ -110,23 +110,27 @@ public class Personnage implements Serializable {
      */
     public Personnage(Map newMap) throws SlickException {
 
-        map = newMap;
+        map = newMap; // Initialise la map sur laquelle evolue le personnage
 
-        spell = new Spell(newMap, stats.getDegaDefense());
+        stats = new Stats(true); // Stats du personnage
 
+        spell = new Spell(newMap, stats.getDegaDefense()); // Sort du personnage
+
+        /* Déplacement du personnage */
         positionX = 650;
         positionY = 400; // Position a la création du personnage
         direction = BAS; // Position par default du personnage
         moving = false; // Le personnage ne bouge pas lors de sa création
+
+        /* Affichage du personnage */
         spriteMarche = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
         spriteSort = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_sort.png", 64, 64);
         spriteCoup = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_coup.png", 64, 64);
 
+        /* Animation du personngae */
         animerMarche(spriteMarche);
         animerSort(spriteSort);
         animerCoup(spriteCoup);
-
-        stats = new Stats(true);
     }
 
     /**

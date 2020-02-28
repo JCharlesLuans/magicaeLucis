@@ -14,6 +14,9 @@ import java.util.Random;
 
 public class Map {
 
+    /** Taille d'une tuille */
+    private final int TAILLE_TUILLE = 32;
+
     private TiledMap map;
 
     private String nomMap;
@@ -44,15 +47,29 @@ public class Map {
     }
 
     private void generateurMobs() throws SlickException {
+
+        boolean nok; // Indique si un mob n'est pas placé
+
+        // Esseye de placer tout les mobs
         for (int i = 1; i < nbMob; i++) {
+            nok = true;
+            do {
+                /* Génération d'une position aléatoire */
+                float posX = (float) rnd.nextInt(map.getWidth() * TAILLE_TUILLE);
+                float posY = (float) rnd.nextInt(map.getHeight() * TAILLE_TUILLE);
 
-            float posX = rnd.nextInt(map.getWidth());
-            float posY = rnd.nextInt(map.getHeight());
-            int niveau = this.niveau + rnd.nextInt(2);
+                /* Génération d'un niveau aléatoire entre le niveau de la map
+                 * Et un palier de 2 niveau
+                 */
+                int niveau = this.niveau + rnd.nextInt(2);
 
-            if (mobs[i] == null || !isCollision(posX, posY)) {
-                mobs[i] = new Manequin(posX, posY, niveau);
-            }
+                // Esseye de placer le mobs
+                if (!isCollision(posX, posY) && !isMob(posX, posY)) {
+                    mobs[i] = new Manequin(posX, posY, niveau);
+                    nok = false;
+                }
+
+            } while (nok);
         }
     }
 
@@ -181,6 +198,8 @@ public class Map {
             if (mobs[i] != null) {
                 isMob = isMob || mobs[i].getPositionX() - 32< x && x < mobs[i].getPositionX() +32
                         && mobs[i].getPositionY() - 32< y && y < mobs[i].getPositionY() +32;
+            } else {
+                isMob = isMob || false;
             }
 
         }
