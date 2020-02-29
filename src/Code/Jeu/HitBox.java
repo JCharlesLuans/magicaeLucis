@@ -40,13 +40,34 @@ public class HitBox {
      */
     public boolean isColision(HitBox aTester) {
 
-        boolean aTesterDansX = x < aTester.x && aTester.x < x + width;
-        boolean xDansATester = aTester.x < x && x < aTester.x + aTester.width;
+        /* Test des angles de a tester */
+        boolean aTesterSupGauche = (x < aTester.x && aTester.x < x + width) && (y < aTester.y && aTester.y < y + height);
 
-        boolean aTesterDansY = y < aTester.y && aTester.y < y + height;
-        boolean yDansATester = aTester.y < y && y < aTester.y + aTester.height;
+        boolean aTesterSupDroit = (x < aTester.x + aTester.width && aTester.x + + aTester.width < x + width)
+                               && (y < aTester.y && aTester.y < y + height);
 
-        return (aTesterDansX && aTesterDansY) || (xDansATester && yDansATester);
+        boolean aTesterInfGauche = (x < aTester.x && aTester.x < x + width)
+                                && (y < aTester.y + aTester.height && aTester.y + aTester.height < y + height);
+
+        boolean aTesterInfDroit = (x < aTester.x + aTester.width && aTester.x + + aTester.width < x + width)
+                                && (y < aTester.y + aTester.height && aTester.y + aTester.height < y + height);
+
+        /* Test des angles de this */
+        boolean thisSupGauche = (aTester.x < x && x < aTester.x + aTester.width) && (aTester.y < y && y < aTester.y + aTester.height);
+
+        boolean thisSupDroit = (aTester.x < x+width && x+width < aTester.x + aTester.width)
+                             && (aTester.y < y && y < aTester.y + aTester.height);
+
+        boolean thisInfGauche = (aTester.x < x && x < aTester.x + aTester.width)
+                             && (aTester.y < y+height && y+height < aTester.y + aTester.height);
+
+        boolean thisInfDroit = (aTester.x < x+width && x+width < aTester.x + aTester.width)
+                                && (aTester.y < y+height && y+height < aTester.y + aTester.height);
+
+
+        /* Return true si un des angles esrt compris dans l'autre hitbox*/
+        return (aTesterInfDroit || aTesterInfGauche || aTesterSupDroit || aTesterSupGauche)
+                || (thisInfDroit || thisInfGauche || thisSupDroit || thisSupGauche);
 
     }
 

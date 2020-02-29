@@ -65,7 +65,7 @@ public class Mob {
     public void render(Graphics graphics) throws SlickException {
         // Affiche la barre de vie si le mob est actif
         if (actif) barre.render(graphics);
-        //hitBox.render(graphics);
+        hitBox.render(graphics);
     }
 
     /**
@@ -104,7 +104,7 @@ public class Mob {
     public boolean isActif() {return actif;}
 
     public void applyDamage(int damage) {
-        if (stats.getPv() - damage >= 0 ) {
+        if (stats.getPv() - damage > 0 ) {
             stats.setPv(stats.getPv()-damage);
         } else {
             stats.setPv(0);

@@ -122,8 +122,8 @@ public class Spell {
             visible = false;
 
             /* Inflige les dégas au mobs touché */
-            if (mob && map.getMobAt(reelX, reelY) != null && actif) {
-                combat.spellTouch(map.getMobAt(reelX, reelY));
+            if (mob && actif) {
+                combat.spellTouch(map.getMobAt(hitBox));
                 initialiseSpell();
             }
         }

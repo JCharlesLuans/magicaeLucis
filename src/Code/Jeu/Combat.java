@@ -34,7 +34,26 @@ public class Combat {
     }
 
     public void coup() {
-        // TODO donné des coup d'épée
+
+        boolean mobExiste; // Indique si il y a un mobExiste ou pas
+
+        // Récupere la Hit Box Du personnage
+        HitBox tmp = personnage.getHitBox();
+
+        // Verifie si il y a un mobExiste a porté
+        mobExiste = personnage.getMap().isMob(tmp);
+
+        // Retire des PV au mobs
+        if (mobExiste) {
+            Mob mob = personnage.getMap().getMobAt(personnage.getHitBox());
+            statsMob = mob.getStats();
+            mob.applyDamage(statsPerso.getDegaAttaque());
+
+            // Verifie si le mobExiste est mort
+            if (statsMob.getPv() <= 0) {
+                statsPerso.setXp(statsPerso.getXp() + statsMob.getNiveau() * 15);
+            }
+        }
     }
 
     public void spellTouch(Mob mob) {
@@ -49,7 +68,4 @@ public class Combat {
         }
     }
 
-    public void coupTouch(Mob mob) {
-
-    }
 }

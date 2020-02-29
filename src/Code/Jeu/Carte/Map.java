@@ -47,6 +47,16 @@ public class Map {
         mobs[0] = new Manequin(400,400, 1);
     }
 
+    public Map(String nom) throws SlickException {
+        initialiseMap("src/Ressources/Map/" + nom);
+        map = new TiledMap("Ressources/Map/" + nom);
+        nomMap = nom;
+    }
+
+    /**
+     * Genere un nombre de mob avec des niveau entre le niveau min de la map et sont niveau max (+2)
+     * @throws SlickException
+     */
     private void generateurMobs() throws SlickException {
 
         boolean nok; // Indique si un mob n'est pas placé
@@ -75,12 +85,6 @@ public class Map {
         }
     }
 
-    public Map(String nom) throws SlickException {
-        initialiseMap("src/Ressources/Map/" + nom);
-        map = new TiledMap("Ressources/Map/" + nom);
-        nomMap = nom;
-    }
-
     /**
      * Fait le rendu du foreground de la map
      */
@@ -91,6 +95,11 @@ public class Map {
         map.render(0 ,0, 3); // background 2
     }
 
+    /**
+     * Affiche les mobs qui sont sur la map
+     * @param graphics graphics sur lequel on affiche les mobs
+     * @throws SlickException
+     */
     public void renderMob(Graphics graphics) throws SlickException {
         for (int i = 0; i < nbMob; i++) {
             if (mobs[i] != null) {
@@ -187,7 +196,7 @@ public class Map {
     }
 
     /**
-     * Verifi si il y a un mob au coordonnée
+     * Verifie si il y a un mob au contact de la HitBox a tester
      * @param aTester : hitBox de l'objet qui rentre en colision avec le mob
      * @return true si il y a un mob
      */
@@ -213,6 +222,27 @@ public class Map {
     }
 
     /**
+     * @param hitBox en contacte avec un mob
+     * @return : null si il n'y a pas de mob
+     *           le mob qui contient la hitbox qui comprend x et y
+     */
+    public Mob getMobAt(HitBox hitBox) {
+
+        // Parcour tout les monstre de la map
+        for (int i = 0; i < nbMob; i++) {
+
+            HitBox aTester = mobs[i].getHitBox(); // Récupere al Hit Box du mob
+
+            // Test si la hitbox du monstre est en contact avec la hit box que l'on veut tester
+            if (aTester.isColision(hitBox)) {
+                return mobs[i]; // Retourne le mob si c'est le cas
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Recupere le mob au coordonnée donnée
      * @param x : position X a tester
      * @param y : position Y a tester
      * @return : null si il n'y a pas de mob
