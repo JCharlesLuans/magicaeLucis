@@ -3,13 +3,13 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.gameState.UI;
+package gameState.UI;
 
-import java.gameState.MapGameState;
-import java.gameState.entite.Camera;
-import java.gameState.entite.Personnage.Personnage;
-import java.gameState.utils.Sauvegarde;
-import java.gameState.entite.Personnage.UI.Inventaire;
+import gameState.MapGameState;
+import gameState.entite.Camera;
+import gameState.entite.Personnage.Personnage;
+import gameState.utils.Sauvegarde;
+import gameState.entite.Personnage.UI.Inventaire;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -39,7 +39,7 @@ public class MenuEnJeu {
 
         this.game = game;
         this.container = container;
-        click = new Music("src/Ressources/HUD/Son/click.ogg");
+        click = new Music("res/son/bruitage/menus/click.ogg");
 
         // Inventaire
         inventaire = new Inventaire(container);

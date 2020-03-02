@@ -3,7 +3,7 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.statiqueState;
+package statiqueState;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
@@ -41,10 +41,10 @@ public class GameOverState extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        musique = new Music("src/Ressources/Musique/Secret_Second_Earth.ogg");
-        background = new Image("src/Ressources/Menu/menu_principal.jpg");
-        gameOver = new Image("src/Ressources/Menu/game_over.png");
-        retourMenu = new Image("src/Ressources/Menu/back_menu.png");
+        musique = new Music("res/son/musique/gameOver/Secret_Second_Earth.ogg");
+        background = new Image("res/drawable/statiqueState/fond/menu_principal.jpg");
+        gameOver = new Image("res/drawable/statiqueState/gameOver/textes/game_over.png");
+        retourMenu = new Image("res/drawable/statiqueState/gameOver/textes/back_menu.png");
 
     }
 

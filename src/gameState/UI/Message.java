@@ -3,7 +3,7 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.gameState.UI;
+package gameState.UI;
 
 import org.newdawn.slick.*;
 
@@ -34,7 +34,7 @@ public class Message {
     String message;
 
     public Message(GameContainer gameContainer) throws SlickException {
-        imgMessage = new Image("src/Ressources/HUD/message.png");
+        imgMessage = new Image("res/drawable/gameState/UI/message.png");
         centreX = gameContainer.getWidth() / 2 - imgMessage.getWidth() / 2;
         centreY = gameContainer.getHeight() / 2 - imgMessage.getHeight() / 2;
     }

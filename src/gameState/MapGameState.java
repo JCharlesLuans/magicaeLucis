@@ -1,13 +1,13 @@
-package java.gameState;
+package gameState;
 
-import java.gameState.carte.Map;
-import java.gameState.entite.PNJ.Manequin;
-import java.gameState.entite.Camera;
-import java.gameState.entite.Personnage.Personnage;
-import java.gameState.entite.Spell;
-import java.gameState.utils.Sauvegarde;
-import java.gameState.entite.Personnage.UI.BarresStats;
-import java.gameState.UI.MenuEnJeu;
+import gameState.carte.Map;
+import gameState.entite.PNJ.Manequin;
+import gameState.entite.Camera;
+import gameState.entite.Personnage.Personnage;
+import gameState.entite.Spell;
+import gameState.utils.Sauvegarde;
+import gameState.entite.Personnage.UI.BarresStats;
+import gameState.UI.MenuEnJeu;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -84,7 +84,7 @@ public class MapGameState extends BasicGameState {
 
     public void enter(GameContainer gameContainer, StateBasedGame game) throws SlickException {
 
-        Music background = new Music("src/Ressources/Musique/TownTheme.ogg");
+        Music background = new Music("res/son/musique/carte/TownTheme.ogg");
         background.loop();
 
         if (charger) {

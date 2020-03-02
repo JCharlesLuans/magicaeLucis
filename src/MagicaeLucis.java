@@ -1,7 +1,5 @@
-package java;
-
-import java.gameState.MapGameState;
-import java.statiqueState.GameOverState;
+import gameState.MapGameState;
+import statiqueState.GameOverState;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;

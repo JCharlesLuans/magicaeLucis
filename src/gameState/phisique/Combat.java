@@ -1,7 +1,7 @@
-package java.gameState.phisique;
+package gameState.phisique;
 
-import java.gameState.entite.PNJ.Mob;
-import java.gameState.entite.Personnage.Personnage;
+import gameState.entite.PNJ.Mob;
+import gameState.entite.Personnage.Personnage;
 
 /**
  * Classe permettant les actions de combats

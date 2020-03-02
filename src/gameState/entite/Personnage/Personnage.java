@@ -1,13 +1,13 @@
-package java.gameState.entite.Personnage;
+package gameState.entite.Personnage;
 
-import java.gameState.carte.Map;
-import java.gameState.phisique.Combat;
-import java.gameState.phisique.HitBox;
+import gameState.carte.Map;
+import gameState.phisique.Combat;
+import gameState.phisique.HitBox;
 import org.newdawn.slick.*;
 
 import java.io.*;
-import java.gameState.phisique.Stats;
-import java.gameState.entite.Spell;
+import gameState.phisique.Stats;
+import gameState.entite.Spell;
 
 /**
  * Classe du personnage principal du jeu
@@ -106,9 +106,9 @@ public class Personnage implements Serializable {
         moving = false; // Le personnage ne bouge pas lors de sa création
 
         /* Affichage du personnage */
-        spriteMarche = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage.png", 64, 64);
-        spriteSort = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_sort.png", 64, 64);
-        spriteCoup = new SpriteSheet("Ressources/Personnage/Sprites/sprite_personnage_coup.png", 64, 64);
+        spriteMarche = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage.png", 64, 64);
+        spriteSort = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage_sort.png", 64, 64);
+        spriteCoup = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage_coup.png", 64, 64);
 
         /* Animation du personngae */
         animerMarche(spriteMarche);
@@ -192,7 +192,7 @@ public class Personnage implements Serializable {
             float futurY = getFuturY(delta);
 
             boolean collision = map.isCollision(futurX, futurY);
-            boolean mob = map.getMobAt(futurX, futurY) != null;
+            boolean mob = map.isMob(hitBox);
 
             if (collision || mob) {
                 moving = false;

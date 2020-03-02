@@ -3,9 +3,9 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.gameState.entite.Personnage.UI;
+package gameState.entite.Personnage.UI;
 
-import java.gameState.phisique.Stats;
+import gameState.phisique.Stats;
 import org.newdawn.slick.*;
 import org.newdawn.slick.font.effects.ColorEffect;
 
@@ -49,7 +49,7 @@ public class BarresStats {
         ((UnicodeFont) font).getEffects().add(new ColorEffect(java.awt.Color.WHITE));//Ca sert a quoi ?
         ((UnicodeFont) font).loadGlyphs();
 
-        barreJoueur = new Image("Ressources/HUD/barre_d_etat.png");
+        barreJoueur = new Image("res/drawable/gameState/entite/personnage/UI/barre_d_etat.png");
         this.stats = stats;
     }
 

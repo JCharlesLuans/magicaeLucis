@@ -1,4 +1,4 @@
-package java.gameState.phisique;
+package gameState.phisique;
 
 import org.newdawn.slick.Graphics;
 

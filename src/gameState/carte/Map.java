@@ -1,8 +1,8 @@
-package java.gameState.carte;
+package gameState.carte;
 
-import java.gameState.phisique.HitBox;
-import java.gameState.entite.PNJ.Manequin;
-import java.gameState.entite.PNJ.Mob;
+import gameState.phisique.HitBox;
+import gameState.entite.PNJ.Manequin;
+import gameState.entite.PNJ.Mob;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -34,8 +34,8 @@ public class Map {
      * @throws SlickException
      */
     public Map() throws SlickException {
-        initialiseMap("src/Ressources/Map/campagne_ThunderSun.tmx");
-        map = new TiledMap("Ressources/Map/campagne_ThunderSun.tmx");
+        initialiseMap("res/carte/campagne_ThunderSun.tmx");
+        map = new TiledMap("res/carte/campagne_ThunderSun.tmx");
         nomMap = "campagne_ThunderSun.tmx";
 
         niveau = Integer.parseInt(map.getMapProperty("niveau", "undefine"));
@@ -267,9 +267,10 @@ public class Map {
      * @throws SlickException
      */
     public void changeMap(String nom) throws SlickException {
-        String chemin = "src/Ressources/Map/" + nom;
+        String chemin = "res/carte/" + nom;
         initialiseMap(chemin);
         map = new TiledMap(chemin);
+        generateurMobs();
         nomMap = nom;
     }
 

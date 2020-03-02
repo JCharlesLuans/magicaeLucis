@@ -1,7 +1,7 @@
-package java.gameState.utils;
+package gameState.utils;
 
-import java.gameState.carte.Map;
-import java.gameState.entite.Personnage.Personnage;
+import gameState.carte.Map;
+import gameState.entite.Personnage.Personnage;
 
 import org.newdawn.slick.SlickException;
 

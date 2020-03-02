@@ -3,9 +3,9 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.statiqueState;
+package statiqueState;
 
-import java.gameState.MapGameState;
+import gameState.MapGameState;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;

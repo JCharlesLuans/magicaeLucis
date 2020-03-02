@@ -1,4 +1,4 @@
-package java.gameState.phisique;
+package gameState.phisique;
 
 /**
  * Encapsule les stats d'un personnage ou d'un ennemi

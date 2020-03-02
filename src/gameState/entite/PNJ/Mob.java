@@ -1,9 +1,9 @@
-package java.gameState.entite.PNJ;
+package gameState.entite.PNJ;
 
-import java.gameState.carte.Map;
-import java.gameState.phisique.HitBox;
-import java.gameState.phisique.Stats;
-import java.gameState.entite.PNJ.UI.BarresStatsPNJ;
+import gameState.carte.Map;
+import gameState.phisique.HitBox;
+import gameState.phisique.Stats;
+import gameState.entite.PNJ.UI.BarresStatsPNJ;
 import org.newdawn.slick.*;
 
 public class Mob {

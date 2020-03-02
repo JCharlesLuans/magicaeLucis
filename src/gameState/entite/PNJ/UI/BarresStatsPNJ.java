@@ -3,10 +3,10 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.gameState.entite.PNJ.UI;
+package gameState.entite.PNJ.UI;
 
-import java.gameState.entite.PNJ.Mob;
-import java.gameState.phisique.Stats;
+import gameState.entite.PNJ.Mob;
+import gameState.phisique.Stats;
 import org.newdawn.slick.*;
 
 /**
@@ -49,7 +49,7 @@ public class BarresStatsPNJ {
         debutY = 3 + positionY;
 
         stats = mob.getStats();
-        barre = new Image("Ressources/HUD/barre_pnj.png");
+        barre = new Image("res/drawable/gameState/entite/PNJ/UI/barre_pnj.png");
         this.stats = stats;
     }
 

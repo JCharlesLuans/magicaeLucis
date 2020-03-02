@@ -1,9 +1,9 @@
-package java.gameState.entite;
+package gameState.entite;
 
-import java.gameState.carte.Map;
-import java.gameState.phisique.Combat;
-import java.gameState.phisique.HitBox;
-import java.gameState.entite.Personnage.Personnage;
+import gameState.carte.Map;
+import gameState.phisique.Combat;
+import gameState.phisique.HitBox;
+import gameState.entite.Personnage.Personnage;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
@@ -85,8 +85,8 @@ public class Spell {
 
         /* Affichage du sort */
         visible = false;
-        spriteFireBall = new SpriteSheet("Ressources/Personnage/Sprites/fireball.png", 64, 64);
-        spriteExplosion = new SpriteSheet("Ressources/Personnage/Sprites/explosion.png", 96, 96);
+        spriteFireBall = new SpriteSheet("res/drawable/gameState/entite/spell/sprite/fireball.png", 64, 64);
+        spriteExplosion = new SpriteSheet("res/drawable/gameState/entite/spell/sprite/explosion.png", 96, 96);
 
         /* Animation du sort */
         animer(spriteFireBall);

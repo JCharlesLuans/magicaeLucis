@@ -1,6 +1,6 @@
-package java.gameState.entite.PNJ;
+package gameState.entite.PNJ;
 
-import java.gameState.phisique.HitBox;
+import gameState.phisique.HitBox;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -19,7 +19,7 @@ public class Manequin extends Mob {
         super(posX, posY, niveau);
 
         /* Sprite du manequin */
-        spriteSheet = new SpriteSheet("Ressources/Personnage/Sprites/manequin.png", 64, 64);
+        spriteSheet = new SpriteSheet("res/drawable/gameState/entite/PNJ/mob/sprite/manequin.png", 64, 64);
 
         /* Animation du mob */
         animations = new Animation[1];

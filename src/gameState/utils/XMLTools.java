@@ -3,7 +3,7 @@
  * Pas de copyright (pour le moment :)
  */
 
-package java.gameState.utils;
+package gameState.utils;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

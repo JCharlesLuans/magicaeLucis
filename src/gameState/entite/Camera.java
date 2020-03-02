@@ -1,7 +1,7 @@
-package java.gameState.entite;
+package gameState.entite;
 
-import java.gameState.carte.Map;
-import java.gameState.entite.Personnage.Personnage;
+import gameState.carte.Map;
+import gameState.entite.Personnage.Personnage;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
