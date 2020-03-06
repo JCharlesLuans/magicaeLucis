@@ -76,13 +76,17 @@ public class Personnage implements Serializable {
     private SpriteSheet spriteCoup;
 
     /** HitBox du joueur */
-    private HitBox hitBox;
+    private HitBox hitBoxArme; // Hit box de l'arme
+    private HitBox hitBoxColision; // Hit box des pied du personnage pour les colisions
+    private HitBox hitBoxCoup; // Hit box du corps du personnage
 
     /** Stats du personnage */
     private Stats stats;
 
     /** Actions de combat que peut fazire le personnage */
     private Combat combat;
+
+    private int timer;
 
 
     /* --------------------------------------------- Méthode ------------------------------ */
@@ -116,7 +120,9 @@ public class Personnage implements Serializable {
         animerCoup(spriteCoup);
 
         /* Création de la Hit Box */
-        hitBox = new HitBox(positionX-16, positionY-48,52,32);
+        hitBoxArme = new HitBox(positionX+16, positionY-20,16,16);
+        hitBoxColision = new HitBox(positionX-16, positionY-8, 16, 32);
+        hitBoxCoup = new HitBox(positionX-16, positionY-48, 58, 32);
 
         /* Sort du personnage */
         spell = new Spell(newMap, this);
@@ -129,7 +135,7 @@ public class Personnage implements Serializable {
      */
     public void render(Graphics graphics) throws SlickException {
 
-        hitBox.render(graphics);
+        hitBoxCoup.render(graphics);
 
         // Rendu du sort du personnage
         spell.render(graphics);
@@ -147,7 +153,7 @@ public class Personnage implements Serializable {
             mouvement = MOUV_MOUVEMENT;
             sort = false;
             coup = false;
-        } else if (sort && stats.getMana() > 0) {
+        } else if (sort) {
             mouvement = MOUV_SORT;
         } else if (coup) {
             mouvement = MOUV_COUP;
@@ -168,6 +174,14 @@ public class Personnage implements Serializable {
      */
     public void update(int delta) {
 
+        timer += delta;
+        if (timer >= 500) {
+            timer = 0;
+            if (stats.getMana() <= stats.getTotalMana()) {
+                stats.setMana(stats.getMana() + 2);
+            }
+        }
+
         stats.updateNiveau();
 
         spell.update(delta);
@@ -179,7 +193,6 @@ public class Personnage implements Serializable {
         }
 
         if (animations[direction + mouvement].getFrame() == 5 && mouvement == MOUV_COUP) {
-            System.out.println(animations[direction + mouvement].getFrame());
             mouvement = MOUV_STATIQUE;
             combat.coup();
             coup = false;
@@ -192,7 +205,8 @@ public class Personnage implements Serializable {
             float futurY = getFuturY(delta);
 
             boolean collision = map.isCollision(futurX, futurY);
-            boolean mob = map.isMob(hitBox);
+            updateHitBoxColision(futurX, futurY);
+            boolean mob = map.isMob(hitBoxColision);
 
             if (collision || mob) {
                 moving = false;
@@ -201,12 +215,18 @@ public class Personnage implements Serializable {
                 positionY = futurY;
             }
 
-            /* Mise a jour de la hit box */
-            hitBox.setX(positionX-16);
-            hitBox.setY(positionY-48);
+            /* Mise a jour de la hit box de l'arme*/
+            updateHitBoxArme();
+            updateHitBoxCoup();
         }
 
     }
+
+    private void updateHitBoxCoup() {
+        hitBoxCoup.setX(positionX-16);
+        hitBoxCoup.setY(positionY-48);
+    }
+
 
     /**
      * Charge une animation a partir du SpriteSheet
@@ -312,6 +332,36 @@ public class Personnage implements Serializable {
                 && positionX < map.getObjectX(id) + map.getObjectWidth(id)
                 && positionY > map.getObjectY(id)
                 && positionY < map.getObjectY(id) + map.getObjectHeight(id);
+    }
+
+    private void updateHitBoxColision(float x, float y) {
+        hitBoxColision.setX(x-16);
+        hitBoxColision.setY(y - 8);
+    }
+
+    /**
+     * Met a jour la hit box de l'arme qui permet d'infliger des degas au mobs au corps a corps
+     */
+    private void updateHitBoxArme() {
+        switch (direction) {
+            case BAS:
+                hitBoxArme.setX(positionX + 16);
+                hitBoxArme.setY(positionY - 20);
+                break;
+            case HAUT:
+                hitBoxArme.setX(positionX + 16);
+                hitBoxArme.setY(positionY - 40);
+                break;
+            case GAUCHE:
+                hitBoxArme.setX(positionX - 30);
+                hitBoxArme.setY(positionY - 35);
+                break;
+            case DROITE:
+                hitBoxArme.setX(positionX + 16);
+                hitBoxArme.setY(positionY - 35);
+                break;
+
+        }
     }
 
     /**
@@ -456,7 +506,7 @@ public class Personnage implements Serializable {
     public Spell getSpell() {return spell;}
 
     public Combat getCombat() {return combat;}
-    public HitBox getHitBox() {return hitBox;}
+    public HitBox getHitBoxArme() {return hitBoxArme;}
 
     @Override
     public String toString() {

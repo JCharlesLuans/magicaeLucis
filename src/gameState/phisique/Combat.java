@@ -28,8 +28,10 @@ public class Combat {
     }
 
     public void spell() {
-        personnage.getSpell().tirer();
-        statsPerso.setMana(personnage.getStats().getMana() - 25);
+        if (statsPerso.getMana() >= 25) {
+            personnage.getSpell().tirer();
+            statsPerso.setMana(personnage.getStats().getMana() - 25);
+        }
     }
 
     public void coup() {
@@ -37,14 +39,14 @@ public class Combat {
         boolean mobExiste; // Indique si il y a un mobExiste ou pas
 
         // Récupere la Hit Box Du personnage
-        HitBox tmp = personnage.getHitBox();
+        HitBox tmp = personnage.getHitBoxArme();
 
         // Verifie si il y a un mobExiste a porté
         mobExiste = personnage.getMap().isMob(tmp);
 
         // Retire des PV au mobs
         if (mobExiste) {
-            Mob mob = personnage.getMap().getMobAt(personnage.getHitBox());
+            Mob mob = personnage.getMap().getMobAt(personnage.getHitBoxArme());
             statsMob = mob.getStats();
             mob.applyDamage(statsPerso.getDegaAttaque());
 
