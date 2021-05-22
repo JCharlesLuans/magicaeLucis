@@ -117,13 +117,30 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
     }
 
     @Override
-    public void controllerButtonPressed(int i, int i1) {
-
+    public void controllerButtonPressed(int i, int bouton) {
+        switch (bouton) {
+            case 2:
+                personnage.setCoup(true);
+                break;
+            case 4:
+                personnage.setSort(true);
+                break;
+            case 8:
+                menuEnJeu.setShowInventaire(true);
+                break;
+        }
     }
 
     @Override
-    public void controllerButtonReleased(int i, int i1) {
-
+    public void controllerButtonReleased(int i, int bouton) {
+        switch (bouton) {
+            case 2:
+                personnage.setCoup(true);
+                break;
+            case 4:
+                personnage.setSort(true);
+                break;
+        }
     }
 
     @Override
