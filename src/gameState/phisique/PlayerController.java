@@ -5,10 +5,15 @@
 
 package gameState.phisique;
 
+import gameState.UI.MenuEnJeu;
+import gameState.entite.Camera;
 import gameState.entite.Personnage.Personnage;
 import org.newdawn.slick.ControllerListener;
 import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.MouseListener;
+
+import java.awt.*;
 
 
 /**
@@ -18,7 +23,7 @@ import org.newdawn.slick.Input;
  * @author J-Charles Luans
  * @version 1.0
  */
-public class PlayerController implements KeyListener, ControllerListener {
+public class PlayerController implements KeyListener, ControllerListener, MouseListener {
 
     /* Indique les position */
     private static final int HAUT = 0,
@@ -27,9 +32,13 @@ public class PlayerController implements KeyListener, ControllerListener {
                              DROITE = 3;
 
     Personnage personnage; // Personnage a faire bouger
+    MenuEnJeu menuEnJeu;   // Menu a ouvrir en jeu
+    Camera camera;         // Camera du joueur
 
-    public PlayerController(Personnage personnage) {
+    public PlayerController(Personnage personnage, Camera camera, MenuEnJeu menuEnJeu) {
         this.personnage = personnage;
+        this.menuEnJeu = menuEnJeu;
+        this.camera = camera;
     }
 
 
@@ -54,9 +63,9 @@ public class PlayerController implements KeyListener, ControllerListener {
                 personnage.setMoving(true);
                 break;
 
-            // TODO gerer menu en jeu
-            //case Input.KEY_SPACE: menuEnJeu.setShowInventaire(true); break;
-            //case Input.KEY_ESCAPE: menuEnJeu.setShowInventaire(false); break;
+
+            case Input.KEY_SPACE: menuEnJeu.setShowInventaire(true); break;
+            case Input.KEY_ESCAPE: menuEnJeu.setShowInventaire(false); break;
         }
     }
 
@@ -134,6 +143,40 @@ public class PlayerController implements KeyListener, ControllerListener {
 
     @Override
     public void inputStarted() {
+
+    }
+
+    @Override
+    public void mouseWheelMoved(int i) {
+
+    }
+
+    @Override
+    public void mouseClicked(int i, int i1, int i2, int i3) {
+
+    }
+
+    public void mousePressed(int button, int x, int y) {
+        menuEnJeu.action(x, y, personnage, camera);
+
+        switch (button) {
+            case Input.MOUSE_LEFT_BUTTON: personnage.setCoup(true); break;
+            case Input.MOUSE_RIGHT_BUTTON: personnage.setSort(true); break;
+        }
+    }
+
+    public void mouseReleased(int button, int x, int y) {
+        menuEnJeu.action(x, y, personnage, camera);
+
+    }
+
+    @Override
+    public void mouseMoved(int i, int i1, int i2, int i3) {
+
+    }
+
+    @Override
+    public void mouseDragged(int i, int i1, int i2, int i3) {
 
     }
 }

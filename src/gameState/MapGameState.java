@@ -45,7 +45,7 @@ public class MapGameState extends BasicGameState {
     /** Personnage principal */
     private Personnage hero;
 
-    /** Controller du joueur principal */
+    /** Controller du personnage */
     private PlayerController playerController;
 
     /** Sort du hero */
@@ -116,9 +116,10 @@ public class MapGameState extends BasicGameState {
 
         menuEnJeu = new MenuEnJeu(container, game);
 
-        playerController = new PlayerController(hero);
+        playerController = new PlayerController(hero, cam, menuEnJeu);
         container.getInput().addKeyListener(playerController);
         container.getInput().addControllerListener(playerController);
+        container.getInput().addMouseListener(playerController);
 
     }
 
@@ -141,7 +142,7 @@ public class MapGameState extends BasicGameState {
 
 
         map.renderMob(graphics);            // Rendu du mob
-        hero.render(graphics);              // Rendu du personnnage
+        hero.render(graphics);           // Rendu du personnnage
 
         map.renderForeground();          // Rendu du foreground de la carte
 
@@ -151,6 +152,8 @@ public class MapGameState extends BasicGameState {
 
 
     }
+
+
 
     public void setCharger(boolean charger) {
         this.charger = charger;
