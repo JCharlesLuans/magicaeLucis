@@ -44,7 +44,6 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
 
     @Override
     public void keyPressed(int key, char c) {
-        System.out.println("Salut");
         switch (key) {
             case Input.KEY_Z:
                 personnage.setDirection(HAUT);

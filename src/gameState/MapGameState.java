@@ -133,7 +133,7 @@ public class MapGameState extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame game, int delta) throws SlickException {
 
-        client.update(hero); // Envoie des données au serveur pour mettre a jour
+        System.out.println(client.update(hero)); // Envoie des données au serveur pour mettre a jour
         hero.update(delta);
         cam.actualisation();
 

@@ -10,7 +10,7 @@ public class Client {
     private final static int PORT =  6588;
     private final static int TAILLE = 1024;
 
-    private static final String ADRESSE_SERVEUR = "localhost";
+    private static final String ADRESSE_SERVEUR = "192.168.1.21";
 
     private InetAddress serveur;
     private DatagramSocket socket;
@@ -23,23 +23,42 @@ public class Client {
         try {
             serveur = InetAddress.getByName(ADRESSE_SERVEUR);
             socket = new DatagramSocket();
-            envoiDonnee(message);
+            envoiDonnee("auth", " ");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void update(Personnage hero) {
+    public String update(Personnage hero) {
+
+        final String[] aRetourner = {""};
+
         try {
-            envoiDonnee(hero.toString());
+            envoiDonnee("updt", hero.toString());
+
+            Thread t = new Thread() {
+                public void run() {
+                    try {
+                        aRetourner[0] = receptionDonnee();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            t.start();
+
+
         } catch (IOException err) {
             System.out.println("erreur");
             System.out.println(err.getMessage());
         }
+        return aRetourner[0];
     }
 
-    public void envoiDonnee(String aEnvoyer) throws IOException {
+    public void envoiDonnee(String typeMessage, String message) throws IOException {
         byte buffer[];
+
+        String aEnvoyer = typeMessage + ':' + message;
 
         int length = aEnvoyer.length();
         buffer = aEnvoyer.getBytes();
