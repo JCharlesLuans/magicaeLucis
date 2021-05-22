@@ -10,7 +10,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
- * //TODO ecrire Java Doc
+ * Affichage de la page de Game Over. Gestion des menu de la pages
  *
  * @author Jean-Charles Luans
  * @verison 1.0
