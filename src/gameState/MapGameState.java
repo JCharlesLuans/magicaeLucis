@@ -107,7 +107,6 @@ public class MapGameState extends BasicGameState {
 
         // Création du personnage principal
         hero = new Personnage(map);
-        playerController = new PlayerController(hero);
 
         // Création de la camera
         cam = new Camera(hero, container, map);
@@ -116,6 +115,10 @@ public class MapGameState extends BasicGameState {
         barres = new BarresStats(hero.getStats());
 
         menuEnJeu = new MenuEnJeu(container, game);
+
+        playerController = new PlayerController(hero);
+        container.getInput().addKeyListener(playerController);
+        container.getInput().addControllerListener(playerController);
 
     }
 

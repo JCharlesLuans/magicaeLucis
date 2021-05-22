@@ -7,10 +7,9 @@ package gameState.phisique;
 
 import gameState.entite.Personnage.Personnage;
 import org.newdawn.slick.ControllerListener;
+import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.Input;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 /**
  * Controller du joueur, pour lui faire effectuer des mouvements
@@ -33,18 +32,27 @@ public class PlayerController implements KeyListener, ControllerListener {
         this.personnage = personnage;
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case Input.KEY_Z: personnage.setDirection(HAUT); personnage.setMoving(true); break;
-            case Input.KEY_Q: personnage.setDirection(GAUCHE); personnage.setMoving(true); break;
-            case Input.KEY_S: personnage.setDirection(BAS); personnage.setMoving(true); break;
-            case Input.KEY_D: personnage.setDirection(DROITE); personnage.setMoving(true); break;
+    public void keyPressed(int key, char c) {
+        System.out.println("Salut");
+        switch (key) {
+            case Input.KEY_Z:
+                personnage.setDirection(HAUT);
+                personnage.setMoving(true);
+                break;
+            case Input.KEY_Q:
+                personnage.setDirection(GAUCHE);
+                personnage.setMoving(true);
+                break;
+            case Input.KEY_S:
+                personnage.setDirection(BAS);
+                personnage.setMoving(true);
+                break;
+            case Input.KEY_D:
+                personnage.setDirection(DROITE);
+                personnage.setMoving(true);
+                break;
 
             // TODO gerer menu en jeu
             //case Input.KEY_SPACE: menuEnJeu.setShowInventaire(true); break;
@@ -52,10 +60,11 @@ public class PlayerController implements KeyListener, ControllerListener {
         }
     }
 
-    public void keyReleased(KeyEvent e) {
-        personnage.arretPersonnage(e.getKeyCode());
+    @Override
+    public void keyReleased(int key, char c) {
+        personnage.arretPersonnage(key);
 
-        switch (e.getKeyCode()) {
+        switch (key) {
             case Input.MOUSE_LEFT_BUTTON:
                 personnage.setCoup(false);
                 break;
@@ -115,7 +124,7 @@ public class PlayerController implements KeyListener, ControllerListener {
 
     @Override
     public boolean isAcceptingInput() {
-        return false;
+        return true;
     }
 
     @Override

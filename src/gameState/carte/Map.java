@@ -272,6 +272,8 @@ public class Map {
         map = new TiledMap(chemin);
         generateurMobs();
         nomMap = nom;
+
+        // TODO resoudre probleme apparition sur nouvelle map
     }
 
 
