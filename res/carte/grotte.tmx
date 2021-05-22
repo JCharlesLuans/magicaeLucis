@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2">
  <properties>
   <property name="nbMob" type="int" value="5"/>
   <property name="niveau" type="int" value="3"/>
  </properties>
- <tileset firstgid="1" source="tuiles/base_out_atlas.tsx"/>
- <tileset firstgid="1025" source="tuiles/colision.tsx"/>
+ <tileset firstgid="1" source="base_out_atlas.tsx"/>
+ <tileset firstgid="1025" source="colision.tsx"/>
  <layer id="3" name="sol" width="40" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNgGLlAHeh1bJjUEMFmxqgY9rBFDxdQWKOLDSb+qPsoi5/R8KMs/AZTXsDmltH4HY1fbOmCXmKj6Y+y9DcafsM7/OiVD8m1JwmYAMnVSw99SkD34cLI9uNSMxDioDwNAoPVfcjugrEHIpxw2QlzEzKNSy2txQHwvLvHoA8AAA==
@@ -41,7 +41,7 @@
    H4sIAAAAAAAECu2XwQrAIAxD45RtMPz/311l682eIthDCqVQLZSXHLQ0oCgpBo/xy5iuK5KG9uOEET/x4whw0/Kf+HEEuGn5T/w4Aty0/LeG32nv51ne1h9xBeezmZU91zeq9d/vsBrd2dnPul8zXuO/1JPyc26f+4Cd+r4J/dBIoA8AAA==
   </data>
  </layer>
- <objectgroup id="8" name="trigger">
+ <objectgroup id="8" name="trigger" width="1" height="1" >
   <object id="1" type="changementMap" x="162" y="764" width="156" height="36">
    <properties>
     <property name="destiMap" value="desert.tmx"/>
