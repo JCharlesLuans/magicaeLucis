@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="17" nextobjectid="21">
+ <properties>
+  <property name="nbMob" type="int" value="5"/>
+  <property name="niveau" type="int" value="2"/>
+ </properties>
+ <tileset firstgid="1" source="tuiles/base_out_atlas.tsx"/>
+ <tileset firstgid="1025" source="tuiles/build_atlas.tsx"/>
+ <tileset firstgid="2049" source="tuiles/colision.tsx"/>
+ <tileset firstgid="2074" source="tuiles/obj_misk_atlas.tsx"/>
+ <tileset firstgid="3098" source="tuiles/terrain_atlas.tsx"/>
+ <layer id="1" name="eau" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECq3QQW7dUAxD0XT93lncRdUH+BcgjE5iZ0BIovhI2eefr6+/F74vnB/o4fgAT1PFt4+zzyevZvqnyENO6L6tdvebZHpvV59fb/G/AX68eZ0XugVXZrvV6ent2pt7t7s0P6ne963l9h7fvjy7dNW73tz3et/+Se39VrndprcD3HGhu9K0t0vXDvcGm7V3yWnuLpws8+Yvr2/uvTdPwUsWLz3oF2mOiwdz2Ftxdx/c8QLrJ4tXlXe4fwO+t97cZzv8W/DZnO64127odtVNgUdcmrg3N/LKVxZPfuW2LxNfv/npcHnko77B5uVdTpU/Xfvzk9ld7Zp7Z35zWzlVvjzNZezuGL6bcL1Rt+8tzRO4IQ+1ntdmmcE+3ux91Q7MNGqz/gn6X/y6Nc92ZkhTlUcTzEBb/xt18/h1Z97nxdGEeLNd8/Zp1fZPKs/uqd9c3KJddd8eH203qfV2TyFj88rkd+e7oV1auvrV6N+AJ+Spl9Vdav6bj2s+rx66cSue9il47Q3lrB8O4tLj+p4qDb4be/O08uGXf978yrDbfZr46r6hWd7uCfhA/4TH3mK2x1XTmMEM+nRx6xv3k5pnb/qf+HYy7dvVqzTN3UaXVrV/Cp73/Dje/+vj3NYtOLPqlnaq+Q3Wu7xuKyd/czfQNFfp1sP8Bnx7ry976+bFe6P3BlbTTKNXn+IfN/vD5qAPAAA=
+  </data>
+ </layer>
+ <layer id="3" name="sol" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECr3X200dQRCE4ZV4N2EQn1MyZADY73YoToQtwSfKrdmzWiF5pFZfZ+rfPrywbZ/nx7dtiz3u9rSw2e/ZjnNf/n1//iv2Sff+pnfD97t0VnnPdvxn3HvdRZ53e9ktcSyxXMzr506f1uj92Wf6PXMU/x1zzdGsqTd34s4z26f1Jp8en/5RfHf/bw8Htt4Pdmxm3DnjwzD9Lb7Mms9ctJpDHiass6Z+hW/qzvzo72CyzR01p9jM5OvvXu2o+1f5aDaDvdmXXuqJ+7R22PDh4I/2NOveox0/zW5xhqntFl/ziGk2Oy7eDB89+2iOZsOt5pvO+FoT46zJeVx87yO6yfGIzTR/an1W+q05++nNmr3qxU8WO8I2c7tb8fW7vp/mZDE751J3B5/9YA1Tatjk2NTn/mi2p7Xi05tMXacVz7Dx4epY/r/4JqM94Wif2bCm1sfvxPcO5u5WMz3f8Uo7+hjwyDPvzlW+5rr1mzYffTuMdmJ5x7iwNp83m0Ecz5pr1vIGc7c16cbjwpk5s+Izvp/7QDPQbIZZ616+hVY4cPF4sKqbPeP79cHXOxPzZ3y0w0I3HNi6rmbujO/hgw8Dnx0d8c06FtrxHYela74n9/pEk377xPKewdg9tXiGZXLgXtXVrvDhmD4capjah6NZ7MfOOu/ZxH2mTjRZfjMM02NRT+43Ttz6YZK3b1Yz8X3ytxbzNja6q9xs86/4en/0e1f49LBPPizRmDxqWHpWDe9X/uftu28L2gThoA8AAA==
+  </data>
+ </layer>
+ <layer id="4" name="background" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2WSw7CIBCG0a0bdaEeQ12ox2irUQ9hfO6MRzC+j+Eh/U2YlNAGGCmNi5L8KQXKfAx0GCHScq6l9aJqU0w085DK4cvXxPpaUm251oNqwLPuy9cH00BqGJAvwjpjKGGuNwJTLJUE5NuCawftmXx5w0Ps7w2G7tAjzyCzLQQfE8E4vOIzusfaWaT/3vKfsxplDND51g0hNtAvZeXIx4k/Ot8FbFeFrwObXajnYNs1PnPij86n+20ErjE0ceQ71vUZsu96/DF9Y+Obg2sBLR35sjR+LTY+zuyu+8uZMyQf5SOUi3C4aGxIPspHKBchm5xnxSfEv/qP8rlvLndyiDu07+q5Dbm/ZM/1SXFQPbdl8XHuNNXvZfFx7jTV32Xx6XeaymCql8VnYjD1PdH58tAHxXooR6APAAA=
+  </data>
+ </layer>
+ <layer id="7" name="background_2" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgQAVqQK46GVgD1Ria8dyAJrvjwIuA4otxyHkAxekB0oCWpOPAh4Dih3HIZQDF6QHagJa048CPgOKPcch1AMVHwWgIDLcQUOVgYABhNSAejMAE6C4QNh2k7nMGuguEXajkPj82BgZ/IA4A4kAgphTA3EepOTD9eUA35QNxARAXEum+v0ww3bSn+4Bu6gfiCUA8kUj30d5VozaMhsBoCIyGwGgIjIbAaAiQEgIAs1cqBqAPAAA=
+  </data>
+ </layer>
+ <layer id="5" name="overground" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoC1AgBPjYGBn4gFgBiQSBGB37cDAz+QDxQQA/oJn0gNgBiQyzuGyh3UWLvXSZKdI/qHQ2B0RAYDYHREBgNgdEQGA2BwRUCAPVfl56gDwAA
+  </data>
+ </layer>
+ <layer id="6" name="overground_2" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMvAcGvpOLOqAPAAA=
+  </data>
+ </layer>
+ <layer id="8" name="logique" width="40" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2T2w6DMAxD4W2P/MG0///JEaEjWYYWUhAXbZGK08ZxzK1/dV3/o6vbGdnnxrhan3LIW3Fpznt816XFnFLd9eC3ouvF/k7x97fvbTzh+fGt43XfHa93D+M3HmtL+P/w2dhX02Y+6NzMc4Cr6HrZvWpF7kFdz5d4UYerqH0tuWqV5rpuiedaJZ7r1fauWeOu1VzrCH9rMzP1p/tT/5n7Poqr88lVO84iwGl33hVPijodX6DWzsjVF7nOxReotTNyPCnq3NK5cpby1j7XUh1y57TsQysCnHb5K54U8yrzjqP0VId8Pu26EzwpXudmPll93TX/AgbVhqGgDwAA
+  </data>
+ </layer>
+ <objectgroup id="16" name="trigger" width="1" height="1" >
+  <object id="17" name="Sortie Pont" type="changementMap" x="1" y="259" width="24" height="70">
+   <properties>
+    <property name="destiMap" value="campagne_ThunderSun.tmx"/>
+    <property name="destiX" type="int" value="1225"/>
+    <property name="destiY" type="int" value="300"/>
+   </properties>
+  </object>
+  <object id="19" name="Entree Grotte" type="changementMap" x="348" y="65" width="67" height="68">
+   <properties>
+    <property name="destiMap" value="grotte.tmx"/>
+    <property name="destiX" type="int" value="270"/>
+    <property name="destiY" type="int" value="750"/>
+   </properties>
+  </object>
+  <object id="20" name="Pont" type="escalierGauche" x="63" y="287" width="33" height="33">
+   <properties>
+    <property name="destiX" type="int" value="12"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
