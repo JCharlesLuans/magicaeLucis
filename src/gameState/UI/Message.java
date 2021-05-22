@@ -8,7 +8,7 @@ package gameState.UI;
 import org.newdawn.slick.*;
 
 /**
- * //TODO ecrire Java Doc
+ * Afficahge de message pour le joueur dans une fenetre modale.
  *
  * @author Jean-Charles Luans
  * @verison 1.0
@@ -19,7 +19,7 @@ public class Message {
     private final int centreY;
 
     /**
-     * Indique si l'inventaire est visible ou pas
+     * Indique si le est visible ou pas
      */
     private boolean show;
 

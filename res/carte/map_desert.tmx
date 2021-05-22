@@ -4,11 +4,11 @@
   <property name="nbMob" type="int" value="5"/>
   <property name="niveau" type="int" value="2"/>
  </properties>
- <tileset firstgid="1" source="base_out_atlas.tsx"/>
- <tileset firstgid="1025" source="build_atlas.tsx"/>
- <tileset firstgid="2049" source="colision.tsx"/>
- <tileset firstgid="2074" source="obj_misk_atlas.tsx"/>
- <tileset firstgid="3098" source="terrain_atlas.tsx"/>
+ <tileset firstgid="1" source="tile_base_out_atlas.tsx"/>
+ <tileset firstgid="1025" source="tile_build_atlas.tsx"/>
+ <tileset firstgid="2049" source="tile_colision.tsx"/>
+ <tileset firstgid="2074" source="tile_obj_misk_atlas.tsx"/>
+ <tileset firstgid="3098" source="tile_terrain_atlas.tsx"/>
  <layer id="1" name="eau" width="40" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECq3QQW7dUAxD0XT93lncRdUH+BcgjE5iZ0BIovhI2eefr6+/F74vnB/o4fgAT1PFt4+zzyevZvqnyENO6L6tdvebZHpvV59fb/G/AX68eZ0XugVXZrvV6ent2pt7t7s0P6ne963l9h7fvjy7dNW73tz3et/+Se39VrndprcD3HGhu9K0t0vXDvcGm7V3yWnuLpws8+Yvr2/uvTdPwUsWLz3oF2mOiwdz2Ftxdx/c8QLrJ4tXlXe4fwO+t97cZzv8W/DZnO64127odtVNgUdcmrg3N/LKVxZPfuW2LxNfv/npcHnko77B5uVdTpU/Xfvzk9ld7Zp7Z35zWzlVvjzNZezuGL6bcL1Rt+8tzRO4IQ+1ntdmmcE+3ux91Q7MNGqz/gn6X/y6Nc92ZkhTlUcTzEBb/xt18/h1Z97nxdGEeLNd8/Zp1fZPKs/uqd9c3KJddd8eH203qfV2TyFj88rkd+e7oV1auvrV6N+AJ+Spl9Vdav6bj2s+rx66cSue9il47Q3lrB8O4tLj+p4qDb4be/O08uGXf978yrDbfZr46r6hWd7uCfhA/4TH3mK2x1XTmMEM+nRx6xv3k5pnb/qf+HYy7dvVqzTN3UaXVrV/Cp73/Dje/+vj3NYtOLPqlnaq+Q3Wu7xuKyd/czfQNFfp1sP8Bnx7ry976+bFe6P3BlbTTKNXn+IfN/vD5qAPAAA=

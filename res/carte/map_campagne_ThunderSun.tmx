@@ -4,8 +4,8 @@
   <property name="nbMob" type="int" value="10"/>
   <property name="niveau" type="int" value="20"/>
  </properties>
- <tileset firstgid="1" source="base_out_atlas.tsx"/>
- <tileset firstgid="1025" source="colision.tsx"/>
+ <tileset firstgid="1" source="tile_base_out_atlas.tsx"/>
+ <tileset firstgid="1025" source="tile_colision.tsx"/>
  <layer id="1" name="eau" width="40" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECnXQ0Y3cUAxD0U09O53MdObO4vynnegAvoDwsPkgJJEUn+zvX19fr8E1+Dv48/S/p96Dqp5uzmsO9Pi8arxcvf3eaC4TL+8afA9eg/fgM+Ch8dRXcXbaVe+H2xquDP6ABzM9pO/79DLfg8+A5x50SztxeH2ZVRlpW49XZVV3Hr6d+u4qPx0PeDW/isu3+Xpa+7j8OJrbVJoKafHd03flu8ZbnmqPR5+29f5D95RT7q72YeeZe0M93+GFdtV7wKvm3+/g9hvlxpdh7m1ZAR/o/L235/bj2ldp9srR4/Pi3Xh6+XiABjgV13ep7as8cb2Ns2O2D2lqmr16FcrLt/WdRe8O/L7FLKc8XsDx1dPzqvFl4WDfcM0MvOWrZcXlU3Eyod5+Gb2bd/PtVWn3IK+Ko6elq/V8eh5wRxXf3bjubNdcT6/vpnQ8lLHzr+H5VG/lizdDWe3uO/Vl0KEdvayQZs6ze7os9dzthrLsn74y09Rr0LeZ9YDfb9DM6tZ48e3Q4/j2Xfh9f1n4gGtHrp4Wf2Y00/n3jb11Pbxadnnm/UZv0tvTQ/l476p4tQw8xNf3rsoPtD3baX/zu7dn5nVPGX13Gp1X/ekGPiijPDvt9b00XP5qt+bj0dNp7eQrR+VL59eHnzQ7cnh7X8XvmkfWubM5PS9P98s5PfT9np12288TL48WzGXg0vmh++UArmw1HZ8nHy2eVw/7jTxlVXm2v712t34/mWo7Z99cfj41TU2XH3j6zt5vj98e5D+5dvHt55GDK8O8wZdHDvBvLg+t/n76/Q59Z+9ZZrNdvVpO9Xo4/u6IO9+SwWN3Z/OVX5URb0cft9/JH/e/fG/aD2YoW067eD61b1C7IS9/4KeXUW9urzxefDl56fF9F04fmvdOmt3vwWtAx29/c2/sqr8GaryM8miAy3c/c7eoOPuq93h7l/4efAbboy+3rPbtdg+uvsydF1f2NX47ZdLPfs/2/gElhYQ/oA8AAA==
@@ -36,7 +36,7 @@
    H4sIAAAAAAAECu1WQQrAIAzr/v8Ct5c4X+L2meXswaTTIYMKPUijSUNAzWL1HEib2Y46UGx5sOwutZ+h60QVQZ8Hq/IzXIWuC3UL+jxYxvv3foJfau5WzLoiS545I0set77HRp7HPB7Nc/i/1v8x9jjdOsDyzPrtfbP3Ge9371/G+qqet3NW6Ov9y1hf1TdrTpXPi5s1p5c38OGA4sADgPvwBqAPAAA=
   </data>
  </layer>
- <layer id="8" name="logique" width="40" height="25">
+ <layer id="8" name="logique" width="40" height="25" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2V2w7CMAiGO/VOjRd7/3ddSSRBAhTKOnUpSbOVw88Hu9hyK2U5wSkBGzGv1v5Sd+u19f0droEaTZvPqOUBH8/V7q+aC4xRPtDjxntgnOdG+KAWGPcwjY9rP2q/e/A8d2D08nHeo+5ePsgbZZa2l28UW0t38rU2ZMel/VGfXX1cFJmgI77DUzLNL+VmfZQF+1JfVj9bT1mQL6vZqo/0+QYf56cMViwyF9fJ3CdfZnt2Ld2t9n01Pyq34pjX8/Tw9ej21Ehz/hKfNNO/8XHeef/832v72AAaNKR0oA8AAA==
   </data>

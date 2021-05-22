@@ -8,7 +8,7 @@ package gameState.entite.Personnage.UI;
 import org.newdawn.slick.*;
 
 /**
- * //TODO ecrire Java Doc
+ * Inventaire de joueur, et conteneur des objets
  *
  * @author Jean-Charles Luans
  * @verison 1.0

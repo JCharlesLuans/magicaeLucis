@@ -34,9 +34,9 @@ public class Map {
      * @throws SlickException
      */
     public Map() throws SlickException {
-        initialiseMap("res/carte/campagne_ThunderSun.tmx");
-        map = new TiledMap("res/carte/campagne_ThunderSun.tmx");
-        nomMap = "campagne_ThunderSun.tmx";
+        initialiseMap("res/carte/map_campagne_ThunderSun.tmx");
+        map = new TiledMap("res/carte/map_campagne_ThunderSun.tmx");
+        nomMap = "map_campagne_ThunderSun.tmx";
 
         niveau = Integer.parseInt(map.getMapProperty("niveau", "undefine"));
         nbMob = Integer.parseInt(map.getMapProperty("nbMob", "undefine"));
@@ -272,12 +272,10 @@ public class Map {
         map = new TiledMap(chemin);
         generateurMobs();
         nomMap = nom;
-
-        // TODO resoudre probleme apparition sur nouvelle map
     }
 
 
-    /** Getter et setters **/
+    /*-- Getter et setters --*/
 
     public int getObjectCount() {
         return map.getObjectCount(0);

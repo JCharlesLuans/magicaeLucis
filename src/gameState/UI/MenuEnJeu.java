@@ -18,7 +18,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
- * //TODO ecrire Java Doc
+ * Menu de pause en jeu
  *
  * @author Jean-Charles Luans
  * @verison 1.0
