@@ -126,7 +126,10 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
                 personnage.setSort(true);
                 break;
             case 8:
-                menuEnJeu.setShowInventaire(true);
+                if (menuEnJeu.isShowInventaire())
+                    menuEnJeu.setShowInventaire(false);
+                else
+                    menuEnJeu.setShowInventaire(true);
                 break;
         }
     }
@@ -174,7 +177,7 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
     }
 
     public void mousePressed(int button, int x, int y) {
-        menuEnJeu.action(x, y, personnage, camera);
+        menuEnJeu.action(x, y, personnage);
 
         switch (button) {
             case Input.MOUSE_LEFT_BUTTON: personnage.setCoup(true); break;
@@ -183,7 +186,7 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
     }
 
     public void mouseReleased(int button, int x, int y) {
-        menuEnJeu.action(x, y, personnage, camera);
+        menuEnJeu.action(x, y, personnage);
 
     }
 

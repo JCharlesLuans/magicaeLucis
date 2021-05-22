@@ -43,6 +43,9 @@ public class Inventaire {
     public void setShow(boolean showInventaire) {
         this.showInventaire = showInventaire;
     }
+    public boolean isShow() {
+        return this.showInventaire;
+    }
 
     public boolean isSauvegarde(int x, int y) {
         return y > 80 + this.centreY && y < 105 + this.centreY && x > 45+this.centreX && x < 145+this.centreX && showInventaire;

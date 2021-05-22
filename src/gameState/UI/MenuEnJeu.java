@@ -53,11 +53,7 @@ public class MenuEnJeu {
         message.render(graphics);
     }
 
-    public void setShowInventaire(boolean showInventaire) {
-        inventaire.setShow(showInventaire);
-    }
-
-    public void action(int x, int y, Personnage hero, Camera cam)  {
+    public void action(int x, int y, Personnage hero)  {
 
         if(inventaire.isSauvegarde(x, y)) {
             click.play();
@@ -119,6 +115,14 @@ public class MenuEnJeu {
             }
         }
 
+    }
+
+    public void setShowInventaire(boolean showInventaire) {
+        inventaire.setShow(showInventaire);
+    }
+
+    public boolean isShowInventaire() {
+        return inventaire.isShow();
     }
 
 }
