@@ -22,7 +22,7 @@ public class MagicaeLucis extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
-        //zqaddState(new MenuGameState());
+        addState(new MenuGameState());
         addState(new MapGameState());
         addState(new GameOverState());
     }

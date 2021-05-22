@@ -5,6 +5,7 @@ import gameState.entite.PNJ.Manequin;
 import gameState.entite.Camera;
 import gameState.entite.Personnage.Personnage;
 import gameState.entite.Spell;
+import gameState.multijoueur.Client;
 import gameState.phisique.PlayerController;
 import gameState.utils.Sauvegarde;
 import gameState.entite.Personnage.UI.BarresStats;
@@ -66,6 +67,9 @@ public class MapGameState extends BasicGameState {
     /** Indique si la map doit etre charger ou pas */
     private boolean charger = false;
 
+    /** Client multijour pour communication avec le serveur */
+    private Client client;
+
     /* -------------------------------- Méthode d'héritage -------------------------------------------------- */
 
     /**
@@ -99,6 +103,9 @@ public class MapGameState extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame game) throws SlickException  {
 
+        // Init du client multijoueur
+        client = new Client();
+
         // Création du conteneur du jeu
         container = gameContainer;
 
@@ -126,6 +133,7 @@ public class MapGameState extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame game, int delta) throws SlickException {
 
+        client.update(hero); // Envoie des données au serveur pour mettre a jour
         hero.update(delta);
         cam.actualisation();
 

@@ -149,8 +149,7 @@ public class Map {
                 newMap.add(ligne);
             }
             lecteurAvecBuffer.close();
-        }
-        catch(FileNotFoundException exc) {
+        } catch(FileNotFoundException exc) {
             System.out.println("Erreur d'ouverture");
         } catch (IOException e) {
             e.printStackTrace();

@@ -44,7 +44,7 @@
  <objectgroup id="2" name="trigger" width="1" height="1" >
   <object id="2" type="changementMap" x="1242" y="321" width="35" height="93">
    <properties>
-    <property name="destiMap" value="desert.tmx"/>
+    <property name="destiMap" value="map_desert.tmx"/>
     <property name="destiX" type="int" value="45"/>
     <property name="destiY" type="int" value="300"/>
    </properties>

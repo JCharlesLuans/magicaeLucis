@@ -44,17 +44,17 @@
    H4sIAAAAAAAECu1T0Q6EIAzDN+/hEv/g/v8vZTFNmsJQkKDmXILdWOl64k1zCNOfrnAyat8bxpXOMQd5K+bm/OJdewtzvL7qgd+Kqmf1neL1d+423veXvr8lfuO2joT+H74Hz5W0MR+oXNyZ7udqcA0/cc0d/LGm5Rro836OZ31wGflcS85a3lzV9Xiq5fFUr1SrZom711OtHv72Ztb0n+6P/df87l5cno+ctW3PArhV457wxMjT4QvIvRE5+0LOc+ELyL0ROTwx8lxvnzm5vPWcarEOcuW01KZlAdyq+ic8MdarpCd66bEO8nTadTvwxHidm3Qy+7prvgLGaiefoA8AAA==
   </data>
  </layer>
- <objectgroup id="16" name="trigger">
+ <objectgroup id="16" name="trigger" width="1" height="1" >
   <object id="17" name="Sortie Pont" type="changementMap" x="1" y="259" width="24" height="70">
    <properties>
-    <property name="destiMap" value="campagne_ThunderSun.tmx"/>
+    <property name="destiMap" value="map_campagne_ThunderSun.tmx"/>
     <property name="destiX" type="int" value="1225"/>
-    <property name="destiY" type="int" value="350"/>
+    <property name="destiY" type="int" value="375"/>
    </properties>
   </object>
   <object id="19" name="Entree Grotte" type="changementMap" x="348" y="65" width="67" height="68">
    <properties>
-    <property name="destiMap" value="grotte.tmx"/>
+    <property name="destiMap" value="map_grotte.tmx"/>
     <property name="destiX" type="int" value="270"/>
     <property name="destiY" type="int" value="750"/>
    </properties>

@@ -2,7 +2,21 @@
 
 Jeu de type RPG 32 bit
 
-Jeu jouable : deplacement, camera, changement de map, musique, chargement de map (reussite a 100%, prise en charge des triggers)
-
 Configuraton de la JVM :
--Djava.library.path=src/Slick
+-Djava.library.path=lib/natives
+
+-----
+## TODO List
+
+- Les montres agressif et les combat avec ces derniers
+- Revisions totales des combats
+- Mode multijours avec sokets
+- Inventaire
+
+-----
+(1) git switch feature-1 \
+(2) git rebase master \
+(3) git switch master \
+(4) git merge --no-ff feature-1
+---
+
