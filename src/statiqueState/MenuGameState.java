@@ -32,16 +32,16 @@ public class MenuGameState extends BasicGameState {
     }
     @Override
     public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        Music background = new Music("src/Ressources/Musique/Sahara_Rains.ogg");
+        Music background = new Music("res/son/musique/menuPrincipal/Sahara_Rains.ogg");
         background.loop();
     }
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        click = new Music("src/Ressources/HUD/Son/click.ogg");
+        click = new Music("res/son/bruitage/menus/click.ogg");
         game = stateBasedGame;
         this.gameContainer = gameContainer;
-        background = new Image("src/Ressources/Menu/menu_principal.jpg");
+        background = new Image("res/drawable/statiqueState/fond/menu_principal.jpg");
     }
 
     @Override

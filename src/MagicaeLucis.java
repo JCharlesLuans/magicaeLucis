@@ -5,6 +5,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import statiqueState.MenuGameState;
 
 public class MagicaeLucis extends StateBasedGame {
     /**
@@ -21,7 +22,7 @@ public class MagicaeLucis extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
-        //addState(new MenuGameState());
+        addState(new MenuGameState());
         addState(new MapGameState());
         addState(new GameOverState());
     }
