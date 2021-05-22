@@ -120,12 +120,15 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
     public void controllerButtonPressed(int i, int bouton) {
         switch (bouton) {
             case 2:
+                // Donne un coup
                 personnage.setCoup(true);
                 break;
             case 4:
+                // Lance un sort
                 personnage.setSort(true);
                 break;
             case 8:
+                // Ouvre l'inventaire si pas actif, sinon le ferme
                 if (menuEnJeu.isShowInventaire())
                     menuEnJeu.setShowInventaire(false);
                 else
@@ -136,14 +139,7 @@ public class PlayerController implements KeyListener, ControllerListener, MouseL
 
     @Override
     public void controllerButtonReleased(int i, int bouton) {
-        switch (bouton) {
-            case 2:
-                personnage.setCoup(true);
-                break;
-            case 4:
-                personnage.setSort(true);
-                break;
-        }
+
     }
 
     @Override
