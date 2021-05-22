@@ -5,6 +5,7 @@ import gameState.entite.PNJ.Manequin;
 import gameState.entite.Camera;
 import gameState.entite.Personnage.Personnage;
 import gameState.entite.Spell;
+import gameState.phisique.PlayerController;
 import gameState.utils.Sauvegarde;
 import gameState.entite.Personnage.UI.BarresStats;
 import gameState.UI.MenuEnJeu;
@@ -20,12 +21,6 @@ import org.newdawn.slick.state.StateBasedGame;
 public class MapGameState extends BasicGameState {
 
     /* --------------------------------- CONSTANTE ------------------------------------*/
-
-    /* Indique les position */
-    private final int HAUT = 0,
-                      GAUCHE = 1,
-                      BAS = 2,
-                      DROITE = 3;
 
     /* Vitesse de succéssion d'image dans une animation (en ms) */
     private final int TEMPS_ANIMATION = 100;
@@ -49,6 +44,9 @@ public class MapGameState extends BasicGameState {
 
     /** Personnage principal */
     private Personnage hero;
+
+    /** Controller du joueur principal */
+    private PlayerController playerController;
 
     /** Sort du hero */
     private Spell spell;
@@ -109,6 +107,7 @@ public class MapGameState extends BasicGameState {
 
         // Création du personnage principal
         hero = new Personnage(map);
+        playerController = new PlayerController(hero);
 
         // Création de la camera
         cam = new Camera(hero, container, map);
@@ -139,7 +138,7 @@ public class MapGameState extends BasicGameState {
 
 
         map.renderMob(graphics);            // Rendu du mob
-        hero.render(graphics);           // Rendu du personnnage
+        hero.render(graphics);              // Rendu du personnnage
 
         map.renderForeground();          // Rendu du foreground de la carte
 
@@ -147,49 +146,6 @@ public class MapGameState extends BasicGameState {
         menuEnJeu.render(graphics);      // Rendu du menu + de l'inventaire
 
 
-
-    }
-
-    public void keyReleased(int key, char c) {
-        hero.arretPersonnage(key);
-
-        switch (key) {
-            case Input.MOUSE_LEFT_BUTTON:
-                hero.setCoup(false);
-                break;
-            case Input.MOUSE_RIGHT_BUTTON:
-                hero.setSort(false);
-                break;
-        }
-
-    }
-
-    public void keyPressed(int key, char c) {
-
-        switch (key) {
-            case Input.KEY_Z: hero.setDirection(HAUT); hero.setMoving(true); break;
-            case Input.KEY_Q: hero.setDirection(GAUCHE); hero.setMoving(true); break;
-            case Input.KEY_S: hero.setDirection(BAS); hero.setMoving(true); break;
-            case Input.KEY_D: hero.setDirection(DROITE); hero.setMoving(true); break;
-
-            case Input.KEY_SPACE: menuEnJeu.setShowInventaire(true); break;
-            case Input.KEY_ESCAPE: menuEnJeu.setShowInventaire(false); break;
-        }
-    }
-
-    public void mousePressed(int button, int x, int y) {
-        // System.out.println("X: " + x + " Y: " + y);
-        menuEnJeu.action(x, y, hero, cam);
-
-        switch (button) {
-            case Input.MOUSE_LEFT_BUTTON: hero.setCoup(true); break;
-            case Input.MOUSE_RIGHT_BUTTON: hero.setSort(true); break;
-        }
-    }
-
-    public void mouseReleased(int button, int x, int y) {
-        // System.out.println("X: " + x + " Y: " + y);
-        menuEnJeu.action(x, y, hero, cam);
 
     }
 
