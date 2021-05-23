@@ -1,16 +1,19 @@
 package org.thunderbot.flashofshadow.client.gameState.multijoueur;
 
 import org.thunderbot.flashofshadow.client.gameState.entite.Personnage.Personnage;
+import org.thunderbot.flashofshadow.serveur.ServeurJeu;
 
 import java.io.IOException;
 import java.net.*;
 
 public class Client {
 
-    private final static int PORT =  6588;
+    public static final int PORT_ENVOI = 6589;
+    public static final int PORT_RECEPTION = 6588;
+
     private final static int TAILLE = 1024;
 
-    private static final String ADRESSE_SERVEUR = "192.168.1.21";
+    private static final String ADRESSE_SERVEUR = "localhost";
 
     private InetAddress serveur;
     private DatagramSocket socket;
@@ -20,7 +23,7 @@ public class Client {
         // Connexion au serveur
         try {
             serveur = InetAddress.getByName(ADRESSE_SERVEUR);
-            socket = new DatagramSocket();
+            socket = new DatagramSocket(PORT_RECEPTION);
             envoiDonnee("auth", " ");
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +54,7 @@ public class Client {
 
         int length = aEnvoyer.length();
         buffer = aEnvoyer.getBytes();
-        DatagramPacket donneesEmises = new DatagramPacket(buffer, length, serveur, PORT);
+        DatagramPacket donneesEmises = new DatagramPacket(buffer, length, serveur, PORT_ENVOI);
         socket.send(donneesEmises);
     }
 
