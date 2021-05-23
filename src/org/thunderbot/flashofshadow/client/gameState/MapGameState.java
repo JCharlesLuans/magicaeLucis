@@ -75,8 +75,9 @@ public class MapGameState extends BasicGameState {
     /**
      * constructeur du jeu de base qui est etendu de la classe BasicGame
      */
-    public MapGameState() {
+    public MapGameState(Client client) {
         super();
+        this.client = client;
     }
 
     public MapGameState(boolean isCharged) {
@@ -102,9 +103,6 @@ public class MapGameState extends BasicGameState {
      */
     @Override
     public void init(GameContainer gameContainer, StateBasedGame game) throws SlickException  {
-
-        // Init du client multijoueur
-        client = new Client();
 
         // Création du conteneur du jeu
         container = gameContainer;
@@ -136,11 +134,6 @@ public class MapGameState extends BasicGameState {
         hero.update(delta);
         System.out.println(client.update(hero)); // Envoie des données au serveur pour mettre a jour
         cam.actualisation();
-        if (game.closeRequested() ) {
-            System.out.println("stop");
-            client.deconnection();
-        }
-
     }
 
     @Override
@@ -161,8 +154,6 @@ public class MapGameState extends BasicGameState {
         barres.affichage(graphics);      // Rendu des barres de vie de magie et d'xp
         menuEnJeu.render(graphics);      // Rendu du menu + de l'inventaire
 
-
-
     }
 
 
@@ -182,4 +173,6 @@ public class MapGameState extends BasicGameState {
     public int getID() {
         return ID;
     }
+
+
 }
