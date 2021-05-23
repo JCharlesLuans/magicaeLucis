@@ -1,11 +1,13 @@
 package org.thunderbot.flashofshadow.client.gameState.multijoueur;
 
 import org.thunderbot.flashofshadow.client.gameState.entite.Personnage.Personnage;
+import org.thunderbot.flashofshadow.client.gameState.utils.XMLHandler;
 import org.thunderbot.flashofshadow.serveur.Serveur;
-import org.thunderbot.flashofshadow.serveur.ServeurJeu;
 
 import java.io.IOException;
 import java.net.*;
+
+import org.thunderbot.flashofshadow.client.gameState.utils.XMLTools;
 
 public class Client {
 
@@ -21,9 +23,12 @@ public class Client {
 
     public Client() {
 
+        // Utilisation de la config des option
+        String adresseName = XMLTools.getValueIn("res/option/config_net.xml", "adresse_serveur");
+
         // Connexion au serveur
         try {
-            serveur = InetAddress.getByName(ADRESSE_SERVEUR);
+            serveur = InetAddress.getByName(adresseName);
             socket = new DatagramSocket(PORT_RECEPTION);
             envoiDonnee(Serveur.AUTHENTIFICATION, " ");
         } catch (Exception e) {

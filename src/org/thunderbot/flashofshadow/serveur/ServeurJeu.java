@@ -29,11 +29,4 @@ public class ServeurJeu {
         socket.receive(reception);
         return reception;
     }
-
-    public void authentification() {
-        serveur.envoiDonnee(AUTHENTIFICATION + ":ok" , adresseExpeditaire);
-        clientConnecter.add(adresseExpeditaire);
-        System.out.println("LOG : " + AUTHENTIFICATION + " -> " + adresseExpeditaire);
-    }
-
 }
