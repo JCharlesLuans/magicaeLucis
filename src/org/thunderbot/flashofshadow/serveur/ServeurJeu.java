@@ -30,4 +30,10 @@ public class ServeurJeu {
         return reception;
     }
 
+    public void authentification() {
+        serveur.envoiDonnee(AUTHENTIFICATION + ":ok" , adresseExpeditaire);
+        clientConnecter.add(adresseExpeditaire);
+        System.out.println("LOG : " + AUTHENTIFICATION + " -> " + adresseExpeditaire);
+    }
+
 }
