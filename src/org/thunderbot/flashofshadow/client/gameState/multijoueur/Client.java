@@ -38,7 +38,7 @@ public class Client {
         }
     }
 
-    public String update(MapGameState mapGameState) throws SlickException {
+    public void update(MapGameState mapGameState) throws SlickException {
 
         Personnage personnageJoueur = mapGameState.getHero();
 
