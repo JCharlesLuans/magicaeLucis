@@ -88,6 +88,8 @@ public class Personnage implements Serializable {
 
     private int timer;
 
+    private String ID; // ID pour le mulijoueur
+
 
     /* --------------------------------------------- Méthode ------------------------------ */
 
@@ -507,6 +509,14 @@ public class Personnage implements Serializable {
 
     public Combat getCombat() {return combat;}
     public HitBox getHitBoxArme() {return hitBoxArme;}
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     @Override
     public String toString() {

@@ -14,6 +14,8 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.ArrayList;
+
 /**
  * RPG créer avec Slick2d
  * @author J-Charles Luans
@@ -70,6 +72,8 @@ public class MapGameState extends BasicGameState {
     /** Client multijour pour communication avec le serveur */
     private Client client;
 
+    private ArrayList<Personnage> joueurs; // Liste des joueur autre que ce joueur si
+
     /* -------------------------------- Méthode d'héritage -------------------------------------------------- */
 
     /**
@@ -113,6 +117,8 @@ public class MapGameState extends BasicGameState {
         // Création du personnage principal
         hero = new Personnage(map);
 
+        joueurs = new ArrayList<>();
+
         // Création de la camera
         cam = new Camera(hero, container, map);
 
@@ -132,7 +138,7 @@ public class MapGameState extends BasicGameState {
     public void update(GameContainer gameContainer, StateBasedGame game, int delta) throws SlickException {
 
         hero.update(delta);
-        System.out.println(client.update(hero)); // Envoie des données au serveur pour mettre a jour
+        client.update(this); // Envoie et reception des données au serveur pour mettre a jour
         cam.actualisation();
     }
 
@@ -145,8 +151,11 @@ public class MapGameState extends BasicGameState {
 
         map.renderBackground();          // Rendu du background de la carte
 
+        for (int i = 0; i < joueurs.size(); i++) {
+            joueurs.get(i).render(graphics);
+        }
 
-        map.renderMob(graphics);            // Rendu du mob
+        map.renderMob(graphics);         // Rendu du mob
         hero.render(graphics);           // Rendu du personnnage
 
         map.renderForeground();          // Rendu du foreground de la carte
@@ -175,4 +184,7 @@ public class MapGameState extends BasicGameState {
     }
 
 
+    public void addNewPlayer() throws SlickException {
+        joueurs.add(new Personnage(map));
+    }
 }

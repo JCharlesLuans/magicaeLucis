@@ -1,6 +1,9 @@
 package org.thunderbot.flashofshadow.serveur;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ public class Serveur {
     public static final String AUTHENTIFICATION = "auth";
     public static final String UPDATE           = "updt";
     public static final String STOP             = "stop";
+    public static final String NOUVEAU_JOUEUR   = "newj";
     public static final String ERREUR           = "erre";
 
     private static ServeurJeu serveur;
@@ -41,11 +45,11 @@ public class Serveur {
                 // Traitement de la commande
                 switch (donneeATraiter[0]) {
                     case AUTHENTIFICATION:
-                        authentification(adresseExpeditaire);
+                        authentification(adresseExpeditaire, donneeATraiter);
                         break;
 
                     case UPDATE:
-                        update(donneeATraiter);
+                        update(adresseExpeditaire, donneeATraiter);
                         break;
 
                     case STOP:
@@ -63,13 +67,16 @@ public class Serveur {
      * @param adresseExpeditaire adresse du nouveau client
      * @throws IOException
      */
-    private static void authentification(InetAddress adresseExpeditaire) throws IOException {
-        serveur.envoiDonnee(AUTHENTIFICATION + ":ok" , adresseExpeditaire);
+    private static void authentification(InetAddress adresseExpeditaire, String[] donneeATraiter) throws IOException {
+        serveur.envoiDonnee(AUTHENTIFICATION + ":" + listClientConnecter.size(), adresseExpeditaire);
         listClientConnecter.add(adresseExpeditaire);
         System.out.println("LOG : " + AUTHENTIFICATION + " -> " + adresseExpeditaire);
 
-        // Envoie a tout les autres clients la connextion d'un nouveau client
-        // TODO gestion des clients
+        for (int i = 0; i < listClientConnecter.size(); i++) {
+            if (!listClientConnecter.get(i).equals(adresseExpeditaire)) {
+                serveur.envoiDonnee(NOUVEAU_JOUEUR + ":new", listClientConnecter.get(i));
+            }
+        }
     }
 
     /**
@@ -77,11 +84,11 @@ public class Serveur {
      * @param donneeATraiter donner actualiser
      * @throws IOException
      */
-    private static void update(String[] donneeATraiter) throws IOException {
+    private static void update(InetAddress adresseExpeditaire, String[] donneeATraiter) throws IOException {
         for (int i = 0; i < listClientConnecter.size(); i++) {
-            serveur.envoiDonnee(UPDATE + ":" + donneeATraiter[1], listClientConnecter.get(i));
+            serveur.envoiDonnee( UPDATE + ":" + donneeATraiter[1], listClientConnecter.get(i));
         }
-        System.out.println("LOG : " + UPDATE + " -> " + donneeATraiter[1]);
+        //System.out.println("LOG : " + UPDATE + " -> " + donneeATraiter[1]);
     }
 
     /**

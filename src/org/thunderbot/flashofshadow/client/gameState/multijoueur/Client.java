@@ -1,5 +1,7 @@
 package org.thunderbot.flashofshadow.client.gameState.multijoueur;
 
+import org.newdawn.slick.SlickException;
+import org.thunderbot.flashofshadow.client.gameState.MapGameState;
 import org.thunderbot.flashofshadow.client.gameState.entite.Personnage.Personnage;
 import org.thunderbot.flashofshadow.client.gameState.utils.XMLHandler;
 import org.thunderbot.flashofshadow.serveur.Serveur;
@@ -36,14 +38,31 @@ public class Client {
         }
     }
 
-    public String update(Personnage hero) {
+    public String update(MapGameState mapGameState) throws SlickException {
+
+        Personnage personnageJoueur = mapGameState.getHero();
 
         String aRetourner = "";
         try {
-            envoiDonnee("updt", hero.toString());
+            envoiDonnee("updt", personnageJoueur.toString());
             aRetourner = receptionDonnee();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        String[] data = aRetourner.split(":");
+        switch (data[0]) {
+            case Serveur.AUTHENTIFICATION:
+                System.out.println(data[1]);
+                personnageJoueur.setID(data[1]);
+                break;
+
+            case Serveur.NOUVEAU_JOUEUR:
+
+                //Render new joueur
+                mapGameState.addNewPlayer();
+                System.out.println("newJoueur");
+
         }
 
         return aRetourner;
