@@ -187,4 +187,13 @@ public class MapGameState extends BasicGameState {
     public void addNewPlayer() throws SlickException {
         joueurs.add(new Personnage(map));
     }
+
+    public void updatePlayer(String id, String information) {
+        String[] data = information.split(":");
+        Personnage personnage = joueurs.get(Integer.parseInt(id) - 1);
+
+        personnage.setDirection(Integer.parseInt(data[3]));
+        personnage.setPositionX(Float.parseFloat(data[1]));
+        personnage.setPositionX(Float.parseFloat(data[2]));
+    }
 }

@@ -39,7 +39,7 @@ public class XMLTools {
      * Deserialisation d'un objet depuis un fichier
      * @param fileName chemin du fichier
      */
-    public static Object decodeFromFile(String fileName) {
+    public static Object decodeFromFile(StringReader fileName) {
         Object object = null;
         // ouverture de decodeur
         try {

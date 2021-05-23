@@ -85,8 +85,11 @@ public class Serveur {
      * @throws IOException
      */
     private static void update(InetAddress adresseExpeditaire, String[] donneeATraiter) throws IOException {
+
+        int indexMouvement = listClientConnecter.indexOf(adresseExpeditaire);
+
         for (int i = 0; i < listClientConnecter.size(); i++) {
-            serveur.envoiDonnee( UPDATE + ":" + donneeATraiter[1], listClientConnecter.get(i));
+            serveur.envoiDonnee( UPDATE + ":" + indexMouvement + ":" + donneeATraiter[1], listClientConnecter.get(i));
         }
         //System.out.println("LOG : " + UPDATE + " -> " + donneeATraiter[1]);
     }

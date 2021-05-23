@@ -8,6 +8,7 @@ import org.newdawn.slick.*;
 import java.io.*;
 import org.thunderbot.flashofshadow.client.gameState.phisique.Stats;
 import org.thunderbot.flashofshadow.client.gameState.entite.Spell;
+import org.thunderbot.flashofshadow.client.gameState.utils.XMLTools;
 
 /**
  * Classe du personnage principal du jeu
@@ -518,13 +519,16 @@ public class Personnage implements Serializable {
         this.ID = ID;
     }
 
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+    }
+
     @Override
     public String toString() {
-        return "Personnage{" +
-                "map=" + map.getNomMap() +
-                ", positionX=" + positionX +
-                ", positionY=" + positionY +
-                ", direction=" + direction +
-                '}';
+        return map.getNomMap() + ":" + positionX + ":" + positionY + ":" + direction;
     }
 }

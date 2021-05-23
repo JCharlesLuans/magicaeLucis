@@ -63,9 +63,10 @@ public class Client {
                 mapGameState.addNewPlayer();
                 System.out.println("newJoueur");
 
-        }
+            case Serveur.UPDATE:
+                mapGameState.updatePlayer(aRetourner.split(":")[1], aRetourner.split(":")[2]);
 
-        return aRetourner;
+        }
     }
 
     public void envoiDonnee(String typeMessage, String message) throws IOException {
