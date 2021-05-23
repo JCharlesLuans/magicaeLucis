@@ -34,7 +34,7 @@ public class Message {
     String message;
 
     public Message(GameContainer gameContainer) throws SlickException {
-        imgMessage = new Image("res/drawable/org.thunderbot.flashofshadow.client.gameState/UI/message.png");
+        imgMessage = new Image("res/drawable/gameState/UI/message.png");
         centreX = gameContainer.getWidth() / 2 - imgMessage.getWidth() / 2;
         centreY = gameContainer.getHeight() / 2 - imgMessage.getHeight() / 2;
     }

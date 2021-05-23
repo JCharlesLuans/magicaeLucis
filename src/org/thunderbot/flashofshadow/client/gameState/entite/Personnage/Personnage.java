@@ -110,9 +110,9 @@ public class Personnage implements Serializable {
         moving = false; // Le personnage ne bouge pas lors de sa création
 
         /* Affichage du personnage */
-        spriteMarche = new SpriteSheet("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/personnage/sprite/sprite_personnage.png", 64, 64);
-        spriteSort = new SpriteSheet("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/personnage/sprite/sprite_personnage_sort.png", 64, 64);
-        spriteCoup = new SpriteSheet("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/personnage/sprite/sprite_personnage_coup.png", 64, 64);
+        spriteMarche = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage.png", 64, 64);
+        spriteSort = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage_sort.png", 64, 64);
+        spriteCoup = new SpriteSheet("res/drawable/gameState/entite/personnage/sprite/sprite_personnage_coup.png", 64, 64);
 
         /* Animation du personngae */
         animerMarche(spriteMarche);

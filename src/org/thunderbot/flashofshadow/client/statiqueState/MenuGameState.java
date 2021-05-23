@@ -41,7 +41,7 @@ public class MenuGameState extends BasicGameState {
         click = new Music("res/son/bruitage/menus/click.ogg");
         game = stateBasedGame;
         this.gameContainer = gameContainer;
-        background = new Image("res/drawable/org.thunderbot.flashofshadow.client.statiqueState/fond/menu_principal.jpg");
+        background = new Image("res/drawable/statiqueState/fond/menu_principal.jpg");
     }
 
     @Override

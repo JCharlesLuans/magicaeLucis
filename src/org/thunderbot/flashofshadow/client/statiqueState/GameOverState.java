@@ -42,9 +42,9 @@ public class GameOverState extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         musique = new Music("res/son/musique/gameOver/Secret_Second_Earth.ogg");
-        background = new Image("res/drawable/org.thunderbot.flashofshadow.client.statiqueState/fond/menu_principal.jpg");
-        gameOver = new Image("res/drawable/org.thunderbot.flashofshadow.client.statiqueState/gameOver/textes/game_over.png");
-        retourMenu = new Image("res/drawable/org.thunderbot.flashofshadow.client.statiqueState/gameOver/textes/back_menu.png");
+        background = new Image("res/drawable/statiqueState/fond/menu_principal.jpg");
+        gameOver = new Image("res/drawable/statiqueState/gameOver/textes/game_over.png");
+        retourMenu = new Image("res/drawable/statiqueState/gameOver/textes/back_menu.png");
 
     }
 

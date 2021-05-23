@@ -26,7 +26,7 @@ public class Inventaire {
     Image inventaire;
 
     public Inventaire( GameContainer gameContainer) throws SlickException {
-        inventaire = new Image("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/personnage/UI/inventaire.png");
+        inventaire = new Image("res/drawable/gameState/entite/personnage/UI/inventaire.png");
         showInventaire = false;
         centreX = gameContainer.getWidth() / 2 - inventaire.getWidth() / 2;
         centreY = gameContainer.getHeight() / 2 - inventaire.getHeight() / 2;

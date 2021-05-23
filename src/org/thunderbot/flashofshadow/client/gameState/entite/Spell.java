@@ -85,8 +85,8 @@ public class Spell {
 
         /* Affichage du sort */
         visible = false;
-        spriteFireBall = new SpriteSheet("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/spell/sprite/fireball.png", 64, 64);
-        spriteExplosion = new SpriteSheet("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/spell/sprite/explosion.png", 96, 96);
+        spriteFireBall = new SpriteSheet("res/drawable/gameState/entite/spell/sprite/fireball.png", 64, 64);
+        spriteExplosion = new SpriteSheet("res/drawable/gameState/entite/spell/sprite/explosion.png", 96, 96);
 
         /* Animation du sort */
         animer(spriteFireBall);

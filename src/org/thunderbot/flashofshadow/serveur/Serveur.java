@@ -13,35 +13,38 @@ public class Serveur {
     private static final int PORT = 6588;
     private static final int TAILLE = 1024;
 
-    private static ArrayList<InetAddress> clientConncter = new ArrayList();
-
     private static DatagramSocket socket;
 
     public static void main(String[] args) throws IOException {
 
-        byte buffer[] = new byte[TAILLE];
 
-        String donnee[];
-        String reception;
+        String[] donnee;  // Message découper
+        String reception; // Message reçu non découper
 
-        InetAddress adresseReception; // Adresse dont on viens de recevoir une donnée
+        int taillePacket;
+        byte[] buffer = new byte[TAILLE];
 
-        int taille;
+        // Liste des client connecter
+        ArrayList<InetAddress> clientConncter = new ArrayList();
+
+        // Adresse dont on viens de recevoir une donnée
+        InetAddress adresseReception;
 
         socket = new DatagramSocket(PORT);
 
-        System.out.println("Lencement du serveur");
-
+        /* Lancement serveur */
+        System.out.println("Lancement du serveur");
         while (true) {
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
+            // Reception data
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
             socket.receive(packet);
 
             adresseReception = packet.getAddress();
 
             // Reception et traitement data
-            taille = packet.getLength();
-            reception = new String(packet.getData(), 0, taille);
+            taillePacket = packet.getLength();
+            reception = new String(packet.getData(), 0, taillePacket);
 
             // TODO gestion crash sur data[1]
             donnee = reception.split(":");
@@ -52,10 +55,7 @@ public class Serveur {
             } else {
                 //Renvoie nouvelle position du joueur si ce n'est pas la meme adresse
                 System.out.println(adresseReception + " : Log : " + "stub");
-                for (int i = 0; i < clientConncter.size(); i++) {
-                    renvoiInformation("stub", clientConncter.get(i));
-
-                }
+                renvoiInformation(donnee[1], adresseReception);
             }
         }
     }

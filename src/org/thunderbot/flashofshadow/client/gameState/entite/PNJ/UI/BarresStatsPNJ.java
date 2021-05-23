@@ -49,7 +49,7 @@ public class BarresStatsPNJ {
         debutY = 3 + positionY;
 
         stats = mob.getStats();
-        barre = new Image("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/PNJ/UI/barre_pnj.png");
+        barre = new Image("res/drawable/gameState/entite/PNJ/UI/barre_pnj.png");
         this.stats = stats;
     }
 

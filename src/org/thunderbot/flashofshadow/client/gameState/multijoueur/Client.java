@@ -29,28 +29,16 @@ public class Client {
 
     public String update(Personnage hero) {
 
-        final String[] aRetourner = {""};
+        String aRetourner = "";
 
         try {
             envoiDonnee("updt", hero.toString());
+            aRetourner = receptionDonnee();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // reception // TODO reception et exploitation des données
-        Thread t = new Thread() {
-            public void run() {
-                try {
-                    System.out.println(receptionDonnee());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        t.start();
-
-
-        return aRetourner[0];
+        return aRetourner;
     }
 
     public void envoiDonnee(String typeMessage, String message) throws IOException {

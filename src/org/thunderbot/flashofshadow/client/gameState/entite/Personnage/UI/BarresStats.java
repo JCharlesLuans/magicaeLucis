@@ -49,7 +49,7 @@ public class BarresStats {
         ((UnicodeFont) font).getEffects().add(new ColorEffect(java.awt.Color.WHITE));//Ca sert a quoi ?
         ((UnicodeFont) font).loadGlyphs();
 
-        barreJoueur = new Image("res/drawable/org.thunderbot.flashofshadow.client.gameState/entite/personnage/UI/barre_d_etat.png");
+        barreJoueur = new Image("res/drawable/gameState/entite/personnage/UI/barre_d_etat.png");
         this.stats = stats;
     }
 
