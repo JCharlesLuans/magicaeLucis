@@ -10,6 +10,7 @@ public class Serveur {
 
     public static final String AUTHENTIFICATION = "auth";
     public static final String UPDATE           = "updt";
+    public static final String STOP             = "stop";
     public static final String ERREUR           = "erre";
 
     public static void main(String[] args) {
@@ -45,9 +46,17 @@ public class Serveur {
 
                     case UPDATE:
                         // Renvoie des datas au autres client
+                        for (int i = 0; i < clientConnecter.size(); i++) {
+                            serveur.envoiDonnee(UPDATE + ":" + donneeATraiter[1], clientConnecter.get(i));
+                        }
                         System.out.println("LOG : " + UPDATE + " -> " + donneeATraiter[1]);
                         break;
 
+                    case STOP:
+                        // Enleve le client qui viens de se deconnecter de la liste des lients
+                        System.out.println("LOG : " + STOP + " -> " + adresseExpeditaire);
+                        clientConnecter.remove(adresseExpeditaire);
+                        break;
                 }
             }
         } catch (IOException err) {

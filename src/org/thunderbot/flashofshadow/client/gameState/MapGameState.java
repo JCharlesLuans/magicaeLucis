@@ -137,8 +137,8 @@ public class MapGameState extends BasicGameState {
         System.out.println(client.update(hero)); // Envoie des données au serveur pour mettre a jour
         cam.actualisation();
         if (game.closeRequested() ) {
-            System.out.println("STOP");
-            System.out.println("DECONNECTION");
+            System.out.println("stop");
+            client.deconnection();
         }
 
     }

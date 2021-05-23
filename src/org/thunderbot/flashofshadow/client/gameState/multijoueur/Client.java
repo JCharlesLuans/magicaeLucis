@@ -1,6 +1,7 @@
 package org.thunderbot.flashofshadow.client.gameState.multijoueur;
 
 import org.thunderbot.flashofshadow.client.gameState.entite.Personnage.Personnage;
+import org.thunderbot.flashofshadow.serveur.Serveur;
 import org.thunderbot.flashofshadow.serveur.ServeurJeu;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class Client {
         try {
             serveur = InetAddress.getByName(ADRESSE_SERVEUR);
             socket = new DatagramSocket(PORT_RECEPTION);
-            envoiDonnee("auth", " ");
+            envoiDonnee(Serveur.AUTHENTIFICATION, " ");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,5 +64,13 @@ public class Client {
         socket.receive(donneesRecues);
 
         return new String(donneesRecues.getData());
+    }
+
+    public void deconnection() {
+        try {
+            envoiDonnee(Serveur.STOP, "arret du client");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
