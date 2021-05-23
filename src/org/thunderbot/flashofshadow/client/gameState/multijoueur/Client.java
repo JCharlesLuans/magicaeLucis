@@ -30,7 +30,6 @@ public class Client {
     public String update(Personnage hero) {
 
         String aRetourner = "";
-
         try {
             envoiDonnee("updt", hero.toString());
             aRetourner = receptionDonnee();

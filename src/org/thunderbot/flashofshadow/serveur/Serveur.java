@@ -10,16 +10,23 @@ import java.util.ArrayList;
 
 public class Serveur {
 
-    private static final int PORT = 6588;
-    private static final int TAILLE = 1024;
+    public static final String AUTHENTIFICATION = "auth";
+    public static final String UPDATE           = "updt";
+    public static final String ERREUR           = "erre";
 
-    private static DatagramSocket socket;
+    public static final int PORT = 6588;
+    public static final int TAILLE = 1024;
 
     public static void main(String[] args) throws IOException {
 
+        DatagramSocket socket = new DatagramSocket(PORT);
 
         String[] donnee;  // Message découper
         String reception; // Message reçu non découper
+
+        String typeMessage;   // Typer de la reception
+        String message;       // Message
+        String dataAPartager; // Donnée a renvoyer au client
 
         int taillePacket;
         byte[] buffer = new byte[TAILLE];
@@ -29,8 +36,6 @@ public class Serveur {
 
         // Adresse dont on viens de recevoir une donnée
         InetAddress adresseReception;
-
-        socket = new DatagramSocket(PORT);
 
         /* Lancement serveur */
         System.out.println("Lancement du serveur");
@@ -46,37 +51,50 @@ public class Serveur {
             taillePacket = packet.getLength();
             reception = new String(packet.getData(), 0, taillePacket);
 
-            // TODO gestion crash sur data[1]
             donnee = reception.split(":");
-            
-            if (donnee[0].equals("auth")) {
-                clientConncter.add(adresseReception);
-                System.out.println("Connexion : " + adresseReception);
+
+            // Protection echec reception lié a UDP
+            if (donnee.length <= 1) {
+                // Cas ou le message se perd
+                typeMessage = ERREUR;
+                message = "Pas de message";
             } else {
-                //Renvoie nouvelle position du joueur si ce n'est pas la meme adresse
-                System.out.println(adresseReception + " : Log : " + "stub");
-                renvoiInformation(donnee[1], adresseReception);
+                typeMessage = donnee[0];
+                message = donnee[1];
+            }
+
+            // Traitement de la data
+            dataAPartager = typeMessage + ":" + message;
+
+            switch (typeMessage) {
+                case AUTHENTIFICATION :
+                    clientConncter.add(adresseReception);
+                    envoiInformation(socket, AUTHENTIFICATION + ":connexion ok", adresseReception);
+                    System.out.println("Connexion : " + adresseReception);
+                    break;
+
+                case UPDATE:
+                    envoiInformation(socket, dataAPartager, adresseReception);
+                    System.out.println(adresseReception + " : Log : " + dataAPartager);
+                    break;
+
+                case ERREUR:
+                    System.out.println(adresseReception + " : Err : " + "Pas de message");
+                    break;
             }
         }
     }
 
     // TODO renvoie de donner
-    private static void renvoiInformation(String hero, InetAddress address) {
-        DatagramPacket envoi;
+    private static void envoiInformation(DatagramSocket socket, String aEnvoyer, InetAddress address) {
 
-        String message;
-
-        // Envoie au autres ces données la
-        message = hero;
-        //System.out.println("Donnees envoyees = "+message);
-        envoi = new DatagramPacket(message.getBytes(),
-                message.length(), address, PORT);
         try {
-            socket.send(envoi);
-        } catch (IOException err) {
-            System.out.println("Erreur sur " + address);
-            System.out.println(err.getMessage());
+            DatagramPacket packet = new DatagramPacket(aEnvoyer.getBytes(), aEnvoyer.length(), address, PORT);
+            socket.send(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
 }
