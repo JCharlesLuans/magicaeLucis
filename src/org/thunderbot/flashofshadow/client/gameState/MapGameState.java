@@ -190,10 +190,15 @@ public class MapGameState extends BasicGameState {
 
     public void updatePlayer(String id, String information) {
         String[] data = information.split(":");
-        Personnage personnage = joueurs.get(Integer.parseInt(id) - 1);
 
-        personnage.setDirection(Integer.parseInt(data[3]));
-        personnage.setPositionX(Float.parseFloat(data[1]));
-        personnage.setPositionX(Float.parseFloat(data[2]));
+        // Mise a jours de joueur si les joueur sont présents sur la map
+        if (joueurs.size() > 0) {
+            Personnage personnage = joueurs.get(Integer.parseInt(id) - 1);
+
+            personnage.setDirection(Integer.parseInt(data[3]));
+            personnage.setPositionX(Float.parseFloat(data[1]));
+            personnage.setPositionX(Float.parseFloat(data[2]));
+        }
+        // todo DEPLACEMENT DES JOUEUR
     }
 }
